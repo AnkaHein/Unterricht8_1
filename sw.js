@@ -1,8 +1,8 @@
 // Service Worker 8.1 ESZ: Seite funktioniert nach dem ersten Besuch auch offline.
 // Bei Aenderungen an der Seite VERSION hochzaehlen.
-const VERSION = 'v1';
+const VERSION = 'v4';
 const CACHE = '81-esz-' + VERSION;
-const CORE = ['./', 'index.html', 'manifest.json', 'images/icon-81-192.png', 'images/icon-81-512.png'];
+const CORE = ['./', 'index.html', 'manifest.json', 'icons/app-icon.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(CORE)).then(() => self.skipWaiting()));

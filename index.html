@@ -5,10 +5,10 @@
 (function(){
   function addLink(rel, href, attrs){ var l=document.createElement('link'); l.rel=rel; l.href=href; if(attrs){ for(var k in attrs){ l.setAttribute(k, attrs[k]); } } document.head.appendChild(l); }
   function addMeta(name, content){ var m=document.createElement('meta'); m.name=name; m.content=content; document.head.appendChild(m); }
-  addLink('icon','images/icon-81-32.png',{sizes:'32x32',type:'image/png'});
-  addLink('icon','images/icon-81-192.png',{sizes:'192x192',type:'image/png'});
-  addLink('icon','images/icon-81-512.png',{sizes:'512x512',type:'image/png'});
-  addLink('apple-touch-icon','images/icon-81-180.png',{sizes:'180x180'});
+  addLink('icon','icons/app-icon.png',{sizes:'32x32',type:'image/png'});
+  addLink('icon','icons/app-icon.png',{sizes:'192x192',type:'image/png'});
+  addLink('icon','icons/app-icon.png',{sizes:'512x512',type:'image/png'});
+  addLink('apple-touch-icon','icons/app-icon.png',{sizes:'180x180'});
   addLink('manifest','manifest.json');
   addMeta('theme-color','#006364');
   addMeta('apple-mobile-web-app-capable','yes');
@@ -19,7 +19,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Caveat+Brush&family=Caveat:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Caveat:wght@500;700&display=swap">
 <style>
 /* ===== Gemeinsame Basis ===== */
 :root{
@@ -28,7 +28,8 @@
   --good:#1f7a3a; --good-bg:#e3f3e7; --bad:#b3261e; --bad-bg:#fbe7e5; --warn:#8a5a00; --warn-bg:#fff2d6;
   --on-teal:#ffffff; --radius:14px;
   --shadow:0 1px 2px rgba(0,60,60,.06), 0 6px 20px rgba(0,60,60,.08);
-  --display:"Caveat Brush","Comic Sans MS","Segoe Print",cursive;
+  --display:"Palatino Linotype",Palatino,"Book Antiqua","URW Palladio L",Georgia,serif;
+  --page-a:#f3faf9; --page-b:#dcefec; --blush:rgba(0,142,128,.16); --card-a:#ffffff; --card-b:#eef7f6;
   --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
   /* Namen aus den beiden alten Seiten, auf die gemeinsame Palette abgebildet */
   --bg:var(--paper); --surface:var(--card); --surface-alt:var(--teal-soft); --surface-alt-2:var(--teal-soft-2);
@@ -42,7 +43,7 @@
     --teal:#4fb3b3; --teal-deep:#7fcfce; --teal-soft:#16393a; --teal-soft-2:#1d4a4b;
     --red:#ff6b7d; --ink:#e4efee; --muted:#9db6b5; --paper:#0d1a1b; --card:#142526; --line:#29494a;
     --good:#7bd69a; --good-bg:#15311f; --bad:#ff948a; --bad-bg:#3a1a18; --warn:#f2c46b; --warn-bg:#342a12;
-    --on-teal:#062020; --shadow:0 1px 2px rgba(0,0,0,.35), 0 8px 24px rgba(0,0,0,.35);
+    --page-a:#0e1f20; --page-b:#0a1516; --blush:rgba(79,179,179,.14); --card-a:#17292a; --card-b:#122021; --on-teal:#062020; --shadow:0 1px 2px rgba(0,0,0,.35), 0 8px 24px rgba(0,0,0,.35);
   }
 }
 :root[data-theme="dark"]{
@@ -50,40 +51,42 @@
   --teal:#4fb3b3; --teal-deep:#7fcfce; --teal-soft:#16393a; --teal-soft-2:#1d4a4b;
   --red:#ff6b7d; --ink:#e4efee; --muted:#9db6b5; --paper:#0d1a1b; --card:#142526; --line:#29494a;
   --good:#7bd69a; --good-bg:#15311f; --bad:#ff948a; --bad-bg:#3a1a18; --warn:#f2c46b; --warn-bg:#342a12;
-  --on-teal:#062020; --shadow:0 1px 2px rgba(0,0,0,.35), 0 8px 24px rgba(0,0,0,.35);
+  --page-a:#0e1f20; --page-b:#0a1516; --blush:rgba(79,179,179,.14); --card-a:#17292a; --card-b:#122021; --on-teal:#062020; --shadow:0 1px 2px rgba(0,0,0,.35), 0 8px 24px rgba(0,0,0,.35);
 }
 *{box-sizing:border-box}
-body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+body{background:linear-gradient(180deg,var(--page-a),var(--page-b)) fixed,var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
 button,input,select,textarea{font:inherit;color:inherit}
 :focus-visible{outline:3px solid var(--red);outline-offset:2px}
 
-.top{background:var(--teal);color:var(--on-teal);box-shadow:0 2px 0 rgba(0,0,0,.08)}
-.top-inner{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:10px;background:none;border:0;color:inherit;cursor:pointer;padding:0;text-align:left}
-.brand .roundel{width:36px;height:36px;flex:none;color:var(--on-teal)}
-.brand b{font-family:var(--display);font-weight:400;font-size:28px;line-height:1;letter-spacing:.5px;display:block}
-.brand small{font-size:12px;opacity:.85;display:block;letter-spacing:.06em;text-transform:uppercase}
-.back{background:transparent;color:var(--on-teal);border:1.5px solid currentColor;border-radius:999px;padding:7px 16px;font-weight:700;font-size:15px;cursor:pointer}
-.back:hover{background:rgba(255,255,255,.14)}
+.top{background:radial-gradient(ellipse at 6% 0%,rgba(0,142,128,.28),transparent 45%),radial-gradient(ellipse at 94% 0%,rgba(0,142,128,.28),transparent 45%),linear-gradient(180deg,var(--page-b),var(--page-a));color:var(--teal-deep);position:relative}
+.top-inner{max-width:1100px;margin:0 auto;padding:0 16px;display:flex;justify-content:center}
+.top::before{content:"";position:absolute;inset:0;background:url(img/header-bluetenrand.png) center top/cover no-repeat;pointer-events:none;opacity:.95}
+.top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:46px;background:linear-gradient(180deg,transparent,var(--page-a));pointer-events:none}
+.brand{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:0;color:inherit;cursor:pointer;padding:22px 0 30px;text-align:center}
+.brand .app-ico{width:72px;height:72px;border-radius:18px;object-fit:cover;box-shadow:0 4px 14px rgba(0,80,80,.22);background:#fff;margin-bottom:6px}
+.brand b{font-family:var(--display);font-weight:700;font-size:clamp(30px,6vw,40px);line-height:1.1;color:var(--teal-deep)}
+.brand small{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);font-weight:400;margin-top:4px}
+.back{background:none;border:0;color:var(--muted);padding:4px 0;font-size:15px;cursor:pointer;display:inline-flex;gap:6px;align-items:center;margin-bottom:10px}
+.back:hover{color:var(--teal-deep)}
 .back[hidden]{display:none}
 
-main.shell{max-width:1100px;margin:0 auto;padding:24px 16px 56px}
-.view{display:flex;flex-direction:column;gap:26px}
-.home-head{display:grid;gap:8px}
-.home-head h1{font-family:var(--display);font-weight:400;font-size:clamp(48px,10vw,84px);line-height:.95;color:var(--teal);margin:0;text-wrap:balance}
-.home-head .eyebrow{font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--red)}
+main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relative}
+.view{display:flex;flex-direction:column;gap:22px}
+.home-lead{text-align:center;color:var(--muted);margin:6px auto 0;max-width:48ch}
 .lead{color:var(--muted);max-width:60ch;margin:0}
-.subject-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
-.subject-tile{display:flex;gap:18px;align-items:center;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;cursor:pointer;transition:transform .15s,border-color .15s;min-width:0}
-.subject-tile:hover{transform:translateY(-2px);border-color:var(--teal)}
-.subject-tile .hub-txt b{font-family:var(--display);font-weight:400;font-size:clamp(30px,5vw,40px);color:var(--teal);line-height:1.05}
-.hub-ico{flex:none;width:84px;height:84px;border-radius:14px;background:#fff;display:grid;place-items:center;overflow:hidden;color:var(--teal)}
+.subject-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px}
+.subject-tile{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;background:linear-gradient(180deg,var(--card-a),var(--card-b));border:1px solid var(--line);border-radius:26px;padding:14px 14px 22px;cursor:pointer;transition:transform .15s,box-shadow .15s;min-width:0;box-shadow:var(--shadow)}
+.subject-tile:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,100,100,.18)}
+.kachel-img{width:100%;max-width:420px;aspect-ratio:1/1;object-fit:cover;border-radius:18px;display:block;background:#fff}
+.subject-tile .hub-txt{text-align:center;justify-items:center}
+.subject-tile .hub-txt b{font-family:var(--display);font-weight:700;font-size:clamp(26px,5vw,32px);color:var(--teal-deep);line-height:1.1}
+.hub-ico{flex:none;width:92px;height:92px;border-radius:16px;background:#fff;display:grid;place-items:center;overflow:hidden;color:var(--teal)}
 .hub-ico img{width:100%;height:100%;object-fit:contain;padding:4%;display:block;border-radius:0}
 .hub-ico svg{width:50%;height:50%}
 .hub-ico:has(svg){background:var(--teal-soft);border-radius:50%}
 .hub-ico.big{width:112px;height:112px}
 .hub-txt{display:grid;gap:3px;min-width:0}
-.hub-txt b{font-size:19px;line-height:1.2;color:var(--ink)}
+.hub-txt b{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.2;color:var(--teal-deep)}
 .hub-txt span{color:var(--muted);font-size:15px;line-height:1.35}
 .foot{max-width:1100px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:13px}
 @media (max-width:480px){.hub-ico.big{width:84px;height:84px}.subject-tile{padding:16px;gap:14px}}
@@ -1188,7 +1191,7 @@ main.shell{max-width:1100px;margin:0 auto;padding:24px 16px 56px}
 #site-de, #site-en{color:var(--ink);background:transparent;font-family:var(--body);font-size:17px;line-height:1.55;padding:0}
 #site-de .wrap, #site-en .wrap{max-width:none;margin:0;padding:0}
 #site-en > .wrap{padding:0}
-#site-de h1,#site-de h2,#site-de h3,#site-en h1,#site-en h2{font-family:var(--display);font-weight:400;letter-spacing:0;color:var(--teal)}
+#site-de h1,#site-de h2,#site-de h3,#site-en h1,#site-en h2{font-family:var(--display);font-weight:700;letter-spacing:0;color:var(--teal-deep)}
 #site-de h2,#site-en h2{font-size:clamp(30px,5vw,42px);line-height:1.1}
 #site-de h3{color:var(--teal)}
 #site-en .section-head h2{font-size:clamp(30px,5vw,42px);color:var(--teal)}
@@ -1198,8 +1201,8 @@ main.shell{max-width:1100px;margin:0 auto;padding:24px 16px 56px}
 #site-en main,#site-de main{padding:0}
 #site-en .panel.active{animation:none}
 /* Kachel-Hubs */
-.hub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:14px;margin-top:18px}
-.hub-tile{display:flex;gap:14px;align-items:center;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;cursor:pointer;transition:transform .15s,border-color .15s;min-width:0;width:100%}
+.hub-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:18px}
+.hub-tile{display:flex;gap:16px;align-items:center;text-align:left;background:radial-gradient(circle at 96% 50%,var(--blush),transparent 38%),linear-gradient(180deg,var(--card-a),var(--card-b));border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:16px 18px;cursor:pointer;transition:transform .15s,border-color .15s;min-width:0;width:100%}
 .hub-tile:hover{transform:translateY(-2px);border-color:var(--teal)}
 #site-de .hero-img{max-height:260px;width:100%;object-fit:cover;border-radius:var(--radius)}
 #site-de #dpanel-start{gap:14px}
@@ -1212,28 +1215,25 @@ main.shell{max-width:1100px;margin:0 auto;padding:24px 16px 56px}
 <header class="top">
   <div class="top-inner">
     <button class="brand" id="brandHome" type="button" aria-label="Zur Startseite">
-      <svg class="roundel" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="3"/><rect x="2" y="15" width="36" height="10" rx="2" fill="currentColor"/><text x="20" y="23.4" text-anchor="middle" font-size="9" font-weight="700" fill="var(--teal)" font-family="Atkinson Hyperlegible,sans-serif">8.1</text></svg>
-      <span><b>8.1 ESZ</b><small>Englisch &amp; Deutsch</small></span>
+      <img class="app-ico" src="icons/app-icon.png" alt="" width="72" height="72">
+      <b>Unterricht 8.1</b>
+      <small>Englisch &amp; Deutsch</small>
     </button>
-    <button class="back" id="backBtn" type="button" hidden>&larr; <span id="backLabel">Zurück</span></button>
   </div>
 </header>
 
 <main class="shell">
+  <button class="back" id="backBtn" type="button" hidden><span aria-hidden="true">&lsaquo;</span> <span id="backLabel">Startseite</span></button>
   <section class="view" id="view-home">
-    <div class="home-head">
-      <span class="eyebrow">Klasse 8.1</span>
-      <h1>Willkommen!</h1>
-      <p class="lead">Such dir dein Fach aus. Hier findest du Aufgaben, Übungen und alles zum Nachschlagen.</p>
-    </div>
+    <p class="home-lead">W&auml;hle das entsprechende Fach aus und entdecke Termine, &Uuml;bungen und weitere wichtige Aspekte zu deinem Deutsch- und Englischunterricht.</p>
     <div class="subject-grid">
       <button class="subject-tile" id="goEN" type="button">
-        <span class="hub-ico big"><img src="images/tile-start.png" alt=""></span>
-        <span class="hub-txt"><b>Englisch</b><span>NYC Survival: Aufgaben, Klassenarbeiten, Chapters und Exercises</span></span>
+        <img class="kachel-img" src="img/kachel-englisch.png" alt="">
+        <span class="hub-txt"><b>Englisch</b><span>NYC Survival &ndash; Aufgaben, Klassenarbeiten, Chapters, Exercises</span></span>
       </button>
       <button class="subject-tile" id="goDE" type="button">
-        <span class="hub-ico big"><img src="assets/da2e95d490.png" alt=""></span>
-        <span class="hub-txt"><b>Deutsch</b><span>Newsroom 8: Textsorten, Übungen, Checklisten und Aufgaben</span></span>
+        <img class="kachel-img" src="img/kachel-deutsch.png" alt="">
+        <span class="hub-txt"><b>Deutsch</b><span>Newsroom 8 &ndash; Textsorten, &Uuml;bungen, Checklisten, Aufgaben</span></span>
       </button>
     </div>
   </section>
@@ -2936,7 +2936,7 @@ main.shell{max-width:1100px;margin:0 auto;padding:24px 16px 56px}
   </div>
 </main>
 
-<footer class="foot">8.1 &middot; Evangelisches Schulzentrum Bad Düben &middot; wird laufend ergänzt</footer>
+<footer class="foot">Klasse 8.1 &middot; Evangelisches Schulzentrum Bad D&uuml;ben &middot; wird laufend erg&auml;nzt</footer>
 
 <script>
 (function(){
@@ -4023,7 +4023,7 @@ main.shell{max-width:1100px;margin:0 auto;padding:24px 16px 56px}
       btn.textContent = 'Preparing …';
       (typeof claude!=='undefined'&&claude.use?claude.use('downloads'):Promise.resolve(null)).then(function(downloads){
         if(!downloads){
-          note.textContent = '';
+          note.textContent = 'Download not available here – opening the file via the link instead.';
           btn.disabled = false; btn.innerHTML = originalHTML;
           var a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();
           return;
@@ -5106,5 +5106,4 @@ main.shell{max-width:1100px;margin:0 auto;padding:24px 16px 56px}
 </script>
 
 <script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
-
 </body></html>
