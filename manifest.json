@@ -1,1 +1,23 @@
-{"name": "8.1 ESZ", "short_name": "8.1 ESZ", "start_url": "./", "display": "standalone", "background_color": "#f5f8f7", "theme_color": "#006364", "icons": [{"src": "images/icon-81-192.png", "sizes": "192x192", "type": "image/png"}, {"src": "images/icon-81-512.png", "sizes": "512x512", "type": "image/png"}]}
+{
+ "name": "Unterricht 8.1",
+ "short_name": "8.1 ESZ",
+ "start_url": "./",
+ "scope": "./",
+ "display": "standalone",
+ "background_color": "#f3faf9",
+ "theme_color": "#006364",
+ "icons": [
+  {
+   "src": "icons/app-icon.png",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icons/app-icon.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any"
+  }
+ ]
+}

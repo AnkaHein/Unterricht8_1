@@ -58,14 +58,14 @@ body{background:linear-gradient(180deg,var(--page-a),var(--page-b)) fixed,var(--
 button,input,select,textarea{font:inherit;color:inherit}
 :focus-visible{outline:3px solid var(--red);outline-offset:2px}
 
-.top{background:radial-gradient(ellipse at 6% 0%,rgba(0,142,128,.28),transparent 45%),radial-gradient(ellipse at 94% 0%,rgba(0,142,128,.28),transparent 45%),linear-gradient(180deg,var(--page-b),var(--page-a));color:var(--teal-deep);position:relative}
+.top{--hd-ink:#00494a;--hd-ink2:#006364;background:radial-gradient(ellipse at 6% 0%,rgba(0,142,128,.28),transparent 45%),radial-gradient(ellipse at 94% 0%,rgba(0,142,128,.28),transparent 45%),linear-gradient(180deg,var(--page-b),var(--page-a));color:var(--hd-ink);position:relative}
 .top-inner{max-width:1100px;margin:0 auto;padding:0 16px;display:flex;justify-content:center}
 .top::before{content:"";position:absolute;inset:0;background:url(img/header-bluetenrand.png) center top/cover no-repeat;pointer-events:none;opacity:.95}
-.top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:46px;background:linear-gradient(180deg,transparent,var(--page-a));pointer-events:none}
+.top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22px;background:linear-gradient(180deg,transparent,var(--page-a));pointer-events:none}
 .brand{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:0;color:inherit;cursor:pointer;padding:22px 0 30px;text-align:center}
 .brand .app-ico{width:72px;height:72px;border-radius:18px;object-fit:cover;box-shadow:0 4px 14px rgba(0,80,80,.22);background:#fff;margin-bottom:6px}
-.brand b{font-family:var(--display);font-weight:700;font-size:clamp(30px,6vw,40px);line-height:1.1;color:var(--teal-deep)}
-.brand small{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);font-weight:400;margin-top:4px}
+.brand b{font-family:var(--display);font-weight:700;font-size:clamp(30px,6vw,40px);line-height:1.1;color:var(--hd-ink);text-shadow:0 0 14px rgba(255,255,255,.9),0 0 4px rgba(255,255,255,.8)}
+.brand small{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--hd-ink2);font-weight:700;margin-top:4px;text-shadow:0 0 10px rgba(255,255,255,.95),0 0 3px rgba(255,255,255,.9)}
 .back{background:none;border:0;color:var(--muted);padding:4px 0;font-size:15px;cursor:pointer;display:inline-flex;gap:6px;align-items:center;margin-bottom:10px}
 .back:hover{color:var(--teal-deep)}
 .back[hidden]{display:none}
