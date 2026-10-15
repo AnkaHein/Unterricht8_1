@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Der Koffer von 1914</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Atkinson+Hyperlegible:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111;--paper:#e9dfc8;--paper2:#f3ecdd;--red:#c8102e;--yel:#e8b923;--blue:#1b2a6b;--bg:#15121a;--line:#3a3340;}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:#f3ecdd;font-family:'Atkinson Hyperlegible',Arial,sans-serif;font-size:18px;line-height:1.45}
+button{font:inherit;cursor:pointer}
+#bar{position:sticky;top:0;z-index:20;display:flex;gap:12px;align-items:center;justify-content:space-between;padding:8px 16px;background:#0c0a0f;border-bottom:3px solid var(--red)}
+#bar .t{font-family:'Anton',Impact,sans-serif;letter-spacing:.04em;font-size:20px;color:var(--yel);white-space:nowrap}
+#timer{font-family:'Anton',Impact,sans-serif;font-size:34px;color:var(--yel);letter-spacing:.06em;min-width:110px;text-align:center}
+#timer.low{color:#ff5a5a}
+#timer.over{color:#ff5a5a;font-size:22px}
+#code{font-size:14px;color:#cfc6b4;text-align:right;white-space:nowrap}
+#code b{font-family:'Special Elite',monospace;font-size:18px;color:#fff;letter-spacing:.12em}
+#overbanner{display:none;background:var(--red);color:#fff;text-align:center;padding:8px 14px;font-weight:700}
+main{max-width:1180px;margin:0 auto;padding:16px 16px 120px}
+h1,h2,h3{font-family:'Anton',Impact,sans-serif;font-weight:400;letter-spacing:.03em;margin:.2em 0}
+h1{font-size:44px;color:var(--yel)} h2{font-size:32px;color:var(--yel)}
+.btn{background:var(--red);color:#fff;border:0;border-radius:6px;padding:11px 20px;font-weight:700;font-size:18px;box-shadow:0 3px 0 #7d0a1c}
+.btn:hover{background:#e0153a}.btn:active{transform:translateY(2px);box-shadow:0 1px 0 #7d0a1c}
+.btn.alt{background:#2a2433;box-shadow:0 3px 0 #0e0c12;border:1px solid var(--line)}
+.btn.yel{background:var(--yel);color:#111;box-shadow:0 3px 0 #8a6d0c}
+.btn[disabled]{opacity:.4;cursor:not-allowed}
+.link{background:none;border:0;color:#cfc6b4;text-decoration:underline;padding:6px}
+.paper{background:var(--paper);color:#1d1810;border-radius:4px;padding:20px 24px;font-family:'Special Elite','Courier New',monospace;font-size:18px;line-height:1.55;box-shadow:0 6px 18px #0008;position:relative}
+.paper::before{content:"";position:absolute;inset:0;border-radius:4px;pointer-events:none;box-shadow:inset 0 0 40px #8a6d3a55}
+/* start */
+.start{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;margin-top:12px}
+.start img{width:100%;height:auto;filter:drop-shadow(0 12px 18px #000a)}
+.start .lead{font-size:20px}
+@media(max-width:820px){.start{grid-template-columns:1fr}}
+/* hub */
+.hubwrap{position:relative;max-width:900px;margin:8px auto}
+.hubwrap img.koffer{width:100%;height:auto;display:block;filter:drop-shadow(0 12px 18px #000a)}
+.fach{position:absolute;background:transparent;border:2px solid transparent;border-radius:6px;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:6px}
+.fach:hover,.fach:focus-visible{border-color:var(--yel);background:#e8b92322;outline:none}
+.fach .nm{background:#0c0a0fcc;border:1px solid var(--line);padding:3px 10px;border-radius:4px;font-family:'Anton',Impact,sans-serif;letter-spacing:.04em;font-size:clamp(11px,2vw,19px);margin-top:4px}
+.fach .sg{position:absolute;top:50%;left:50%;width:42%;transform:translate(-50%,-62%) rotate(-8deg)}
+.fach .cnt{font-size:clamp(11px,1.7vw,15px);color:var(--yel);background:#0c0a0fcc;padding:1px 8px;border-radius:4px;font-weight:700}
+main,#screen{padding-bottom:120px}
+/* room */
+.room{position:relative;max-width:1180px;margin:0 auto}
+.roomimg{position:relative;line-height:0;border:3px solid #000;border-radius:4px;overflow:hidden;box-shadow:0 10px 24px #000a}
+.roomimg img{width:100%;height:auto;display:block;user-select:none;-webkit-user-drag:none}
+.roomimg svg{position:absolute;inset:0;width:100%;height:100%}
+.hs{fill:transparent;stroke:transparent;stroke-width:3;cursor:pointer;transition:fill .15s,stroke .15s}
+.hs:hover,.hs:focus-visible{fill:#e8b92326;stroke:#e8b923aa;outline:none}
+.hs.shim{animation:shim 1s ease-in-out 3}
+@keyframes shim{0%,100%{fill:transparent;stroke:transparent}50%{fill:#ffffff40;stroke:#fff}}
+.tick{pointer-events:none}
+.roomhead{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between;margin:6px 0 10px}
+.roomhead .sub{color:#cfc6b4}
+.toolbar{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px;align-items:center}
+.locks{display:flex;flex-wrap:wrap;gap:10px}
+.lockbtn{display:flex;gap:10px;align-items:center;background:#241f2b;border:2px solid var(--line);color:#fff;border-radius:8px;padding:10px 16px;font-weight:700}
+.lockbtn:hover{border-color:var(--yel)}
+.lockbtn.open{border-color:#4fa66a;background:#183222}
+.lockbtn .ic{width:22px;height:22px;flex:none}
+/* modal */
+.mod{position:fixed;inset:0;z-index:50;background:#000b;display:none;align-items:flex-start;justify-content:center;overflow:auto;padding:30px 14px}
+.mod.show{display:flex}
+.mbox{background:#1d1923;border:2px solid var(--yel);border-radius:10px;max-width:760px;width:100%;padding:22px 24px;position:relative}
+.mbox h2{margin-top:0}
+.x{position:absolute;top:10px;right:12px;background:none;border:0;color:#fff;font-size:28px;line-height:1}
+.intro{color:#cfc6b4;margin:0 0 10px}
+.src{font-size:13px;color:#6b5f48;margin-top:10px;font-family:'Atkinson Hyperlegible',sans-serif}
+.poem{white-space:pre-line;font-size:19px}
+.missing{border:2px dashed #9b8b66;padding:14px;text-align:center;color:#6b5f48;font-family:'Atkinson Hyperlegible',sans-serif}
+.bildfund{margin:0}.bildfund img{width:100%;height:auto;display:block;border:6px solid #fff;box-shadow:0 4px 10px #0007}
+.bildfund figcaption{font-size:14px;margin-top:8px;color:#4a3f2a;font-family:'Atkinson Hyperlegible',sans-serif}
+.plakat{background:#f4e9c8;border:6px double #111;padding:14px 18px;text-align:center;color:#111}
+.plakat .big{font-family:'Anton',Impact,sans-serif;font-size:30px;letter-spacing:.06em;color:var(--red)}
+.plakat .pr{display:flex;justify-content:space-between;border-bottom:1px dotted #333;padding:3px 0}
+.zettel{background:#fff9e8;border:1px solid #b9a97c;border-radius:2px;padding:10px 14px;margin:10px 0;transform:rotate(-.4deg);box-shadow:0 2px 5px #0004}
+.zettel:nth-child(even){transform:rotate(.5deg)}
+.zettel .nr{font-family:'Anton',Impact,sans-serif;color:var(--red);font-size:20px;margin-right:8px}
+.mirror{font-size:34px;letter-spacing:.2em;text-align:center;padding:14px;background:#cfd8dc;color:#222;border:6px solid #6d4c2d;border-radius:4px;transition:transform .5s}
+.mirror.flip{transform:scaleX(-1)}
+.clock{display:block;margin:6px auto;width:230px;height:230px}
+.stimmen{margin:8px 0;padding:0;list-style:none}
+.stimmen li{background:#2b2533;border-left:4px solid var(--yel);padding:8px 12px;margin:6px 0;border-radius:3px}
+.opts{margin:6px 0 0 0;padding:0;list-style:none}.opts li{background:#2b2533;padding:8px 12px;margin:6px 0;border-radius:3px}
+.opts b{color:var(--yel);margin-right:6px}
+.inrow{display:flex;gap:10px;margin:14px 0 6px}
+input[type=text]{flex:1;min-width:0;font:inherit;font-size:22px;padding:10px 14px;border-radius:6px;border:2px solid #6b5f7a;background:#fff;color:#111;letter-spacing:.08em}
+.msg{min-height:28px;font-weight:700}.msg.bad{color:#ff8a8a}.msg.good{color:#8fe3a4}
+.hints{margin-top:8px}.hint{background:#26202e;border-left:4px solid var(--blue);padding:8px 12px;margin:6px 0;border-radius:3px}
+.hint.l4{border-color:var(--red)}
+.letters{display:flex;gap:10px;justify-content:center;margin:16px 0}
+.lt{width:64px;height:76px;background:var(--paper);color:#111;border:3px solid #000;display:grid;place-items:center;font-family:'Anton',Impact,sans-serif;font-size:44px;border-radius:4px;box-shadow:0 4px 0 #0008}
+/* rack */
+#rack{position:fixed;left:0;right:0;bottom:0;z-index:15;background:#0c0a0fee;border-top:2px solid var(--line);padding:6px 10px;display:flex;gap:6px;justify-content:center;align-items:center;flex-wrap:wrap}
+#rack .lab{color:#cfc6b4;font-size:14px;margin-right:6px}
+#rack .c{width:30px;height:36px;border:2px solid #4a4254;border-radius:3px;display:grid;place-items:center;font-family:'Anton',Impact,sans-serif;font-size:22px;color:#111;background:transparent}
+#rack .c.f{background:var(--paper);border-color:#000}
+/* finale */
+.slots{display:grid;grid-template-columns:repeat(15,1fr);gap:5px;margin:14px 0}
+.slot{aspect-ratio:3/4;border:2px dashed #7a6f88;border-radius:4px;background:#241f2b;color:#111;font-family:'Anton',Impact,sans-serif;font-size:clamp(14px,3.2vw,34px);display:grid;place-items:center}
+.slot.f{background:var(--paper);border:2px solid #000;cursor:pointer}
+.pool{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px 0}
+.tile{width:58px;height:70px;background:var(--paper);border:3px solid #000;border-radius:4px;font-family:'Anton',Impact,sans-serif;font-size:38px;color:#111;box-shadow:0 4px 0 #0008}
+.tile:hover{transform:translateY(-3px)}
+@media(max-width:700px){.slots{grid-template-columns:repeat(8,1fr)}.tile{width:46px;height:56px;font-size:30px}}
+.shake{animation:shake .45s}
+@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-9px)}40%,80%{transform:translateX(9px)}}
+.paeck{display:flex;gap:18px;align-items:center;margin-top:18px;flex-wrap:wrap}
+.paeck img{width:210px;height:auto;filter:drop-shadow(0 8px 10px #000a)}
+textarea{width:100%;min-height:120px;font:inherit;font-size:18px;padding:10px;border-radius:6px;border:2px solid #6b5f7a;background:#fff;color:#111}
+.teacher table{width:100%;border-collapse:collapse;font-size:15px}.teacher td,.teacher th{border:1px solid var(--line);padding:4px 8px;text-align:left}
+.small{font-size:14px;color:#cfc6b4}
+</style>
+</head>
+<body>
+<div id="overbanner">Die Zeit ist um. Ihr dürft weitermachen. Es gibt jetzt zusätzliche Tipps.</div>
+<header id="bar">
+  <span class="t">DER KOFFER VON 1914</span>
+  <span id="timer" aria-live="off">45:00</span>
+  <span id="code"></span>
+</header>
+<main id="screen"></main>
+<div id="rack" aria-label="Gesammelte Buchstaben"></div>
+<div class="mod" id="modal" role="dialog" aria-modal="true"><div class="mbox" id="mbox"></div></div>
+
+<script src="inhalt.js"></script>
+<script>
+/* ==================================================================
+   DATEN: Räume, Fundstücke, Riegel (hier kannst du Codes ändern)
+   ================================================================== */
+const HOT={"strasse": {"schaufenster": [[0, 150], [330, 215], [340, 640], [240, 650], [0, 700]], "strassenbahn": [[450, 330], [520, 310], [735, 390], [745, 540], [730, 590], [460, 610]], "litfass": [[1340, 20], [1470, 20], [1620, 100], [1630, 790], [1340, 790]], "kiosk": [[1125, 420], [1240, 330], [1350, 430], [1350, 640], [1130, 640]], "fassade": [[790, 160], [890, 70], [980, 160], [985, 300], [790, 320]], "gulli": [[1023, 858], [1018, 874], [1003, 889], [979, 902], [948, 912], [912, 918], [873, 920], [834, 918], [798, 912], [767, 902], [743, 889], [728, 874], [723, 858], [728, 842], [743, 827], [767, 814], [798, 804], [834, 798], [873, 796], [912, 798], [948, 804], [979, 814], [1003, 827], [1018, 842]]}, "hinterhof": {"fenster": [[25, 20], [480, 20], [540, 540], [30, 555]], "spiegel": [[965, 160], [1135, 125], [1130, 590], [960, 600]], "tagebuch": [[625, 650], [720, 585], [965, 625], [975, 670], [935, 745], [850, 740], [660, 660]], "kerze": [[1190, 40], [1300, 40], [1300, 190], [1180, 190]], "briefkasten": [[1415, 355], [1490, 340], [1515, 430], [1425, 445]], "blumentopf": [[60, 320], [160, 300], [265, 330], [205, 525], [100, 535]]}, "bahnhof": {"zug": [[0, 200], [250, 160], [330, 170], [550, 380], [720, 430], [730, 590], [560, 700], [30, 720]], "schalter": [[905, 390], [1065, 390], [1070, 600], [905, 610]], "plakat": [[1330, 125], [1540, 140], [1530, 540], [1340, 550]], "gepaeck": [[1140, 575], [1560, 580], [1620, 790], [1560, 885], [1150, 830]], "uhr": [[1015, 145], [1011, 172], [1001, 198], [984, 219], [962, 236], [937, 246], [910, 250], [883, 246], [858, 236], [836, 219], [819, 198], [809, 172], [805, 145], [809, 118], [819, 93], [836, 71], [858, 54], [883, 44], [910, 40], [937, 44], [962, 54], [984, 71], [1001, 92], [1011, 118]], "taube": [[235, 810], [360, 770], [370, 850], [250, 880]]}, "atelier": {"staffelei": [[765, 60], [950, 70], [1000, 610], [1040, 790], [620, 800], [650, 600], [640, 200]], "palette": [[80, 625], [260, 600], [360, 665], [350, 710], [110, 715]], "leinwaende": [[1215, 470], [1330, 375], [1560, 380], [1590, 640], [1330, 665]], "skizzenbuch": [[1130, 680], [1480, 680], [1670, 740], [1650, 800], [1330, 860], [1135, 805]], "fenster": [[30, 10], [620, 10], [640, 520], [30, 510]], "pinselglas": [[1465, 30], [1600, 20], [1600, 230], [1470, 240]]}, "schreibstube": {"schreibmaschine": [[780, 290], [1180, 320], [1180, 590], [810, 600]], "papierkorb": [[40, 650], [280, 640], [285, 820], [150, 880], [50, 820]], "telegramm": [[1440, 100], [1620, 100], [1615, 385], [1450, 375]], "regal": [[25, 25], [415, 120], [385, 560], [130, 640], [60, 600]], "lampe": [[1065, 60], [1180, 0], [1290, 60], [1415, 130], [1405, 430], [1300, 445], [1290, 230]], "tintenfass": [[1215, 470], [1300, 455], [1315, 525], [1225, 545]]}};
+const HUB={"strasse": [7.15, 25.59, 28.03, 28.61], "hinterhof": [36.15, 25.59, 27.7, 28.61], "bahnhof": [64.83, 25.59, 27.62, 28.61], "atelier": [6.17, 55.66, 42.57, 26.86], "schreibstube": [50.04, 55.66, 43.62, 26.86]};
+const TOTAL=45*60;
+const WORD='EXPRESSIONISMUS';
+const SEAL={strasse:'siegel1',hinterhof:'siegel2',bahnhof:'siegel3',atelier:'siegel4',schreibstube:'siegel5'};
+
+const CLOCK=(()=>{const h=110,m=240,pt=(a,l)=>[115+l*Math.sin(a*Math.PI/180),115-l*Math.cos(a*Math.PI/180)];
+ let t='';for(let i=0;i<12;i++){const a=i*30,p1=pt(a,92),p2=pt(a,104);t+=`<line x1="${p1[0]}" y1="${p1[1]}" x2="${p2[0]}" y2="${p2[1]}" stroke="#111" stroke-width="5"/>`}
+ const hh=pt(h,56),mm=pt(m,86);
+ return `<svg class="clock" viewBox="0 0 230 230" role="img" aria-label="Bahnhofsuhr"><circle cx="115" cy="115" r="110" fill="#f1e6c4" stroke="#111" stroke-width="6"/>${t}<line x1="115" y1="115" x2="${hh[0]}" y2="${hh[1]}" stroke="#111" stroke-width="9" stroke-linecap="round"/><line x1="115" y1="115" x2="${mm[0]}" y2="${mm[1]}" stroke="#111" stroke-width="6" stroke-linecap="round"/><circle cx="115" cy="115" r="7" fill="#c8102e"/></svg>`})();
+
+const ROOMS=[
+{id:'strasse',name:'Die Straße',sub:'Berlin, Herbst 1913',img:'images/strasse.jpg',letters:['S','X','I'],
+ spots:[
+  {id:'schaufenster',label:'Schaufenster',card:{title:'Im Schaufenster',intro:'Zwischen Hüten und Schuhen hängt ein Bild.',slots:['kirchner_strasse']}},
+  {id:'strassenbahn',label:'Straßenbahn',card:{title:'Die Elektrische',html:'<p>Die Elektrische ist so voll, dass die Fenster beschlagen. Ich zähle sieben Hüte und keine Gesichter. Hier fährt keiner allein, und doch ist jeder allein.</p><p>– Emil</p>'}},
+  {id:'litfass',label:'Litfaßsäule',card:{title:'Das Plakat',html:'<div class="plakat"><div class="big">VARIETÉ URANIA</div><p>Heute Abend 8 Uhr<br>Der Zauberer Marcello und seine sprechende Uhr</p><div class="pr"><span>Parkett</span><span>2 Mark</span></div><div class="pr"><span>Rang</span><span>1 Mark</span></div><div class="pr"><span>Stehplatz</span><span>50 Pfennig</span></div></div>'}},
+  {id:'kiosk',label:'Zeitungskiosk',card:{title:'Zwischen den Zeitungen',html:'<p><b>Schlagzeilen:</b><br>„Berlin hat jetzt über zwei Millionen Einwohner“<br>„Neue Untergrundbahn: Die Bauarbeiter arbeiten Tag und Nacht“<br>„Warenhaus eröffnet: elektrisches Licht in allen Etagen“</p><div class="zettel"><p>Lieber Karl,<br>ich schreibe dir von der Straße. Berlin ist nie <b>______</b>. Selbst nachts rattern die Bahnen, schreien die Zeitungsjungen und leuchten die Fenster. Ich glaube, die Stadt schläft nie.<br>Dein Emil</p></div>'}},
+  {id:'fassade',label:'Hausfassade',card:{title:'Am Haus',intro:'Im Fenster hängt ein Blatt Papier.',slots:['stadler_rheinbruecke']}},
+  {id:'gulli',label:'Gullideckel',decoy:true,card:{title:'Nichts Wichtiges',html:'<p>Ein Gullideckel. Nichts Wichtiges. Aber ein hübscher.</p>'}}
+ ],
+ locks:[
+  {id:'s1',title:'Der Preis',task:'<p>Auf der Litfaßsäule hängt ein Plakat. Wie viele <b>Pfennig</b> kostet ein Stehplatz? Der Code ist die Zahl.</p>',answer:['50'],
+   hints:['Seht euch die Litfaßsäule genau an.','Auf dem Plakat stehen drei Preise. Einer davon ist in Pfennig.','Es ist der Preis ganz unten.']},
+  {id:'s2',title:'Bild und Text',task:'<p>Seht euch das Bild im Schaufenster und das Blatt am Haus an. Beide zeigen die Stadt bei Nacht. Welche Aussage passt zu beiden? Der Code ist die Nummer.</p><ul class="opts"><li><b>1</b>Die Stadt ist still und leer.</li><li><b>2</b>Die Stadt ist hell, schnell und überwältigend.</li><li><b>3</b>Die Stadt ist ein friedliches Dorf.</li><li><b>4</b>Die Stadt gibt es gar nicht mehr.</li></ul>',answer:['2'],
+   hints:['Achtet auf Licht, Tempo und Menschenmengen.','Zwei Aussagen passen offensichtlich nicht zu einer Großstadt bei Nacht: still und friedlich.','Es ist die Aussage mit den Wörtern „hell“ und „schnell“.']},
+  {id:'s3',title:'Emils Brief',task:'<p>Im Brief zwischen den Zeitungen fehlt ein Wort. Setzt es ein. Der Code ist das Wort.</p>',answer:['still'],
+   hints:['Lest den Satz davor und danach.','Es ist das Gegenteil von „laut“.','Das Wort hat fünf Buchstaben und beginnt mit S.']}
+ ]},
+{id:'hinterhof',name:'Das Hinterhofzimmer',sub:'Emils Zimmer, Winter 1913/14',img:'images/hinterhof.jpg',letters:['E','S','U'],
+ spots:[
+  {id:'fenster',label:'Fenster',card:{title:'Der Hof',html:'<p>Aus dem Fenster sieht man nur Hinterhöfe, Schornsteine und Wäscheleinen. Nachts sieht es aus, als würden sich die Häuser zueinander neigen und flüstern.</p>'}},
+  {id:'spiegel',label:'Spiegel',card:{title:'Der Spiegel',html:'<p>Jemand hat mit Seife ein Wort an den Spiegel geschrieben. Man kann es nicht lesen.</p><div class="mirror flip" id="mirrorword">VERSTECK</div><p style="text-align:center"><button class="btn alt" data-action="mirror">In den Spiegel schauen</button></p>'}},
+  {id:'tagebuch',label:'Tagebuch',card:{title:'Emils Heft',intro:'Die Seiten sind herausgefallen und liegen durcheinander.',html:'<div class="zettel"><span class="nr">Seite 2</span><b>1. August 1914</b><br>Mobilmachung. Karl hat den Stellungsbefehl bekommen. Wir haben nicht viel geredet.</div><div class="zettel"><span class="nr">Seite 4</span><b>29. Juni 1914</b><br>In der Druckerei gab es Extrablätter: Der Thronfolger ist erschossen worden. Die Männer reden von nichts anderem.</div><div class="zettel"><span class="nr">Seite 1</span><b>2. Mai 1914</b><br>Heute habe ich zum ersten Mal Herrn Falks Bilder gesehen. Rot, blau, gelb, und alles schreit. Ich konnte nicht wegsehen.</div><div class="zettel"><span class="nr">Seite 3</span><b>9. Juni 1914</b><br>Heute Nacht habe ich wieder abgeschrieben, bis die Kerze heruntergebrannt war. Ich weiß nicht, warum mir diese Wörter so wichtig sind.</div>'}},
+  {id:'kerze',label:'Kerze',card:{title:'Im Kerzenlicht',intro:'Neben der Kerze liegt ein Blatt, das Emil abgeschrieben hat.',slots:['gedicht_untergang']}},
+  {id:'briefkasten',label:'Briefkasten',card:{title:'Im Briefkasten',intro:'Eine Postkarte mit einem Kunstdruck.',slots:['munch_schrei']}},
+  {id:'blumentopf',label:'Blumentopf',decoy:true,card:{title:'Nichts Wichtiges',html:'<p>Die Pflanze lässt die Blätter hängen. Das geht uns allen mal so.</p>'}}
+ ],
+ locks:[
+  {id:'h1',title:'Die Tagebuchseiten',task:'<p>Emils Seiten sind durcheinander. Bringt sie nach dem <b>Datum</b> in die richtige Reihenfolge. Der Code sind die Seitenzahlen in dieser Reihenfolge, ohne Leerzeichen.</p>',answer:['1342'],
+   hints:['Das Datum steht oben auf jeder Seite.','Die früheste Seite ist vom 2. Mai.','Die Reihenfolge beginnt mit 1, dann kommt die Seite vom 9. Juni.']},
+  {id:'h2',title:'Welches Gefühl?',task:'<p>Seht euch die Postkarte im Briefkasten und das Blatt im Kerzenlicht an. Welches Gefühl steckt in beiden? Der Code ist die Nummer.</p><ul class="opts"><li><b>1</b>Geborgenheit</li><li><b>2</b>Angst</li><li><b>3</b>Langeweile</li><li><b>4</b>Übermut</li></ul>',answer:['2'],
+   hints:['Schaut auf die Gesichter und Körper im Bild und auf die Wörter im Text.','Geborgenheit und Langeweile passen nicht zu beiden.','Es ist das zweite Gefühl in der Liste.']},
+  {id:'h3',title:'Spiegelschrift',task:'<p>Das Wort am Spiegel nennt den Ort, an dem Emil seinen Koffer aufbewahrt. Wie lautet es? Der Code ist das Wort.</p>',answer:['versteck'],
+   hints:['Das Wort ist in Spiegelschrift. Schaut euch den Spiegel an.','Ihr könnt den Spiegel umdrehen.','Das Wort beginnt mit V und hat acht Buchstaben.']}
+ ]},
+{id:'bahnhof',name:'Der Bahnhof',sub:'Berlin, 2. August 1914',img:'images/bahnhof.jpg',letters:['P','O','S'],
+ spots:[
+  {id:'zug',label:'Zug',card:{title:'Am Zugfenster',intro:'Am Zugfenster klebt ein Zettel mit einem Gedicht.',slots:['stramm_gedicht']}},
+  {id:'schalter',label:'Fahrkartenschalter',card:{title:'Am Schalter',intro:'Karl hat einen Zettel hinterlassen.',html:'<div class="zettel"><p>Liebe Mama, lieber Emil,<br>ich fahre nachmittags. Mein Zug fährt <b>25 Minuten nach der Zeit</b>, die die große Bahnhofsuhr gerade zeigt. Seid bitte pünktlich.<br>Euer Karl</p></div>'}},
+  {id:'plakat',label:'Plakat',card:{title:'An der Plakatwand',html:'<p>Aus der Zeitung vom 2. August: „Unter dem Jubel der Menge rückten gestern die ersten Regimenter aus.“</p><p>Daneben hängt ein Kunstdruck.</p>',slots:['marc_tierschicksale']}},
+  {id:'gepaeck',label:'Gepäckwagen',card:{title:'Karls Karte',intro:'Zwischen den Koffern steckt eine Karte, die Karl aus dem Zug schreiben wollte. Die Zeilen sind durcheinander.',html:'<div class="zettel"><span class="nr">1</span>Passt gut auf euch auf. Euer Karl</div><div class="zettel"><span class="nr">2</span>Liebe Mama, lieber Emil,</div><div class="zettel"><span class="nr">3</span>Ich habe Angst, aber das darf keiner sehen.</div><div class="zettel"><span class="nr">4</span>ich schreibe aus dem Zug.</div><div class="zettel"><span class="nr">5</span>Die Fahrt ist laut und die Männer singen.</div>'}},
+  {id:'uhr',label:'Bahnhofsuhr',card:{title:'Die Bahnhofsuhr',html:CLOCK+'<p style="text-align:center">Die Uhr geht richtig.</p>'}},
+  {id:'taube',label:'Taube',decoy:true,card:{title:'Nichts Wichtiges',html:'<p>Die Taube hat den Zug verpasst. Sie nimmt es gelassen.</p>'}}
+ ],
+ locks:[
+  {id:'b1',title:'Die Abfahrt',task:'<p>Wann fährt Karls Zug? Schreibt die Zeit <b>vierstellig im 24-Stunden-Format ohne Doppelpunkt</b>, zum Beispiel 0905.</p>',answer:['1605'],
+   hints:['Seht euch Karls Zettel am Schalter und die Bahnhofsuhr an.','Die Uhr zeigt 15:40 Uhr.','15:40 Uhr plus 25 Minuten.']},
+  {id:'b2',title:'Stimmen am Bahnsteig',task:'<p>Sechs Menschen sprechen auf dem Bahnsteig. Wie viele von ihnen klingen <b>ängstlich</b>? Der Code ist die Zahl.</p><ul class="stimmen"><li>„Das wird ein kurzer Spaß! Zu Weihnachten sind wir wieder zu Hause!“</li><li>„Ich habe Karl nicht losgelassen. Ich weiß nicht, ob ich ihn wiedersehe.“</li><li>„Hurra! Endlich passiert mal was in diesem Land!“</li><li>„Warum sagt keiner, wohin der Zug fährt?“</li><li>„Meine Hände zittern. Ich kann sie nicht stillhalten.“</li><li>„Mir ist schlecht vor Angst. Ich will nicht, dass der Zug fährt.“</li></ul>',answer:['4'],
+   hints:['Lest jede Stimme einzeln und fragt: Freut sich der Sprecher oder hat er Angst?','Zwei Stimmen sind begeistert.','Es sind mehr als drei, aber weniger als fünf.']},
+  {id:'b3',title:'Karls Karte',task:'<p>Bringt die fünf Zeilen von Karls Karte in eine sinnvolle Reihenfolge. Der Code sind die Zeilennummern in dieser Reihenfolge, ohne Leerzeichen.</p>',answer:['24531'],
+   hints:['Eine Karte beginnt mit einer Anrede.','Am Ende steht der Gruß.','Die Anrede ist Zeile 2, danach kommt die Zeile mit dem Zug.']}
+ ]},
+{id:'atelier',name:'Das Atelier',sub:'Herr Falk, Berlin 1914',img:'images/atelier.jpg',letters:['R','N','M'],
+ spots:[
+  {id:'staffelei',label:'Staffelei',card:{title:'An der Staffelei',intro:'Herr Falk hat einen Zettel an die Staffelei geklemmt.',html:'<div class="zettel"><p>Ich male nicht, was ich sehe.<br>Ich male, was ich fühle.<br>Blau ist meine Sehnsucht.<br>Rot ist mein Zorn.<br>Gelb ist meine Freude.<br>Schwarz ist meine Angst.<br>– F.</p></div>'}},
+  {id:'palette',label:'Farbpalette',card:{title:'Die Palette',intro:'Unter der Palette klebt ein Zettel mit einem Gedicht.',slots:['lasker_gedicht']}},
+  {id:'leinwaende',label:'Leinwände',card:{title:'Die Leinwände',intro:'Herr Falks Lieblingsbilder lehnen an der Wand.',slots:['marc_blaues_pferd','kandinsky_komposition']}},
+  {id:'skizzenbuch',label:'Skizzenbuch',card:{title:'Das Skizzenbuch',html:'<div class="zettel"><p>Der Abend war blau. Der Mond hing gelb über den Dächern, und im Fenster brannte ein rotes Licht. Unten lag die Straße schwarz. Ich malte sie grün, weil sie mir grün vorkam, und der Himmel wurde violett.</p></div>'}},
+  {id:'fenster',label:'Fenster',card:{title:'Der Blick',html:'<p>Aus dem Atelierfenster sieht man die Stadt, wie sie ist: Dächer, Türme, ein Mond.</p>'}},
+  {id:'pinselglas',label:'Pinselglas',decoy:true,card:{title:'Nichts Wichtiges',html:'<p>Zwölf Pinsel. Elf davon hat Herr Falk noch nie benutzt.</p>'}}
+ ],
+ locks:[
+  {id:'a1',title:'Falks Farben',task:'<p>Herr Falk malt ein Bild. Zuerst malt er seine <b>Sehnsucht</b>, dann seinen <b>Zorn</b>, dann seine <b>Freude</b>. Welche Farben nimmt er? Der Code sind die drei Anfangsbuchstaben der Farben in dieser Reihenfolge, zum Beispiel SGR.</p>',answer:['brg'],
+   hints:['Der Zettel an der Staffelei verrät, welches Gefühl zu welcher Farbe gehört.','Sehnsucht ist blau, Zorn ist rot.','Der Code beginnt mit B.']},
+  {id:'a2',title:'Wirklichkeit oder Gefühl?',task:'<p>Vergleicht das Fenster mit dem Bild auf der Staffelei. Welche Aussage stimmt? Der Code ist die Nummer.</p><ul class="opts"><li><b>1</b>Beide zeigen genau, was man sieht.</li><li><b>2</b>Das Fenster zeigt, was man sieht. Das Bild auf der Staffelei zeigt ein Gefühl.</li><li><b>3</b>Das Bild auf der Staffelei zeigt die Stadt genauer als das Fenster.</li></ul>',answer:['2'],
+   hints:['Seht euch beide Bilder an. Erkennt ihr auf der Staffelei Häuser?','Auf der Staffelei sind nur Formen und Farben.','Es ist die zweite Aussage.']},
+  {id:'a3',title:'Farbwörter',task:'<p>In Herrn Falks Skizzenbuch steht ein Text. Zählt alle <b>Farbwörter</b>. Jedes zählt, auch wenn es mehrmals vorkommt. Der Code ist die Zahl.</p>',answer:['7'],
+   hints:['Lest den Text Satz für Satz und streicht die Farbwörter an.','Auch „rotes“ zählt.','Es sind mehr als sechs und weniger als acht.']}
+ ]},
+{id:'schreibstube',name:'Die Schreibstube',sub:'Emils Dachkammer',img:'images/schreibstube.jpg',letters:['E','I','S'],
+ spots:[
+  {id:'schreibmaschine',label:'Schreibmaschine',card:{title:'In der Maschine',intro:'In der Maschine steckt ein Blatt, das Emil nachts getippt hat.',html:'<div class="zettel"><p>Die Stadt brennt.<br>Die Stadt lacht.<br>Die Stadt kennt meinen Namen nicht.</p></div>'}},
+  {id:'papierkorb',label:'Papierkorb',card:{title:'Im Papierkorb',intro:'Emil hat einen Satz zerrissen. Die vier Zettel liegen durcheinander.',html:'<div class="zettel"><span class="nr">1</span>frisst die Nacht</div><div class="zettel"><span class="nr">2</span>den Morgen aus.</div><div class="zettel"><span class="nr">3</span>Die Stadt</div><div class="zettel"><span class="nr">4</span>und spuckt</div>'}},
+  {id:'telegramm',label:'Telegramm',card:{title:'Das Telegramm',html:'<div class="zettel" style="font-size:20px"><p>KARL REIST MORGEN FRUEH AB STOP<br>KOMM ZUM <b>________</b> STOP<br>MAMA</p></div>'}},
+  {id:'regal',label:'Bücherregal',card:{title:'Im Bücherregal',intro:'Zwischen den Büchern steckt ein dünnes Heft.',slots:['kafka_galerie']}},
+  {id:'lampe',label:'Lampe',card:{title:'Die Lampe',html:'<p>Nachts schalte ich sie an, wenn alle schlafen. Dann tippe ich ab, was mir gefällt. Das Licht ist gelb, die Wände sind blau, und die Wörter sind schwarz.</p>'}},
+  {id:'tintenfass',label:'Tintenfass',decoy:true,card:{title:'Nichts Wichtiges',html:'<p>Das Tintenfass ist leer. Wie mein Geldbeutel.</p>'}}
+ ],
+ locks:[
+  {id:'c1',title:'Das Telegramm',task:'<p>Im Telegramm fehlt ein Wort. Setzt es ein. Der Code ist das Wort.</p>',answer:['bahnhof'],
+   hints:['Wer verreist, wird irgendwo verabschiedet.','Es ist der Ort, an dem Züge abfahren.','Das Wort beginnt mit B und hat sieben Buchstaben.']},
+  {id:'c2',title:'Der lange Satz',task:'<p>Das Heft im Regal enthält einen sehr kurzen Text. Aus wie vielen <b>Sätzen</b> besteht er? Der Code ist die Zahl.</p>',answer:['2','zwei','3','drei'],
+   hints:['Zählt die Punkte, die einen Satz beenden. Doppelpunkte und Semikolons zählen nicht.','Der erste Satz ist sehr lang.','Es sind weniger als drei Sätze.']},
+  {id:'c3',title:'Die zerrissenen Zettel',task:'<p>Setzt die vier Zettel aus dem Papierkorb zu einem Satz zusammen. Der Code sind die Zettelnummern in dieser Reihenfolge, ohne Leerzeichen.</p>',answer:['3142'],
+   hints:['Der Satz beginnt mit einem großen Buchstaben.','Der Satz beginnt mit „Die Stadt“.','Der Satz endet mit einem Punkt: Zettel 2 steht ganz hinten.']}
+ ]}
+];
+
+/* ==================================================================
+   Hilfsfunktionen und Zustand
+   ================================================================== */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm=s=>String(s).toLowerCase().replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue').replace(/ß/g,'ss').replace(/[\s.,:;!?"'„“\-]/g,'');
+const KEY='koffer1914-v1';
+let S={started:false,start:0,solved:{},visited:{},hints:{},roomOrder:[],view:'start',room:null,done:false,notes:'',over:false};
+let mem=null;
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){mem=JSON.stringify(S)}}
+function load(){let raw=null;try{raw=localStorage.getItem(KEY)}catch(e){raw=mem}
+ if(raw){try{const o=JSON.parse(raw);Object.assign(S,o)}catch(e){}}}
+const roomById=id=>ROOMS.find(r=>r.id===id);
+const roomSolved=r=>r.locks.every(l=>S.solved[l.id]);
+const lockCount=r=>r.locks.filter(l=>S.solved[l.id]).length;
+const allSolved=()=>ROOMS.every(roomSolved);
+function remaining(){return S.started?Math.max(0,S.start+TOTAL*1000-Date.now()):TOTAL*1000}
+function fmt(ms){const s=Math.ceil(ms/1000);return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
+
+/* Wiedereinstiegscode */
+const AB='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+function maskOf(){let m=0;ROOMS.forEach((r,ri)=>r.locks.forEach((l,li)=>{if(S.solved[l.id])m|=1<<(ri*3+li)}));return m}
+function chk(m,min){return((m&15)+((m>>4)&15)+((m>>8)&15)+(min&15)+(min>>4)+7)&15}
+function encode(){const m=maskOf(),min=Math.min(63,Math.ceil(remaining()/60000));const v=m|(min<<15)|(chk(m,min)<<21);let o='';for(let i=0;i<5;i++)o=AB[(v>>(5*i))&31]+o;return o}
+function decode(c){c=String(c).toUpperCase().replace(/[^A-Z0-9]/g,'');if(c.length!==5)return null;let v=0;for(const ch of c){const i=AB.indexOf(ch);if(i<0)return null;v=(v<<5)|i}
+ const m=v&32767,min=(v>>15)&63,k=(v>>21)&15;if(k!==chk(m,min)||min>45)return null;return{m,min}}
+function applyCode(o){S.started=true;S.start=Date.now()-(45-o.min)*60000;S.solved={};S.roomOrder=[];
+ ROOMS.forEach((r,ri)=>{r.locks.forEach((l,li)=>{if(o.m&(1<<(ri*3+li)))S.solved[l.id]=true});if(roomSolved(r))S.roomOrder.push(r.id)});
+ S.view='hub';S.room=null;save()}
+
+/* ==================================================================
+   Ansicht
+   ================================================================== */
+function ownedLetters(){const o=[];S.roomOrder.forEach(id=>o.push(...roomById(id).letters));return o}
+function renderRack(){const L=ownedLetters();let h='<span class="lab">Buchstaben im Koffer</span>';for(let i=0;i<15;i++)h+=`<span class="c${L[i]?' f':''}">${L[i]||''}</span>`;$('#rack').innerHTML=h}
+function renderBar(){const r=remaining();const t=$('#timer');
+ if(!S.started){t.textContent='45:00';t.className=''}
+ else if(r<=0){t.textContent='Zeit abgelaufen';t.className='over';$('#overbanner').style.display='block'}
+ else{t.textContent=fmt(r);t.className=r<5*60000?'low':'';$('#overbanner').style.display='none'}
+ $('#code').innerHTML=S.started?`Euer Stand: <b>${encode()}</b>`:''}
+function go(view,room){S.view=view;S.room=room||null;save();render();window.scrollTo(0,0)}
+function render(){renderBar();renderRack();const el=$('#screen');
+ if(S.view==='start'||!S.started)return startView(el);
+ if(S.view==='room')return roomView(el);
+ if(S.view==='finale')return finaleView(el);
+ hubView(el)}
+
+function startView(el){
+ el.innerHTML=`<div class="start"><div><img src="images/koffer-zu.png" alt="Ein alter, verschlossener Koffer"></div>
+ <div><h1>Der Koffer von 1914</h1>
+ <div class="paper"><p>Berlin, den 3. August 1914</p><p>Wer auch immer das hier findet: Der Koffer gehört mir, Emil Hartung. Ich bin siebzehn und setze in der Druckerei Zeitungen. Wörter für andere. In diesem Koffer sind die Wörter, die ich für mich behalten habe.</p><p>Mein Bruder Karl hat gesagt: „Pack sie ein, bevor sie jemand wegwirft.“ Das Schloss öffnet ein Wort mit fünfzehn Buchstaben. Ihr findet sie in fünf Räumen, in denen ich im letzten Jahr gelebt habe.</p><p>Seid nicht traurig, wenn nicht alles gleich einen Sinn ergibt. Mir ging es auch so.</p><p>– Emil</p></div>
+ <p style="margin:18px 0 6px"><button class="btn" id="go">Koffer öffnen. Die Zeit läuft: 45 Minuten</button></p>
+ <button class="link" id="cont">Schon angefangen? Code eingeben</button></div></div>`;
+ $('#go').onclick=()=>{S.started=true;S.start=Date.now();S.view='hub';save();render()};
+ $('#cont').onclick=codeDialog}
+
+function hubView(el){
+ const cells=ROOMS.map(r=>{const p=HUB[r.id],ok=roomSolved(r);
+  return `<button class="fach" data-room="${r.id}" style="left:${p[0]}%;top:${p[1]}%;width:${p[2]}%;height:${p[3]}%" aria-label="${esc(r.name)}, ${lockCount(r)} von 3 Riegeln offen">${ok?`<img class="sg" src="images/${SEAL[r.id]}.png" alt="">`:''}<span class="cnt">${ok?'gelöst':lockCount(r)+' / 3'}</span><span class="nm">${esc(r.name)}</span></button>`}).join('');
+ const ready=allSolved();
+ el.innerHTML=`<h2>Wählt ein Fach</h2><p class="small" style="margin-top:0">Jedes Fach führt in einen Raum. Ihr entscheidet, womit ihr beginnt.</p>
+ <div class="hubwrap"><img class="koffer" src="images/koffer-offen.png" alt="Offener Koffer mit fünf Fächern">${cells}</div>
+ <p style="text-align:center;margin-top:18px"><button class="btn yel" id="lock" ${ready?'':'disabled'}>${ready?'Zum Schloss':'Das Schloss klemmt noch (alle fünf Räume lösen)'}</button></p>`;
+ el.querySelectorAll('.fach').forEach(b=>b.onclick=()=>{S.roomEnter=Date.now();go('room',b.dataset.room)});
+ $('#lock').onclick=()=>go('finale')}
+
+let roomTimer=null;
+function roomView(el){
+ const r=roomById(S.room);const polys=HOT[r.id];
+ const ticks=r.spots.map(s=>S.visited[r.id+'.'+s.id]?tickMark(polys[s.id]):'').join('');
+ const hs=r.spots.map(s=>`<polygon class="hs" data-spot="${s.id}" tabindex="0" role="button" aria-label="${esc(s.label)}" points="${polys[s.id].map(p=>p.join(',')).join(' ')}"/>`).join('');
+ const locks=r.locks.map((l,i)=>`<button class="lockbtn${S.solved[l.id]?' open':''}" data-lock="${l.id}"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">${S.solved[l.id]?'<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7-2.6"/>':'<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>'}</svg>Riegel ${i+1}: ${esc(l.title)}</button>`).join('');
+ el.innerHTML=`<div class="room"><div class="roomhead"><h2>${esc(r.name)}</h2><span class="sub">${esc(r.sub)}</span></div>
+ <div class="roomimg"><img src="${r.img}" alt="${esc(r.name)}"><svg viewBox="0 0 1672 941" preserveAspectRatio="none">${hs}${ticks}</svg></div>
+ <div class="toolbar"><button class="btn alt" id="back">← Zurück zum Koffer</button><div class="locks">${locks}</div><button class="btn alt" id="shim" style="display:none">Suchhilfe</button></div>
+ <p class="small">Klickt auf Gegenstände im Bild. Nicht alles ist wichtig.</p></div>`;
+ el.querySelectorAll('.hs').forEach(p=>{const f=()=>openSpot(r,p.dataset.spot);p.onclick=f;p.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();f()}}});
+ el.querySelectorAll('.lockbtn').forEach(b=>b.onclick=()=>openLock(r,b.dataset.lock));
+ $('#back').onclick=()=>go('hub');
+ const sh=$('#shim');clearInterval(roomTimer);
+ const chkShim=()=>{if(S.view==='room'&&Date.now()-(S.roomEnter||Date.now())>120000)sh.style.display=''};chkShim();roomTimer=setInterval(chkShim,5000);
+ sh.onclick=()=>{el.querySelectorAll('.hs').forEach(p=>{if(!S.visited[r.id+'.'+p.dataset.spot]){p.classList.remove('shim');void p.getBoundingClientRect();p.classList.add('shim')}})}}
+function tickMark(pts){const cx=pts.reduce((a,p)=>a+p[0],0)/pts.length,cy=pts.reduce((a,p)=>a+p[1],0)/pts.length;
+ return `<g class="tick" opacity=".75"><circle cx="${cx}" cy="${cy}" r="17" fill="#0c0a0f" stroke="#e8b923" stroke-width="3"/><path d="M${cx-8} ${cy} l6 7 l11 -13" stroke="#e8b923" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>`}
+
+/* ---- Fundstück-Karten ---- */
+function slotHtml(key){const d=INHALT[key];if(!d)return '';
+ const q=d.quelle?`<div class="src">Quelle: ${esc(d.quelle)}</div>`:'';
+ const head=`<p style="margin:0 0 8px"><b>${esc(d.titel)}</b><br><span style="font-size:15px">${esc(d.autor)}${d.jahr?', '+esc(d.jahr):''}</span></p>`;
+ if(d.kind==='bild')return `<figure class="bildfund"><img src="images/${esc(d.datei)}" alt="${esc(d.titel)}" onerror="this.outerHTML='<div class=&quot;missing&quot;>Bild fehlt noch: ${esc(d.datei)}</div>'"><figcaption>${esc(d.titel)}, ${esc(d.autor)}${d.jahr?', '+esc(d.jahr):''}</figcaption></figure>${q}`;
+ if(!d.text||!d.text.trim())return head+`<div class="missing">Text fehlt noch (inhalt.js)</div>`;
+ return head+`<div class="poem">${esc(d.text)}</div>`+q}
+function openSpot(r,id){const s=r.spots.find(x=>x.id===id),c=s.card;S.visited[r.id+'.'+id]=true;save();
+ let b=`<button class="x" aria-label="Schließen" data-close>×</button><h2>${esc(c.title)}</h2>`;
+ if(c.intro)b+=`<p class="intro">${esc(c.intro)}</p>`;
+ let inner='';if(c.html)inner+=c.html;(c.slots||[]).forEach(k=>{inner+=`<div style="margin-top:12px">${slotHtml(k)}</div>`});
+ b+=`<div class="paper">${inner}</div>`;
+ showModal(b);if(S.view==='room')roomView($('#screen'))}
+
+/* ---- Riegel ---- */
+function openLock(r,id){const l=r.locks.find(x=>x.id===id),idx=r.locks.indexOf(l)+1,done=S.solved[id];
+ const lvl=S.hints[id]||0,over=remaining()<=0;
+ let hh='';for(let i=0;i<Math.min(lvl,3);i++)hh+=`<div class="hint">Tipp ${i+1}: ${esc(l.hints[i])}</div>`;
+ if(lvl>=4)hh+=`<div class="hint l4">Zusatztipp: Der Code hat ${norm(l.answer[0]).length} Zeichen und beginnt mit „${esc(l.answer[0][0].toUpperCase())}“.</div>`;
+ const canMore=lvl<3||(over&&lvl<4);
+ showModal(`<button class="x" aria-label="Schließen" data-close>×</button><h2>Riegel ${idx}: ${esc(l.title)}</h2>${l.task}
+ ${done?`<p class="msg good">Dieser Riegel ist offen. Code: ${esc(l.answer[0].toUpperCase())}</p>`:`<div class="inrow"><input type="text" id="ans" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Code" placeholder="Code eingeben"><button class="btn" id="chk">Prüfen</button></div><div class="msg" id="msg" aria-live="polite"></div>
+ <div class="hints">${hh}</div>${canMore?`<button class="btn alt" id="hint" style="margin-top:8px">${lvl<3?`Tipp (${lvl+1} von 3)`:'Zusatztipp'}</button>`:''}`}`);
+ if(done)return;
+ const inp=$('#ans');inp.focus();
+ const check=()=>{const v=norm(inp.value);if(!v)return;
+  if(l.answer.some(a=>norm(a)===v)){S.solved[id]=true;save();const wasDone=roomSolved(r);
+   if(wasDone&&!S.roomOrder.includes(r.id))S.roomOrder.push(r.id);save();
+   if(wasDone)roomDone(r);else{$('#msg').className='msg good';$('#msg').textContent='Der Riegel springt auf!';setTimeout(()=>{closeModal();roomView($('#screen'));renderRack();renderBar()},700)}}
+  else{$('#msg').className='msg bad';$('#msg').textContent='Das ist es noch nicht. Versucht es noch einmal.';inp.select()}};
+ $('#chk').onclick=check;inp.onkeydown=e=>{if(e.key==='Enter')check()};
+ const hb=$('#hint');if(hb)hb.onclick=()=>{S.hints[id]=(S.hints[id]||0)+1;save();openLock(r,id)}}
+function roomDone(r){renderRack();renderBar();
+ showModal(`<button class="x" aria-label="Schließen" data-close>×</button><h2>Raum gelöst!</h2><p style="text-align:center">Alle drei Riegel sind offen. Drei Buchstaben wandern in den Koffer:</p><div class="letters">${r.letters.map(x=>`<div class="lt">${x}</div>`).join('')}</div><p style="text-align:center"><img src="images/${SEAL[r.id]}.png" alt="" style="width:90px"></p><p style="text-align:center"><button class="btn" id="tohub">Zurück zum Koffer</button></p>`);
+ $('#tohub').onclick=()=>{closeModal();go('hub')}}
+
+/* ---- Finale ---- */
+let arr=[];
+const PERM=[4,11,0,9,13,2,7,14,5,1,10,6,12,3,8];
+function finaleView(el){
+ if(S.done)return doneView(el);
+ const L=ownedLetters();const pool=PERM.map(i=>L[i]);
+ if(arr.length!==15)arr=new Array(15).fill(-1);
+ const draw=()=>{const used=new Set(arr);
+  el.innerHTML=`<h2>Das Schloss</h2><p>Fünfzehn Buchstaben, durcheinander. Ordnet sie zum Lösungswort. Es ist der Name für das, was ihr in den fünf Räumen entdeckt habt.</p>
+  <div class="slots" id="slots">${arr.map((v,i)=>`<div class="slot${v>=0?' f':''}" data-i="${i}">${v>=0?pool[v]:''}</div>`).join('')}</div>
+  <div class="pool">${pool.map((c,i)=>used.has(i)?'':`<button class="tile" data-t="${i}">${c}</button>`).join('')}</div>
+  <div class="msg" id="fmsg" style="text-align:center" aria-live="polite"></div>
+  <p style="text-align:center"><button class="btn alt" id="clr">Alle zurücklegen</button> <button class="btn alt" id="bk">Zurück zum Koffer</button></p>`;
+  el.querySelectorAll('.tile').forEach(b=>b.onclick=()=>{const k=arr.indexOf(-1);if(k<0)return;arr[k]=+b.dataset.t;draw();if(arr.indexOf(-1)<0)verify()});
+  el.querySelectorAll('.slot.f').forEach(b=>b.onclick=()=>{arr[+b.dataset.i]=-1;draw()});
+  $('#clr').onclick=()=>{arr=new Array(15).fill(-1);draw()};$('#bk').onclick=()=>go('hub')};
+ const verify=()=>{const w=arr.map(v=>pool[v]).join('');
+  if(w===WORD){S.done=true;save();go('finale')}
+  else{const s=$('#slots');s.classList.remove('shake');void s.offsetWidth;s.classList.add('shake');$('#fmsg').className='msg bad';$('#fmsg').textContent='Noch nicht ganz. Tauscht Buchstaben und versucht es noch einmal.'}};
+ draw()}
+function doneView(el){
+ el.innerHTML=`<h1>Der Koffer ist offen!</h1><div class="slots" style="grid-template-columns:repeat(15,1fr)">${WORD.split('').map(c=>`<div class="slot f" style="cursor:default">${c}</div>`).join('')}</div>
+ <div class="paper"><p>Berlin, 1914</p><p>Ihr habt das Schloss geöffnet. Dann habt ihr auch die Wörter gefunden, die ich nicht wegwerfen wollte. Schaut sie euch noch einmal an: die Straße, mein Zimmer, den Bahnhof, das Atelier, die Schreibstube.</p><p>Eine Frage lasse ich euch: Was haben alle fünf Räume gemeinsam? Das Wort, das ihr gerade gelegt habt, ist der Name dafür. Schreibt auf, was ihr entdeckt habt.</p><p>– Emil</p></div>
+ <h2 style="margin-top:22px">Was haben alle fünf Räume gemeinsam?</h2>
+ <textarea id="notes" placeholder="Schreibt hier eure Entdeckungen auf. Das Feld wird nur auf diesem Gerät gespeichert.">${esc(S.notes||'')}</textarea>
+ <div class="paeck"><img src="images/paeckchen.png" alt="Ein kleines, verschnürtes Päckchen mit der Zahl 1946"><div><b>Unter dem Fach liegt ein kleines Päckchen.</b><br>Es ist mit Schnur verschnürt. Jemand hat die Zahl 1946 darauf geschrieben. Es lässt sich noch nicht öffnen.</div></div>
+ <p style="margin-top:20px"><button class="btn alt" id="bk">Zurück zum Koffer</button></p>`;
+ $('#notes').oninput=e=>{S.notes=e.target.value;save()};$('#bk').onclick=()=>go('hub')}
+
+/* ---- Dialoge ---- */
+function showModal(h){$('#mbox').innerHTML=h;$('#modal').classList.add('show');document.body.style.overflow='hidden'}
+function closeModal(){$('#modal').classList.remove('show');document.body.style.overflow=''}
+function codeDialog(){showModal(`<button class="x" aria-label="Schließen" data-close>×</button><h2>Weitermachen mit Code</h2><p>Gebt euren letzten Code ein (steht oben rechts: „Euer Stand“).</p><div class="inrow"><input type="text" id="cin" maxlength="8" autocomplete="off" placeholder="zum Beispiel K7QD2"><button class="btn" id="cok">Weiter</button></div><div class="msg bad" id="cmsg"></div>`);
+ const f=()=>{const o=decode($('#cin').value);if(!o){$('#cmsg').textContent='Dieser Code passt nicht. Prüft ihn noch einmal.';return}applyCode(o);closeModal();render()};
+ $('#cok').onclick=f;$('#cin').onkeydown=e=>{if(e.key==='Enter')f()};$('#cin').focus()}
+$('#modal').addEventListener('click',e=>{if(e.target.id==='modal'||e.target.hasAttribute('data-close'))closeModal();
+ const m=e.target.closest('[data-action="mirror"]');if(m){const w=$('#mirrorword');w.classList.toggle('flip');m.textContent=w.classList.contains('flip')?'In den Spiegel schauen':'Zurück'}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+
+/* ---- Lehrkraft ---- */
+function teacher(){
+ const rows=ROOMS.map(r=>r.locks.map((l,i)=>`<tr><td>${esc(r.name)}</td><td>Riegel ${i+1}: ${esc(l.title)}</td><td><b>${esc(l.answer[0])}</b></td><td>${r.letters[i]}</td></tr>`).join('')).join('');
+ const miss=Object.entries(INHALT).map(([k,d])=>`<tr><td>${esc(k)}</td><td>${esc(d.titel)} (${esc(d.autor)})</td><td id="st-${k}">${d.kind==='bild'?'prüfe …':(d.text&&d.text.trim()?'Text vorhanden':'<b style="color:#ff8a8a">Text fehlt</b>')}</td></tr>`).join('');
+ showModal(`<button class="x" data-close aria-label="Schließen">×</button><div class="teacher"><h2>Lehrkraft</h2><p class="small">Lösungen und Status der Fundstücke. Nur für dich.</p><h3>Lösungen</h3><table><tr><th>Raum</th><th>Riegel</th><th>Code</th><th>Buchstabe</th></tr>${rows}</table><p>Lösungswort: <b>EXPRESSIONISMUS</b> (Buchstaben je Raum: S X I · E S U · P O S · R N M · E I S)</p><h3>Fundstücke</h3><table><tr><th>Schlüssel</th><th>Inhalt</th><th>Status</th></tr>${miss}</table><p style="margin-top:14px"><button class="btn alt" id="tsolve">Alles lösen (zum Testen)</button> <button class="btn alt" id="treset">Alles zurücksetzen</button></p></div>`);
+ Object.entries(INHALT).forEach(([k,d])=>{if(d.kind!=='bild')return;const im=new Image();im.onload=()=>{$('#st-'+k).textContent='Bild vorhanden'};im.onerror=()=>{$('#st-'+k).innerHTML='<b style="color:#ff8a8a">Bild fehlt: '+esc(d.datei)+'</b>'};im.src='images/'+d.datei});
+ $('#tsolve').onclick=()=>{S.started=true;if(!S.start)S.start=Date.now();ROOMS.forEach(r=>{r.locks.forEach(l=>S.solved[l.id]=true);if(!S.roomOrder.includes(r.id))S.roomOrder.push(r.id)});S.view='hub';save();closeModal();render()};
+ $('#treset').onclick=()=>{S={started:false,start:0,solved:{},visited:{},hints:{},roomOrder:[],view:'start',room:null,done:false,notes:'',over:false};arr=[];save();closeModal();render()}}
+function checkHash(){if(location.hash==='#lehrer-koffer1914')teacher()}
+window.addEventListener('hashchange',checkHash);
+
+load();if(!S.started)S.view='start';else if(S.view==='room'&&!S.room)S.view='hub';
+render();checkHash();setInterval(renderBar,1000);
+</script>
+</body>
+</html>
