@@ -638,6 +638,23 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
     max-width:100%;max-height:100%;width:auto;height:auto;
     object-fit:contain;box-shadow:none;border-radius:8px;
   }
+/* Complex Performance */
+#site-en .cp-top{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;margin-top:6px}
+@media (max-width:640px){#site-en .cp-top{grid-template-columns:1fr}}
+#site-en .cp-page{display:flex;flex-direction:column;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:10px;cursor:zoom-in;box-shadow:var(--shadow);text-align:center;font:inherit;color:inherit;width:100%;transition:transform .12s ease}
+#site-en .cp-page:hover{transform:translateY(-2px)}
+#site-en .cp-page img{width:100%;height:auto;display:block;border-radius:8px;background:#fff}
+#site-en .cp-cap{font-weight:800;font-size:.9rem;color:var(--teal-deep)}
+#site-en .cp-choose-wrap{max-width:calc(50% - 10px);margin:22px auto 0}
+@media (max-width:640px){#site-en .cp-choose-wrap{max-width:100%}}
+#site-en .cp-tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-top:12px}
+#site-en .cp-tile{display:flex;align-items:center;justify-content:space-between;gap:10px;text-align:left;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--teal);border-radius:12px;padding:12px 14px;cursor:pointer;font:inherit;font-weight:700;font-size:.95rem;color:var(--teal-deep);box-shadow:var(--shadow);transition:transform .12s ease}
+#site-en .cp-tile:hover{transform:translateY(-2px);background:var(--teal-soft)}
+#site-en .cp-tile svg{width:18px;height:18px;flex:none;color:var(--teal)}
+#site-en .lightbox.tall{align-items:flex-start;justify-content:center;overflow-y:auto;padding:20px 12px 40px}
+#site-en .lightbox.tall .lightbox-frame{width:min(900px,96vw)}
+#site-en .lightbox.tall img{max-width:100%;max-height:none;width:100%;height:auto;display:block;background:#fff}
+#site-en .lightbox.tall .lightbox-close{position:fixed;top:14px;right:14px;z-index:5}
 #site-en .lightbox-close{
     position:absolute;top:18px;right:18px;width:40px;height:40px;border-radius:50%;
     background:#F2ECDA;color:var(--navy-deep);border:none;font-size:1.3rem;cursor:pointer;
@@ -2412,50 +2429,44 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
     </section>
   </div>
   <div class="panel" id="epanel-leistung">
-
     <section>
       <div class="section-head">
+        <div class="eyebrow">English</div>
         <h2>Complex Performance</h2>
-        <p>The official overview: what is graded, and when it's due.</p>
+        <p>Everything you need for your group presentation. Click a page to enlarge it.</p>
       </div>
 
-      <div class="kl-head">
-        <div class="eyebrow" style="color:var(--gold)">English · Class 8</div>
-        <div class="theme">COMPLEX PERFORMANCE
-          <small>(komplexe Leistung) — Theme: NYC Survival Magazine</small>
-        </div>
+      <div class="cp-top">
+        <button class="cp-page" data-lightbox="images/cp-steps.jpg" data-lightbox-tall>
+          <img src="images/cp-steps.jpg" alt="Our NYC – Group Presentation: your steps, poster and PowerPoint rules, key words vs. sentences, when you present" loading="lazy">
+          <span class="cp-cap">Our NYC - Group Presentation</span>
+        </button>
+        <button class="cp-page" data-lightbox="images/cp-graded.jpg" data-lightbox-tall>
+          <img src="images/cp-graded.jpg" alt="How you are graded: the 10 criteria and what they mean" loading="lazy">
+          <span class="cp-cap">How you are graded</span>
+        </button>
       </div>
 
-      <div class="kl-cols">
-        <div class="kl-card">
-          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>What do you have to do?</h3>
-          <ul class="kl-list">
-            <li><span class="n">1</span><p>Add something in your magazine every lesson. There will be short tasks about the things we discuss in our lessons.<span class="sub">These pages are also the basis for the group-work.</span></p></li>
-            <li><span class="n">2</span><p>You will do group-work and present it in class.</p></li>
-            <li><span class="n">3</span><p>You will write a short test about grammar.</p></li>
-          </ul>
-        </div>
-        <div class="kl-card">
-          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 4v3M16 4v3"/><circle cx="12" cy="14" r="1.4" fill="currentColor" stroke="none"/></svg>When will you do these things?</h3>
-          <ul class="kl-list">
-            <li><span class="n">1</span><p>Magazine <span class="sub">– every lesson</span></p></li>
-            <li><span class="n">2</span><p>Group-work <span class="sub">– at the end of the teaching unit + presentation</span></p></li>
-            <li><span class="n">3</span><p>Test <span class="sub">– at the end of the teaching unit</span></p></li>
-          </ul>
-        </div>
+      <div class="cp-choose-wrap">
+        <button class="cp-page cp-choose" data-lightbox="images/cp-choose.jpg" data-lightbox-tall>
+          <img src="images/cp-choose.jpg" alt="Choose Your Topic: overview of topics A to K with group sizes" loading="lazy">
+          <span class="cp-cap">Choose Your Topic</span>
+        </button>
       </div>
 
-      <div class="scan-card">
-        <img src="images/komplexe-leistung.jpg" alt="Original overview sheet – Complex Performance">
-        <div>
-          <h3 style="font-family:var(--font-body);font-weight:800;margin:0 0 6px;">Original overview sheet</h3>
-          <p style="color:var(--ink-soft);font-size:.92rem;margin:0 0 14px;">To read again or print out – as a PDF to download.</p>
-          <button class="btn" id="dl-leistung">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v13m0 0-4.5-4.5M12 16l4.5-4.5"/><path d="M4 19h16"/></svg>
-            Download overview sheet
-          </button>
-          <div class="btn-note" id="dl-leistung-note"></div>
-        </div>
+      <h3 class="hub-sub">What is expected in each topic</h3>
+      <div class="cp-tiles">
+        <button class="cp-tile" data-lightbox="images/cp-topic-a.jpg" data-lightbox-tall aria-label="Topic A - The Five Boroughs"><span class="cp-tile-t">Topic A - The Five Boroughs</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button class="cp-tile" data-lightbox="images/cp-topic-b.jpg" data-lightbox-tall aria-label="Topic B - A Day in the Life"><span class="cp-tile-t">Topic B - A Day in the Life</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button class="cp-tile" data-lightbox="images/cp-topic-c.jpg" data-lightbox-tall aria-label="Topic C - Two Sides of NYC"><span class="cp-tile-t">Topic C - Two Sides of NYC</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button class="cp-tile" data-lightbox="images/cp-topic-d.jpg" data-lightbox-tall aria-label="Topic D - NYC Survival Tips"><span class="cp-tile-t">Topic D - NYC Survival Tips</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button class="cp-tile" data-lightbox="images/cp-topic-e.jpg" data-lightbox-tall aria-label="Topic E - NYC Then and Now"><span class="cp-tile-t">Topic E - NYC Then and Now</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button class="cp-tile" data-lightbox="images/cp-topic-f.jpg" data-lightbox-tall aria-label="Topic F - If I Were Mayor of NYC"><span class="cp-tile-t">Topic F - If I Were Mayor of NYC</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button class="cp-tile" data-lightbox="images/cp-topic-g.jpg" data-lightbox-tall aria-label="Topic G - NYC Food Guide"><span class="cp-tile-t">Topic G - NYC Food Guide</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button class="cp-tile" data-lightbox="images/cp-topic-h.jpg" data-lightbox-tall aria-label="Topic H - Sports in NYC"><span class="cp-tile-t">Topic H - Sports in NYC</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button class="cp-tile" data-lightbox="images/cp-topic-i.jpg" data-lightbox-tall aria-label="Topic I - Two Cities, One Skyline: Manhattan vs. Brooklyn"><span class="cp-tile-t">Topic I - Two Cities, One Skyline: Manhattan vs. Brooklyn</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button class="cp-tile" data-lightbox="images/cp-topic-j.jpg" data-lightbox-tall aria-label="Topic J - A Letter to a Friend Back Home"><span class="cp-tile-t">Topic J - A Letter to a Friend Back Home</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button class="cp-tile" data-lightbox="images/cp-topic-k.jpg" data-lightbox-tall aria-label="Topic K - Free Choice"><span class="cp-tile-t">Topic K - Free Choice</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
       </div>
     </section>
   </div>
@@ -4004,6 +4015,8 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
       lightboxImg.src = el.getAttribute('data-lightbox');
       lightboxImg.alt = el.querySelector('img') ? el.querySelector('img').alt : '';
       lightbox.classList.toggle('landscape', el.hasAttribute('data-lightbox-wide'));
+      lightbox.classList.toggle('tall', el.hasAttribute('data-lightbox-tall'));
+      lightbox.scrollTop = 0;
       lightbox.classList.add('open');
     });
   });
