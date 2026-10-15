@@ -305,7 +305,14 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
 #site-de .send-status[hidden]{display:none;}
 #site-de footer{padding-block:24px; text-align:center; color:var(--text-muted); font-size:.82rem;}
 
-/* ===== Englisch (NYC Survival) ===== */
+/* ===== Englisch ===== */
+.nd-list{list-style:none;margin:0 auto;padding:0 0 0 22px;max-width:640px;border-left:3px solid var(--teal);display:grid;gap:14px}
+.nd-item{position:relative;background:#fff;border:1px solid rgba(0,150,124,.25);border-radius:14px;padding:14px 18px;display:grid;gap:2px}
+.nd-item::before{content:"";position:absolute;left:-31px;top:20px;width:12px;height:12px;border-radius:50%;background:var(--teal)}
+.nd-date{font-size:.85rem;color:var(--teal);font-weight:600}
+.nd-item b{font-size:1.1rem}
+.nd-sub{opacity:.8}
+
 #site-en, #site-en *{box-sizing:border-box;}
 #site-en{
     background:var(--bg);
@@ -1250,7 +1257,7 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
     <div class="subject-grid">
       <button class="subject-tile" id="goEN" type="button">
         <img class="kachel-img" src="img/kachel-englisch.png" alt="">
-        <span class="hub-txt"><b>Englisch</b><span>NYC Survival &ndash; Aufgaben, Klassenarbeiten, Chapters, Exercises</span></span>
+        <span class="hub-txt"><b>Englisch</b><span>Across the USA &ndash; Aufgaben, Klassenarbeiten, Chapters, Exercises</span></span>
       </button>
       <button class="subject-tile" id="goDE" type="button">
         <img class="kachel-img" src="img/kachel-deutsch.png" alt="">
@@ -2167,10 +2174,9 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
     <section>
       <div class="section-head">
         <div class="eyebrow">English</div>
-        <h2>NYC Survival</h2>
-        <p>Everything for the NYC Survival Guide unit in one place. Choose an area &ndash; it grows with every lesson.</p>
+        <h2>Across the USA</h2>
       </div>
-      <div class="hub-grid"><button class="hub-tile" data-goto="aufgaben"><span class="hub-ico"><img src="images/tile-aufgaben.png" alt=""></span><span class="hub-txt"><b>Your current tasks</b><span>What's currently due</span></span></button><button class="hub-tile" data-goto="klassenarbeiten"><span class="hub-ico"><img src="images/tile-klassenarbeiten.png" alt=""></span><span class="hub-txt"><b>Klassenarbeiten</b><span>Complex Performance and the dates of your tests</span></span></button><button class="hub-tile" data-goto="chapters"><span class="hub-ico"><img src="images/tile-guide.png" alt=""></span><span class="hub-txt"><b>Chapters</b><span>The story “Trapped”</span></span></button><button class="hub-tile" data-goto="exercises"><span class="hub-ico"><img src="images/tile-uebungen.png" alt=""></span><span class="hub-txt"><b>Exercises</b><span>Tenses, vocabulary trainer, dictionary and the escape room</span></span></button></div>
+      <div class="hub-grid"><button class="hub-tile" data-goto="nextdates"><span class="hub-ico"><img src="images/tile-nextdates.png" alt=""></span><span class="hub-txt"><b>Our next dates</b><span>The next weeks at a glance</span></span></button><button class="hub-tile" data-goto="aufgaben"><span class="hub-ico"><img src="images/tile-aufgaben.png" alt=""></span><span class="hub-txt"><b>Your current tasks</b><span>What's currently due</span></span></button><button class="hub-tile" data-goto="klassenarbeiten"><span class="hub-ico"><img src="images/tile-klassenarbeiten.png" alt=""></span><span class="hub-txt"><b>Klassenarbeiten</b><span>Complex Performance and the dates of your tests</span></span></button><button class="hub-tile" data-goto="chapters"><span class="hub-ico"><img src="images/tile-guide.png" alt=""></span><span class="hub-txt"><b>Chapters</b><span>The story “Trapped”</span></span></button><button class="hub-tile" data-goto="exercises"><span class="hub-ico"><img src="images/tile-uebungen.png" alt=""></span><span class="hub-txt"><b>Exercises</b><span>Tenses, vocabulary trainer, dictionary and the escape room</span></span></button></div>
     </section>
   </div>
   <div class="panel" id="epanel-klassenarbeiten">
@@ -2204,6 +2210,16 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
         <p>Practise whenever you like.</p>
       </div>
       <div class="hub-grid"><button class="hub-tile" data-goto="tenses"><span class="hub-ico"><img src="images/tile-tenses.png" alt=""></span><span class="hub-txt"><b>Tenses</b><span>Practise Simple Present, Simple Past, will and would</span></span></button><button class="hub-tile" data-goto="vokabeln"><span class="hub-ico"><img src="images/tile-vokabeln.png" alt=""></span><span class="hub-txt"><b>Vocabulary Trainer New York City</b><span>Flashcards & quiz for the guide vocabulary</span></span></button><button class="hub-tile" data-goto="searchwords"><span class="hub-ico"><img src="images/tile-searchwords.png" alt=""></span><span class="hub-txt"><b>Searching for words</b><span>A dictionary for when you don't know a word</span></span></button><button class="hub-tile" data-goto="escaperooms"><span class="hub-ico"><img src="images/tile-escaperooms.png" alt=""></span><span class="hub-txt"><b>Escape Rooms</b><span>Practise in a game – can you find your way out?</span></span></button></div>
+    </section>
+  </div>
+  <div class="panel" id="epanel-nextdates">
+    <section>
+      <div class="section-head">
+        <div class="eyebrow">Overview</div>
+        <h2>Our next dates</h2>
+        <p>The next weeks at a glance.</p>
+      </div>
+      <ol class="nd-list"><li class="nd-item"><span class="nd-date">Monday, 26 October 2026</span><b>Pedagogical Day</b><span class="nd-sub">Read “Trapped” and do the exercises</span></li><li class="nd-item"><span class="nd-date">Tuesday, 27 October 2026</span><b>Complex Performance I</b><span class="nd-sub">Find your topic and your group, start working</span></li><li class="nd-item"><span class="nd-date">Monday, 2 November 2026</span><b>Complex Performance II</b><span class="nd-sub">Finish your work</span></li><li class="nd-item"><span class="nd-date">Tuesday, 3 November 2026</span><b>Presentations I</b></li><li class="nd-item"><span class="nd-date">Monday, 9 November 2026</span><b>Presentations II</b></li><li class="nd-item"><span class="nd-date">Tuesday, 10 November 2026</span><b>Next Chapter</b></li></ol>
     </section>
   </div>
   <div class="panel" id="epanel-aufgaben">
@@ -2965,7 +2981,7 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
   "use strict";
   var $=function(id){return document.getElementById(id);};
   var home=$("view-home"), de=$("site-de"), en=$("site-en"), back=$("backBtn"), backLabel=$("backLabel");
-  var EN_PARENT={aufgaben:"start",klassenarbeiten:"start",chapters:"start",exercises:"start",
+  var EN_PARENT={nextdates:"start",aufgaben:"start",klassenarbeiten:"start",chapters:"start",exercises:"start",
     leistung:"klassenarbeiten",notebook:"klassenarbeiten",termine:"klassenarbeiten",
     guide:"chapters",trapped:"chapters",
     tenses:"exercises",audios:"exercises",vokabeln:"exercises",searchwords:"exercises",escaperooms:"exercises",escaperoom:"escaperooms"};
