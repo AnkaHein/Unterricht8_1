@@ -2152,7 +2152,6 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
   <section class="panel" id="dpanel-aufgaben" role="tabpanel" hidden>
     <span class="eyebrow">Wochenplan</span>
     <h2>Aktuelle Aufgaben</h2>
-    <p class="lede">Stand: 08.10.2026</p>
 
     <div class="card">
       <h3 style="font-size:1.1rem;">Pädagogischer Tag, 26.10.2026</h3>
@@ -2165,12 +2164,13 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
     </div>
 
     <div class="card" style="margin-top:20px;">
-      <h3 style="font-size:1.1rem;">Ablaufplan komplexe Leistung</h3>
-      <p class="muted" style="font-size:.9rem; margin-top:6px;">Alle Termine von der Themenwahl bis zu den Präsentationen auf einen Blick.</p>
-      <button class="reveal-btn" id="ablaufplan-toggle" style="margin-top:10px;">Ablaufplan anzeigen</button>
-      <div id="ablaufplan-img" hidden style="margin-top:12px;">
-        <img class="worksheet-img" src="assets/23c940546d.jpg" alt="Ablaufplan komplexe Leistung: Showtime! – Zeitstrahl mit allen Terminen von der Produktwahl bis zu den Präsentationen">
-      </div>
+      <img class="worksheet-img" src="assets/ablaufplan-kl-deutsch.jpg" alt="Ablaufplan komplexe Leistung Deutsch: Newsroom 8 – Zeitstrahl vom 26.10. bis 12.11.">
+      <ul style="margin:16px 0 0; padding-left:1.2em; line-height:1.6; font-size:.98rem;">
+        <li><strong>Recherche und Material sammeln</strong> (Fotos machen, Interviews führen, im Internet recherchieren, Quellen mit Ampelsystem prüfen)</li>
+        <li><strong>Schreibwerkstatt</strong> (Rohtexte verfassen auf Papier oder direkt am Rechner)</li>
+        <li><strong>Feinschliff und Layout</strong> (Reinschrift tippen, Produkt gestalten, fertigstellen, Layout, Bild, Infokasten, QR-Code vorbereiten)</li>
+        <li><strong>Präsentationen</strong> (Bewertungsraster beachten)</li>
+      </ul>
     </div>
   </section>
     </div>
@@ -2989,7 +2989,7 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
   </div>
 </main>
 
-<footer class="foot">Klasse 8.1 &middot; Evangelisches Schulzentrum Bad D&uuml;ben &middot; wird laufend erg&auml;nzt</footer>
+<footer class="foot">Klasse 8.1 &middot; Evangelisches Schulzentrum Bad D&uuml;ben &middot; wird laufend erg&auml;nzt<span style="display:block;text-align:right;margin-top:6px;font-size:12px;">Stand: 15.10.2026</span></footer>
 
 <script>
 (function(){
@@ -3963,7 +3963,6 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
   wireDocToggle("km-dossier-bewertung-toggle", "km-dossier-bewertung-img", "Bewertungsbogen (Teil A)");
   wireDocToggle("km-wandzeitung-bewertung-toggle", "km-wandzeitung-bewertung-img", "Bewertungsbogen (Teil A)");
   wireDocToggle("km-praesentation-toggle", "km-praesentation-img", "Bewertungsbogen");
-  wireDocToggle("ablaufplan-toggle", "ablaufplan-img", "Ablaufplan");
 
   // ---------- Arbeitsblatt-Downloads (downloads capability) ----------
   (function initAbDownloads(){
