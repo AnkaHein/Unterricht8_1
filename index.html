@@ -66,7 +66,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .brand .app-ico{width:72px;height:72px;border-radius:18px;object-fit:cover;box-shadow:0 4px 14px rgba(0,80,80,.22);background:#fff;margin-bottom:6px}
 .brand b{font-family:var(--display);font-weight:700;font-size:clamp(30px,6vw,40px);line-height:1.1;color:var(--hd-ink);text-shadow:0 0 14px rgba(255,255,255,.9),0 0 4px rgba(255,255,255,.8)}
 .brand small{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--hd-ink2);font-weight:700;margin-top:4px;text-shadow:0 0 10px rgba(255,255,255,.95),0 0 3px rgba(255,255,255,.9)}
-.back{background:none;border:0;color:var(--muted);padding:4px 0;font-size:15px;cursor:pointer;display:inline-flex;gap:6px;align-items:center;margin-bottom:10px}
+.back{background:none;border:0;color:var(--muted);padding:4px 0;font-size:15px;cursor:pointer;display:inline-flex;gap:6px;align-items:center;margin-bottom:22px}
 .back:hover{color:var(--teal-deep)}
 .back[hidden]{display:none}
 
@@ -457,8 +457,8 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
 #site-en .section-head{margin-bottom:20px;max-width:70ch;}
 #site-en .section-head h2{font-size:clamp(1.7rem,4vw,2.3rem);margin:.15em 0;}
 #site-en .section-head p{color:var(--ink-soft);font-size:1rem;}
-#site-en #epanel-start{margin-top:-40px;}
-#site-en #epanel-start > .wrap{padding-top:36px;}
+#site-en #epanel-start{margin-top:0;}
+#site-en #epanel-start > .wrap{padding-top:8px;}
 #site-en /* Start tiles */
   .start-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;}
 @media (max-width:420px){#site-en .start-tiles{grid-template-columns:1fr;}
@@ -655,7 +655,7 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
     font-family:var(--font-body);
   }
 #site-en .help-page-btn .hp-badge{
-    font-family:var(--display);font-size:1rem;letter-spacing:.02em;color:#fff;background:var(--brick);
+    font-family:var(--display);font-size:1rem;letter-spacing:.02em;color:var(--on-teal);background:var(--teal);
     padding:4px 12px;border-radius:999px;flex:none;white-space:nowrap;
   }
 #site-en .help-page-btn .hp-title{flex:1;font-weight:800;font-size:.98rem;color:var(--ink);}
@@ -2145,11 +2145,11 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
   <div class="panel active" id="epanel-start">
     <section>
       <div class="section-head">
-        <div class="eyebrow">English &middot; Chapter 1</div>
+        <div class="eyebrow">English</div>
         <h2>NYC Survival</h2>
         <p>Everything for the NYC Survival Guide unit in one place. Choose an area &ndash; it grows with every lesson.</p>
       </div>
-      <div class="hub-grid"><button class="hub-tile" data-goto="aufgaben"><span class="hub-ico"><img src="images/tile-aufgaben.png" alt=""></span><span class="hub-txt"><b>Your current tasks</b><span>What's currently due</span></span></button><button class="hub-tile" data-goto="klassenarbeiten"><span class="hub-ico"><img src="images/tile-klassenarbeiten.png" alt=""></span><span class="hub-txt"><b>Klassenarbeiten</b><span>Complex Performance, Magazine Notebook and the dates of your tests</span></span></button><button class="hub-tile" data-goto="chapters"><span class="hub-ico"><img src="images/tile-guide.png" alt=""></span><span class="hub-txt"><b>Chapters</b><span>The Survival Guide and the story “Trapped”</span></span></button><button class="hub-tile" data-goto="exercises"><span class="hub-ico"><img src="images/tile-uebungen.png" alt=""></span><span class="hub-txt"><b>Exercises</b><span>Tenses, audios, vocabulary trainer, dictionary and the escape room</span></span></button></div>
+      <div class="hub-grid"><button class="hub-tile" data-goto="aufgaben"><span class="hub-ico"><img src="images/tile-aufgaben.png" alt=""></span><span class="hub-txt"><b>Your current tasks</b><span>What's currently due</span></span></button><button class="hub-tile" data-goto="klassenarbeiten"><span class="hub-ico"><img src="images/tile-klassenarbeiten.png" alt=""></span><span class="hub-txt"><b>Klassenarbeiten</b><span>Complex Performance and the dates of your tests</span></span></button><button class="hub-tile" data-goto="chapters"><span class="hub-ico"><img src="images/tile-guide.png" alt=""></span><span class="hub-txt"><b>Chapters</b><span>The story “Trapped”</span></span></button><button class="hub-tile" data-goto="exercises"><span class="hub-ico"><img src="images/tile-uebungen.png" alt=""></span><span class="hub-txt"><b>Exercises</b><span>Tenses, vocabulary trainer, dictionary and the escape room</span></span></button></div>
     </section>
   </div>
   <div class="panel" id="epanel-klassenarbeiten">
@@ -2159,7 +2159,7 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
         <h2>Klassenarbeiten</h2>
         <p>Everything about your tests and the complex performance.</p>
       </div>
-      <div class="hub-grid"><button class="hub-tile" data-goto="leistung"><span class="hub-ico"><img src="images/tile-leistung.png" alt=""></span><span class="hub-txt"><b>Complex Performance</b><span>What, when & how it's graded</span></span></button><button class="hub-tile" data-goto="notebook"><span class="hub-ico"><img src="images/tile-notebook.png" alt=""></span><span class="hub-txt"><b>Magazine Notebook</b><span>Your notebook: worksheets, notes & tasks</span></span></button><button class="hub-tile" data-goto="termine"><span class="hub-ico"><img src="images/tile-klassenarbeiten.png" alt=""></span><span class="hub-txt"><b>Dates for Klassenarbeiten</b><span>All the dates of your written tests</span></span></button></div>
+      <div class="hub-grid"><button class="hub-tile" data-goto="leistung"><span class="hub-ico"><img src="images/tile-leistung.png" alt=""></span><span class="hub-txt"><b>Complex Performance</b><span>What, when & how it's graded</span></span></button><button class="hub-tile" data-goto="termine"><span class="hub-ico"><img src="images/tile-klassenarbeiten.png" alt=""></span><span class="hub-txt"><b>Dates for Klassenarbeiten</b><span>All the dates of your written tests</span></span></button></div>
     </section>
   </div>
   <div class="panel" id="epanel-chapters">
@@ -2167,9 +2167,9 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
       <div class="section-head">
         <div class="eyebrow">English</div>
         <h2>Chapters</h2>
-        <p>The units of your Survival Guide.</p>
+        <p>The chapters of your English book.</p>
       </div>
-      <div class="hub-grid"><button class="hub-tile" data-goto="guide"><span class="hub-ico"><img src="images/tile-guide.png" alt=""></span><span class="hub-txt"><b>Survival Guide</b><span>The complete guide booklet to download</span></span></button><button class="hub-tile" data-goto="trapped"><span class="hub-ico"><img src="images/tile-trapped.png" alt=""></span><span class="hub-txt"><b>Trapped</b><span>Ricky & Lance – the story continues</span></span></button></div>
+      <div class="hub-grid"><button class="hub-tile" data-goto="trapped"><span class="hub-ico"><img src="images/tile-trapped.png" alt=""></span><span class="hub-txt"><b>Trapped</b><span>Ricky & Lance – the story continues</span></span></button></div>
     </section>
   </div>
   <div class="panel" id="epanel-exercises">
@@ -2179,7 +2179,7 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
         <h2>Exercises</h2>
         <p>Practise whenever you like.</p>
       </div>
-      <div class="hub-grid"><button class="hub-tile" data-goto="tenses"><span class="hub-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span><span class="hub-txt"><b>Tenses</b><span>Practise Simple Present, Simple Past, will and would</span></span></button><button class="hub-tile" data-goto="audios"><span class="hub-ico"><img src="images/tile-audios.png" alt=""></span><span class="hub-txt"><b>Audios</b><span>Audio examples for the guide</span></span></button><button class="hub-tile" data-goto="vokabeln"><span class="hub-ico"><img src="images/tile-vokabeln.png" alt=""></span><span class="hub-txt"><b>Vocabulary trainer</b><span>Flashcards & quiz for the guide vocabulary</span></span></button><button class="hub-tile" data-goto="searchwords"><span class="hub-ico"><img src="images/tile-searchwords.png" alt=""></span><span class="hub-txt"><b>Searching for words</b><span>A dictionary for when you don't know a word</span></span></button><button class="hub-tile" data-goto="escaperoom"><span class="hub-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><span class="hub-txt"><b>Locked In: The Study Night</b><span>Escape room – practise for your test</span></span></button></div>
+      <div class="hub-grid"><button class="hub-tile" data-goto="tenses"><span class="hub-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span><span class="hub-txt"><b>Tenses</b><span>Practise Simple Present, Simple Past, will and would</span></span></button><button class="hub-tile" data-goto="vokabeln"><span class="hub-ico"><img src="images/tile-vokabeln.png" alt=""></span><span class="hub-txt"><b>Vocabulary Trainer New York City</b><span>Flashcards & quiz for the guide vocabulary</span></span></button><button class="hub-tile" data-goto="searchwords"><span class="hub-ico"><img src="images/tile-searchwords.png" alt=""></span><span class="hub-txt"><b>Searching for words</b><span>A dictionary for when you don't know a word</span></span></button><button class="hub-tile" data-goto="escaperoom"><span class="hub-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><span class="hub-txt"><b>Locked In: The Study Night</b><span>Escape room – practise for your test</span></span></button></div>
     </section>
   </div>
   <div class="panel" id="epanel-aufgaben">
@@ -2207,6 +2207,23 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
             </ul>
           </div>
           <span class="task-due">P&auml;dagogischer Tag, 26th October 2026</span>
+        </div>
+        <div class="task-card" id="task-card-oct27">
+          <div class="t-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m5 13 4 4L19 7"/></svg>
+          </div>
+          <div class="t-meta">
+            <h3>Your tasks for this day</h3>
+            <ul class="task-checklist">
+              <li>
+                <label><input type="checkbox"><span>Complex Performance English</span></label>
+                <button class="task-link-btn" data-goto="leistung">Complex Performance
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </button>
+              </li>
+            </ul>
+          </div>
+          <span class="task-due">Tuesday, 27th October 2026</span>
         </div>
       </div>
     </section>
@@ -2592,37 +2609,14 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
       </div>
 
       <div class="audio-list" id="audio-list">
-        <div class="audio-card">
-          <div class="a-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18V6l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="17" r="3"/></svg>
-          </div>
-          <div class="a-meta">
-            <span class="a-page">Guide page 5</span>
-            <h3>New York City Facts</h3>
-          </div>
-          <audio controls preload="none" src="files/audio-nyc-city-facts.mp3">
-            Your browser can't play this audio.
-          </audio>
-        </div>
-        <div class="audio-card">
-          <div class="a-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18V6l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="17" r="3"/></svg>
-          </div>
-          <div class="a-meta">
-            <span class="a-page">Guide page 8</span>
-            <h3>A Brooklyn Blog</h3>
-          </div>
-          <audio controls preload="none" src="files/audio-a-brooklyn-blog.mp3">
-            Your browser can't play this audio.
-          </audio>
-        </div>
+        <div class="audio-empty">New audios will be added here soon.</div>
       </div>
     </section>
   </div>
   <div class="panel" id="epanel-vokabeln">
     <section>
       <div class="section-head">
-        <h2>Vocabulary trainer</h2>
+        <h2>Vocabulary Trainer New York City</h2>
         <p>The vocabulary from the last guide pages (p. 23–26) – to practise together in class or on your own.</p>
       </div>
       <p class="vt-note">Flashcards for revising, quiz for testing each other – e.g. on the projector, one question at a time.</p>
