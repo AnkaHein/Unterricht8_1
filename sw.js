@@ -1,6 +1,6 @@
 // Service Worker 8.1 ESZ: Seite funktioniert nach dem ersten Besuch auch offline.
 // Bei Aenderungen an der Seite VERSION hochzaehlen.
-const VERSION = 'v6';
+const VERSION = 'v7';
 const CACHE = '81-esz-' + VERSION;
 const CORE = ['./', 'index.html'];
 
