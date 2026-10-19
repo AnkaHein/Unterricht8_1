@@ -1240,6 +1240,54 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
 #site-en .lightbox-close{background:var(--card);color:var(--ink)}
 @media (max-width:600px){#site-de .wrap,#site-en .wrap{overflow-wrap:anywhere}}
 
+/* ===== Hall Pass · 1st Lesson ===== */
+#site-en .hp1 .hp-steps{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+#site-en .hp1 .hp-step,#site-en .hp1 .hp-mode{font:inherit;font-weight:800;font-size:.9rem;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-radius:999px;padding:8px 16px;cursor:pointer}
+#site-en .hp1 .hp-step.active,#site-en .hp1 .hp-mode.active{background:var(--teal);border-color:var(--teal);color:var(--on-teal)}
+#site-en .hp1 .hp-lead{color:var(--ink-soft);margin:0 0 16px}
+#site-en .hp1 .hp-cap{font-weight:800;font-size:1.1rem;margin:12px 0}
+#site-en .hp1 .hp-imgwrap{position:relative;margin:0 auto;border-radius:18px;overflow:hidden;background:#fff;box-shadow:var(--shadow)}
+#site-en .hp1 .hp-imgwrap img{display:block;width:100%;height:auto}
+#site-en .hp1 .hp-narrow{max-width:460px}
+#site-en .hp1 .hp-scene{max-width:640px}
+#site-en .hp1 .hp-btn{font:inherit;font-weight:800;background:var(--surface);color:var(--ink);border:2px solid var(--teal);border-radius:12px;padding:10px 18px;cursor:pointer;margin-top:14px}
+#site-en .hp1 .hp-btn.primary{background:var(--teal);color:var(--on-teal)}
+#site-en .hp1 .hp-spot{position:absolute;background:transparent;border:0;padding:0;cursor:pointer;border-radius:12px}
+#site-en .hp1 .hp-spot i{position:absolute;left:50%;top:50%;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:rgba(0,99,100,.85);border:3px solid #fff;box-shadow:0 0 0 0 rgba(0,99,100,.5);animation:hpPulse 2s infinite}
+#site-en .hp1 .hp-spot:hover,#site-en .hp1 .hp-spot:focus-visible,#site-en .hp1 .hp-spot.on{outline:3px solid var(--teal);outline-offset:-3px;background:rgba(0,99,100,.12)}
+@keyframes hpPulse{0%{box-shadow:0 0 0 0 rgba(0,99,100,.5)}70%{box-shadow:0 0 0 14px rgba(0,99,100,0)}100%{box-shadow:0 0 0 0 rgba(0,99,100,0)}}
+@media (prefers-reduced-motion:reduce){#site-en .hp1 .hp-spot i{animation:none}}
+#site-en .hp1 .hp-pop{max-width:640px;margin:14px auto 0;min-height:64px;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:14px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+#site-en .hp1 .hp-pop-hint{color:var(--ink-soft)}
+#site-en .hp1 .hp-pop b{font-family:var(--font-body);font-size:1.5rem;color:var(--teal-deep)}
+#site-en .hp1 .hp-pop .de{font-size:1.2rem;font-weight:700}
+#site-en .hp1 .hp-say{font:inherit;font-weight:700;background:var(--teal-soft);color:var(--teal-deep);border:0;border-radius:10px;padding:6px 12px;cursor:pointer}
+#site-en .hp1 .hp-tips{margin:0;padding-left:1.4em;display:grid;gap:12px;font-size:1.2rem;font-weight:700}
+#site-en .hp1 .hp-q{text-align:center;font-family:var(--display);font-size:1.6rem;font-weight:700;color:var(--teal-deep);margin:20px 0 0}
+#site-en .hp1 .hp-modes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+#site-en .hp1 .hp-table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+#site-en .hp1 .hp-table th{background:var(--teal-soft);text-align:left;padding:10px 12px;font-size:.85rem}
+#site-en .hp1 .hp-table td{padding:10px 12px;border-top:1px solid var(--line);vertical-align:top}
+#site-en .hp1 .hp-table td:first-child{font-weight:800;white-space:nowrap}
+#site-en .hp1 .hp-table .ex{color:var(--ink-soft);font-style:italic;font-size:.92rem}
+@media (max-width:620px){#site-en .hp1 .hp-table .ex{display:none}}
+#site-en .hp1 .hp-quiz{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:22px}
+#site-en .hp1 .hp-prog{display:flex;justify-content:space-between;font-weight:700;font-size:.85rem;color:var(--ink-soft);margin-bottom:12px}
+#site-en .hp1 .hp-qbox{background:var(--teal-soft);border:2px solid var(--teal);border-radius:14px;padding:22px 18px;text-align:center;margin-bottom:14px}
+#site-en .hp1 .hp-qbox .sub{font-size:.85rem;color:var(--ink-soft);margin-bottom:6px}
+#site-en .hp1 .hp-qbox .word{font-size:1.45rem;font-weight:800}
+#site-en .hp1 .hp-gap{display:inline-block;min-width:4.5em;border-bottom:3px solid var(--teal);margin:0 4px}
+#site-en .hp1 .hp-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:520px){#site-en .hp1 .hp-opts{grid-template-columns:1fr}}
+#site-en .hp1 .hp-opt{font:inherit;font-weight:700;font-size:1.05rem;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-radius:12px;padding:14px;cursor:pointer;text-align:center}
+#site-en .hp1 .hp-opt:hover{border-color:var(--teal)}
+#site-en .hp1 .hp-opt.correct{background:var(--good-bg);border-color:var(--good);color:var(--good)}
+#site-en .hp1 .hp-opt.wrong{background:var(--bad-bg);border-color:var(--bad);color:var(--bad)}
+#site-en .hp1 .hp-opt.dis{pointer-events:none}
+#site-en .hp1 .hp-fb{min-height:1.6em;margin-top:12px;font-weight:700}
+#site-en .hp1 .hp-res{text-align:center}
+#site-en .hp1 .hp-res .big{font-size:2.2rem;font-weight:800;color:var(--teal-deep)}
+#site-en .hp1 .hp-res ul{text-align:left;max-width:360px;margin:12px auto;padding-left:1.2em}
 </style>
 
 <header class="top">
@@ -2207,7 +2255,90 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
       <h3 class="hub-sub">NYC</h3>
       <div class="hub-grid"><button class="hub-tile" data-goto="trapped"><span class="hub-ico"><img src="images/tile-trapped.png" alt=""></span><span class="hub-txt"><b>Trapped</b><span>Ricky & Lance – the story continues</span></span></button></div>
       <h3 class="hub-sub">Hall Pass</h3>
-      <p class="hub-soon">Coming soon</p>
+      <div class="hub-grid"><button class="hub-tile" data-goto="hp1"><span class="hub-ico"><img src="images/tile-hp1.png" alt=""></span><span class="hub-txt"><b>1st Lesson</b><span>Listening: Hannah's first message from Boston</span></span></button></div>
+    </section>
+  </div>
+  <div class="panel" id="epanel-hp1">
+    <section class="hp1">
+      <div class="section-head">
+        <div class="eyebrow">Hall Pass</div>
+        <h2>1st Lesson · Listening</h2>
+        <p>Hannah is writing from Boston. Can you understand her?</p>
+      </div>
+
+      <div class="hp-steps" role="tablist" aria-label="1st Lesson">
+        <button class="hp-step active" type="button" role="tab" data-hp="intro">Start</button>
+        <button class="hp-step" type="button" role="tab" data-hp="listen">Listening</button>
+        <button class="hp-step" type="button" role="tab" data-hp="words">Vocabulary</button>
+        <button class="hp-step" type="button" role="tab" data-hp="tips">Listening Tips</button>
+        <button class="hp-step" type="button" role="tab" data-hp="outlook">Outlook</button>
+      </div>
+
+      <div class="hp-sec" data-hp-sec="intro">
+        <div class="hp-stage" id="hpStageA">
+          <div class="hp-imgwrap hp-narrow"><img src="images/hp1-hallpass.jpg" alt="A hall pass on a clipboard"></div>
+          <p class="hp-cap">What do you see?</p>
+          <button class="hp-btn primary" type="button" id="hpToHall">Next: In the hallway &rarr;</button>
+        </div>
+        <div class="hp-stage" id="hpStageB" hidden>
+          <p class="hp-cap">Click the things in the picture to learn the words.</p>
+          <div class="hp-imgwrap hp-scene" id="hpScene">
+            <img src="images/hp1-hallway.jpg" alt="Hannah and Tyler in a school hallway">
+            <button class="hp-spot" type="button" data-w="lion" style="left:81%;top:5%;width:13%;height:23%" aria-label="lion"><i></i></button>
+            <button class="hp-spot" type="button" data-w="locker" style="left:0%;top:10%;width:22%;height:70%" aria-label="locker"><i></i></button>
+            <button class="hp-spot" type="button" data-w="hallway" style="left:31%;top:17%;width:21%;height:24%" aria-label="hallway"><i></i></button>
+            <button class="hp-spot" type="button" data-w="library" style="left:72%;top:24%;width:14%;height:28%" aria-label="library"><i></i></button>
+            <button class="hp-spot" type="button" data-w="elevator" style="left:88%;top:30%;width:12%;height:42%" aria-label="elevator"><i></i></button>
+            <button class="hp-spot" type="button" data-w="photographer" style="left:63%;top:42%;width:15%;height:14%" aria-label="photographer"><i></i></button>
+            <button class="hp-spot" type="button" data-w="get lost" style="left:20%;top:50%;width:27%;height:15%" aria-label="get lost"><i></i></button>
+          </div>
+          <div class="hp-pop" id="hpPop" aria-live="polite"><span class="hp-pop-hint">Tap a dot.</span></div>
+          <button class="hp-btn" type="button" id="hpToPass">&larr; Back to the hall pass</button>
+        </div>
+      </div>
+
+      <div class="hp-sec" data-hp-sec="listen" hidden>
+        <p class="hp-lead">Listen and do the tasks on your worksheet. You will hear Hannah&rsquo;s message twice.</p>
+        <div class="audio-list">
+          <div class="audio-card">
+            <div class="a-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 14v-2a9 9 0 0 1 18 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg></div>
+            <div class="a-meta"><div class="a-page">Task A &amp; B</div><h3>Hannah&rsquo;s voice message</h3></div>
+            <audio controls preload="none" src="files/hp-1-hannah.mp3"></audio>
+          </div>
+          <div class="audio-card">
+            <div class="a-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 14v-2a9 9 0 0 1 18 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg></div>
+            <div class="a-meta"><div class="a-page">Task D</div><h3>Tyler&rsquo;s voice note</h3></div>
+            <audio controls preload="none" src="files/hp-1-tyler.mp3"></audio>
+          </div>
+        </div>
+      </div>
+
+      <div class="hp-sec" data-hp-sec="words" hidden>
+        <p class="hp-lead">15 new words. Learn them in the list, then test yourself.</p>
+        <div class="hp-modes" id="hpModes">
+          <button class="hp-mode active" type="button" data-mode="list">Word list</button>
+          <button class="hp-mode" type="button" data-mode="de2en">German &rarr; English</button>
+          <button class="hp-mode" type="button" data-mode="spell">Spelling</button>
+          <button class="hp-mode" type="button" data-mode="expl">Explanations</button>
+        </div>
+        <div id="hpTrainer"></div>
+      </div>
+
+      <div class="hp-sec" data-hp-sec="tips" hidden>
+        <p class="hp-lead">How to understand a listening text.</p>
+        <ol class="hp-tips">
+          <li>Read the task first.</li>
+          <li>Listen for numbers, names and places.</li>
+          <li>You don&rsquo;t need every word.</li>
+          <li>Take notes with key words, not full sentences.</li>
+          <li>Listen twice: first the big picture, then the details.</li>
+        </ol>
+      </div>
+
+      <div class="hp-sec" data-hp-sec="outlook" hidden>
+        <div class="hp-imgwrap hp-narrow"><img src="images/hp1-outlook.jpg" alt="A school handbook with a question mark"></div>
+        <p class="hp-q">What rules does a school like Boston West need?</p>
+      </div>
     </section>
   </div>
   <div class="panel" id="epanel-exercises">
@@ -2989,7 +3120,7 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
   </div>
 </main>
 
-<footer class="foot">Klasse 8.1 &middot; Evangelisches Schulzentrum Bad D&uuml;ben &middot; wird laufend erg&auml;nzt<span style="display:block;text-align:right;margin-top:6px;font-size:12px;">Stand: 15.10.2026</span></footer>
+<footer class="foot">Klasse 8.1 &middot; Evangelisches Schulzentrum Bad D&uuml;ben &middot; wird laufend erg&auml;nzt<span style="display:block;text-align:right;margin-top:6px;font-size:12px;">Stand: 19.10.2026</span></footer>
 
 <script>
 (function(){
@@ -5159,5 +5290,155 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
 })();
 </script>
 
+<script>
+(function(){
+  var root = document.getElementById('epanel-hp1');
+  if(!root) return;
+
+  /* ---- 15 words of the 1st lesson: {en, de, ex, ans, conf[3] (do not fit), sp[3] (misspellings)} ---- */
+  var HP1 = [
+    {en:"lion", de:"Löwe", ex:"A ... has a big mane and lives in Africa.", ans:"lion", conf:["elevator","library","anytime"], sp:["lyon","liyon","lione"]},
+    {en:"position", de:"Stelle, Position", ex:"The newspaper has a ... for a new writer.", ans:"position", conf:["locker","elevator","borrow"], sp:["posision","possition","posiztion"]},
+    {en:"available", de:"verfügbar, frei", ex:"There are two positions ... .", ans:"available", conf:["photographer","hallway","lion"], sp:["avaiable","availible","availabel"]},
+    {en:"photographer", de:"Fotograf/in", ex:"Tyler is the ... of the newspaper. He takes the photos.", ans:"photographer", conf:["library","elevator","grade"], sp:["fotographer","photografer","photographor"]},
+    {en:"anytime", de:"jederzeit", ex:"You can come ... this week.", ans:"anytime", conf:["locker","size","lion"], sp:["anytim","anitime","anytyme"]},
+    {en:"grade", de:"Klassenstufe", ex:"Hannah is in ninth ... .", ans:"grade", conf:["hallway","borrow","elevator"], sp:["grad","graid","grayde"]},
+    {en:"size", de:"Größe", ex:"The ... of the school is crazy: 1,700 students.", ans:"size", conf:["photographer","anytime","borrow"], sp:["sice","syze","sise"]},
+    {en:"hallway", de:"Flur, Gang", ex:"The ... is long and full of students.", ans:"hallway", conf:["photographer","borrow","anytime"], sp:["holway","hallwai","halway"]},
+    {en:"locker", de:"Spind", ex:"Her ... is on the second floor.", ans:"locker", conf:["size","anytime","photographer"], sp:["loker","lokker","lockar"]},
+    {en:"library", de:"Bücherei, Bibliothek", ex:"She wants to borrow a book from the ... .", ans:"library", conf:["grade","anytime","photographer"], sp:["libary","liberry","libarry"]},
+    {en:"elevator", de:"Fahrstuhl, Aufzug", ex:"The ... is only for students who need it.", ans:"elevator", conf:["lion","grade","borrow"], sp:["elevater","elavator","elevetor"]},
+    {en:"get lost", de:"sich verirren", ex:"Take a map, or you will ... in the big school.", ans:"get lost", conf:["library","locker","photographer"], sp:["get lose","get losst","get lowst"]},
+    {en:"anybody / anyone", de:"(irgend)jemand; verneint: niemand", ex:"She doesn't know ... at school.", ans:"anybody", conf:["lion","hallway","size"], sp:["enybody","anibody","anybodi"], spEn:"anybody"},
+    {en:"borrow", de:"(sich) ausleihen", ex:"Can I ... your pen? I will give it back.", ans:"borrow", conf:["elevator","grade","locker"], sp:["borow","borrou","borrrow"]},
+    {en:"be allowed to", de:"dürfen", ex:"You are not ... leave the classroom without a hall pass.", ans:"allowed to", conf:["lion","hallway","size"], sp:["be alowed to","be allowd to","be alloud to"]}
+  ];
+
+  function $(s, r){ return (r||root).querySelector(s); }
+  function $$(s, r){ return Array.prototype.slice.call((r||root).querySelectorAll(s)); }
+  function shuffle(a){ a = a.slice(); for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+  function say(t){ try{ if(!window.speechSynthesis) return; var u=new SpeechSynthesisUtterance(t); u.lang='en-US'; u.rate=.9; window.speechSynthesis.cancel(); window.speechSynthesis.speak(u);}catch(e){} }
+  function byEn(w){ for(var i=0;i<HP1.length;i++){ if(HP1[i].en===w) return HP1[i]; } return null; }
+
+  /* ---- section tabs ---- */
+  function showSec(name){
+    $$('.hp-step').forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-hp')===name); });
+    $$('.hp-sec').forEach(function(s){ s.hidden = s.getAttribute('data-hp-sec')!==name; });
+    if(name==='words') renderMode(curMode);
+  }
+  $$('.hp-step').forEach(function(b){ b.addEventListener('click', function(){ showSec(b.getAttribute('data-hp')); }); });
+
+  /* ---- intro: hall pass -> hallway hotspots ---- */
+  $('#hpToHall').addEventListener('click', function(){ $('#hpStageA').hidden = true; $('#hpStageB').hidden = false; });
+  $('#hpToPass').addEventListener('click', function(){ $('#hpStageB').hidden = true; $('#hpStageA').hidden = false; });
+  $$('.hp-spot').forEach(function(sp){
+    sp.addEventListener('click', function(){
+      var w = byEn(sp.getAttribute('data-w')); if(!w) return;
+      $$('.hp-spot').forEach(function(o){ o.classList.remove('on'); }); sp.classList.add('on');
+      var pop = $('#hpPop'); pop.innerHTML = '';
+      var b = document.createElement('b'); b.textContent = w.en;
+      var eq = document.createElement('span'); eq.textContent = '=';
+      var de = document.createElement('span'); de.className = 'de'; de.textContent = w.de;
+      var bt = document.createElement('button'); bt.type='button'; bt.className='hp-say'; bt.textContent='▶ listen';
+      bt.addEventListener('click', function(){ say(w.en); });
+      pop.appendChild(b); pop.appendChild(eq); pop.appendChild(de); pop.appendChild(bt);
+      say(w.en);
+    });
+  });
+
+  /* ---- vocabulary: list + 3 quiz modes ---- */
+  var curMode = 'list';
+  var box = $('#hpTrainer');
+
+  function renderList(){
+    var t = document.createElement('table'); t.className = 'hp-table';
+    t.innerHTML = '<thead><tr><th>English</th><th>Deutsch</th><th class="ex">Example</th></tr></thead>';
+    var tb = document.createElement('tbody');
+    HP1.forEach(function(w){
+      var tr = document.createElement('tr');
+      var a = document.createElement('td'); a.textContent = w.en;
+      var b = document.createElement('td'); b.textContent = w.de;
+      var c = document.createElement('td'); c.className = 'ex'; c.textContent = w.ex.replace('...', '____');
+      tr.appendChild(a); tr.appendChild(b); tr.appendChild(c); tb.appendChild(tr);
+    });
+    t.appendChild(tb); box.innerHTML = ''; box.appendChild(t);
+  }
+
+  function qFor(mode, w){
+    if(mode==='de2en') return {kind:'de', sub:'What is this in English?', text:w.de, right:w.en, opts:[w.en].concat(w.conf)};
+    if(mode==='spell') return {kind:'de', sub:'Choose the correct spelling.', text:w.de, right:(w.spEn||w.en), opts:[(w.spEn||w.en)].concat(w.sp.map(function(s){ return w.spEn ? s : s; }))};
+    return {kind:'gap', sub:'Which word fits the gap?', text:w.ex, right:w.ans, opts:[w.ans].concat(w.conf)};
+  }
+
+  var Q = null;
+  function startQuiz(mode, words){
+    Q = {mode:mode, order:shuffle(words), i:0, ok:0, wrong:[], done:false};
+    renderQ();
+  }
+  function renderQ(){
+    box.innerHTML = '';
+    var wrap = document.createElement('div'); wrap.className = 'hp-quiz';
+    if(Q.i >= Q.order.length){
+      var pct = Q.ok + ' / ' + Q.order.length;
+      wrap.className += ' hp-res';
+      wrap.innerHTML = '<div class="big"></div><p></p>';
+      wrap.querySelector('.big').textContent = pct;
+      wrap.querySelector('p').textContent = Q.wrong.length ? 'Practise these words again:' : 'Perfect! All words correct.';
+      if(Q.wrong.length){
+        var ul = document.createElement('ul');
+        Q.wrong.forEach(function(w){ var li=document.createElement('li'); li.textContent = w.en + ' = ' + w.de; ul.appendChild(li); });
+        wrap.appendChild(ul);
+        var b1 = document.createElement('button'); b1.type='button'; b1.className='hp-btn primary'; b1.textContent='Practise mistakes';
+        b1.addEventListener('click', function(){ startQuiz(Q.mode, Q.wrong.slice()); });
+        wrap.appendChild(b1); wrap.appendChild(document.createTextNode(' '));
+      }
+      var b2 = document.createElement('button'); b2.type='button'; b2.className='hp-btn'; b2.textContent='Start again';
+      b2.addEventListener('click', function(){ startQuiz(Q.mode, HP1); });
+      wrap.appendChild(b2);
+      try{ localStorage.setItem('hp1-best-'+Q.mode, String(Math.max(Number(localStorage.getItem('hp1-best-'+Q.mode)||0), Q.ok))); }catch(e){}
+      box.appendChild(wrap); return;
+    }
+    var w = Q.order[Q.i], q = qFor(Q.mode, w);
+    var prog = document.createElement('div'); prog.className='hp-prog';
+    var p1 = document.createElement('span'); p1.textContent = 'Word ' + (Q.i+1) + ' of ' + Q.order.length;
+    var p2 = document.createElement('span'); p2.textContent = '✓ ' + Q.ok;
+    prog.appendChild(p1); prog.appendChild(p2); wrap.appendChild(prog);
+    var qb = document.createElement('div'); qb.className='hp-qbox';
+    var sub = document.createElement('div'); sub.className='sub'; sub.textContent = q.sub;
+    var wd = document.createElement('div'); wd.className='word';
+    if(q.kind==='gap'){
+      var parts = q.text.split('...');
+      wd.appendChild(document.createTextNode(parts[0]));
+      var gap = document.createElement('span'); gap.className='hp-gap'; wd.appendChild(gap);
+      wd.appendChild(document.createTextNode(parts.slice(1).join('...')));
+    } else { wd.textContent = q.text; }
+    qb.appendChild(sub); qb.appendChild(wd); wrap.appendChild(qb);
+    var og = document.createElement('div'); og.className='hp-opts';
+    shuffle(q.opts).forEach(function(o){
+      var b = document.createElement('button'); b.type='button'; b.className='hp-opt'; b.textContent = o;
+      b.addEventListener('click', function(){
+        $$('.hp-opt', og).forEach(function(x){ x.classList.add('dis'); if(x.textContent===q.right) x.classList.add('correct'); });
+        var fb = $('.hp-fb', wrap);
+        if(o===q.right){ Q.ok++; fb.textContent = 'Correct!'; fb.style.color = 'var(--good)'; say(w.ans==='allowed to' ? 'be allowed to' : w.en.split(' / ')[0]); }
+        else { b.classList.add('wrong'); Q.wrong.push(w); fb.textContent = 'Not quite. Right answer: ' + q.right; fb.style.color = 'var(--bad)'; }
+        var nx = document.createElement('button'); nx.type='button'; nx.className='hp-btn primary'; nx.textContent = (Q.i+1 >= Q.order.length) ? 'Result' : 'Next →';
+        nx.addEventListener('click', function(){ Q.i++; renderQ(); });
+        wrap.appendChild(nx);
+      });
+      og.appendChild(b);
+    });
+    wrap.appendChild(og);
+    var fb = document.createElement('div'); fb.className='hp-fb'; fb.setAttribute('aria-live','polite'); wrap.appendChild(fb);
+    box.appendChild(wrap);
+  }
+
+  function renderMode(m){
+    curMode = m;
+    $$('.hp-mode').forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-mode')===m); });
+    if(m==='list') renderList(); else startQuiz(m, HP1);
+  }
+  $$('.hp-mode').forEach(function(b){ b.addEventListener('click', function(){ renderMode(b.getAttribute('data-mode')); }); });
+})();
+</script>
 <script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
 </body></html>
