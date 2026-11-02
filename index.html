@@ -1305,6 +1305,27 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
 #site-en .ov-card.ov-missing .ov-soon{display:grid;place-items:center;min-height:170px;border:2px dashed var(--line);border-radius:8px;color:var(--ink-soft);font-size:.9rem}
 #site-en .cp-plan-new{max-width:420px;margin:0 auto}
 </style>
+<style id="v81-additions-2">
+#site-en .vt-tabs{flex-wrap:wrap}
+#site-en .vt-list-intro{margin:0 0 12px;color:var(--ink-soft);font-size:.92rem}
+#site-en .vt-list-wrap{overflow-x:auto}
+#site-en .vt-list{width:100%;border-collapse:collapse;font-size:.92rem}
+#site-en .vt-list th{text-align:left;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);padding:6px 10px;border-bottom:2px solid var(--line)}
+#site-en .vt-list td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink)}
+#site-en .vt-list td.en{font-weight:800;color:var(--teal-deep);white-space:nowrap}
+#site-en .vt-list td.ex{color:var(--ink-soft)}
+#site-en .vt-list td.ex b{color:var(--teal-deep)}
+@media (max-width:520px){
+#site-en .vt-list thead{display:none}
+#site-en .vt-list,#site-en .vt-list tbody,#site-en .vt-list tr,#site-en .vt-list td{display:block;width:100%}
+#site-en .vt-list tr{padding:10px 2px;border-bottom:1px solid var(--line)}
+#site-en .vt-list td{border:0;padding:1px 8px}
+#site-en .vt-list td.en{white-space:normal;font-size:1.02rem}
+#site-en .vt-tabs.vt-tabs-4{display:grid;grid-template-columns:1fr 1fr}
+#site-en .vt-tabs.vt-tabs-4 .vt-tab{white-space:nowrap}
+}
+</style>
+
 
 
 <header class="top">
@@ -2791,10 +2812,12 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
 
       <div class="vt-panel">
         <div class="vt-tabs">
+          <div class="vt-tab" id="vtTabList" style="display:none;">Übersicht</div>
           <div class="vt-tab active" id="vtTabCards">Karteikarten</div>
           <div class="vt-tab" id="vtTabQuiz">Quiz</div>
           <div class="vt-tab" id="vtTabSent">Satz-Quiz</div>
         </div>
+        <div id="vtListSection" style="display:none;"></div>
         <div id="vtFlashSection"></div>
         <div id="vtQuizSection" style="display:none;"></div>
         <div id="vtSentSection" style="display:none;"></div>
@@ -4512,9 +4535,21 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
       btn.addEventListener('click', function(){
         vtCurrentId = btn.getAttribute('data-id');
         vtResetFlash(); vtResetQuiz(); vtResetSentQuiz();
-        vtRenderLessonSelect(); vtRenderFlash(); vtRenderQuiz(); vtRenderSentQuiz();
+        vtRenderLessonSelect(); vtRenderList(); vtRenderFlash(); vtRenderQuiz(); vtRenderSentQuiz();
       });
     });
+  }
+
+  function vtRenderList(){
+    var el = document.getElementById('vtListSection');
+    if(!el) return;
+    var words = vtWords();
+    var rows = words.map(function(w){
+      var ex = w.ex ? String(w.ex).split('...').join('<b>' + vtCleanEn(w.en) + '</b>').replace(/ ([.?!,])/g, '$1') : '';
+      return '<tr><td class="en">' + w.en + '</td><td>' + w.de + '</td><td class="ex">' + ex + '</td></tr>';
+    }).join('');
+    el.innerHTML = '<p class="vt-list-intro">' + words.length + ' neue Wörter in dieser Stunde. Lies sie dir erst durch und lerne sie dann mit Karteikarten, Quiz oder Satz-Quiz.</p>' +
+      '<div class="vt-list-wrap"><table class="vt-list"><thead><tr><th>English</th><th>Deutsch</th><th>Beispiel</th></tr></thead><tbody>' + rows + '</tbody></table></div>';
   }
 
   function vtShuffle(arr){
@@ -4692,13 +4727,16 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
   var vtTabCards = document.getElementById('vtTabCards');
   var vtTabQuiz = document.getElementById('vtTabQuiz');
   var vtTabSent = document.getElementById('vtTabSent');
+  var vtTabList = document.getElementById('vtTabList');
   function vtShowSection(which){
-    [vtTabCards, vtTabQuiz, vtTabSent].forEach(function(t){ t.classList.remove('active'); });
-    ['vtFlashSection','vtQuizSection','vtSentSection'].forEach(function(id){ document.getElementById(id).style.display = 'none'; });
+    [vtTabList, vtTabCards, vtTabQuiz, vtTabSent].forEach(function(t){ if(t) t.classList.remove('active'); });
+    ['vtListSection','vtFlashSection','vtQuizSection','vtSentSection'].forEach(function(id){ var e = document.getElementById(id); if(e) e.style.display = 'none'; });
+    if(which === 'list'){ vtTabList.classList.add('active'); document.getElementById('vtListSection').style.display = 'block'; }
     if(which === 'cards'){ vtTabCards.classList.add('active'); document.getElementById('vtFlashSection').style.display = 'block'; }
     if(which === 'quiz'){ vtTabQuiz.classList.add('active'); document.getElementById('vtQuizSection').style.display = 'block'; }
     if(which === 'sent'){ vtTabSent.classList.add('active'); document.getElementById('vtSentSection').style.display = 'block'; }
   }
+  if(vtTabList){ vtTabList.addEventListener('click', function(){ vtShowSection('list'); }); }
   if(vtTabCards && vtTabQuiz && vtTabSent){
     vtTabCards.addEventListener('click', function(){ vtShowSection('cards'); });
     vtTabQuiz.addEventListener('click', function(){ vtShowSection('quiz'); });
@@ -4713,8 +4751,11 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
     if(t) t.textContent = vtTexts[name].title;
     if(d) d.textContent = vtTexts[name].desc;
     vtResetFlash(); vtResetQuiz(); vtResetSentQuiz();
-    vtRenderLessonSelect(); vtRenderFlash(); vtRenderQuiz(); vtRenderSentQuiz();
-    vtShowSection('cards');
+    vtRenderLessonSelect(); vtRenderList(); vtRenderFlash(); vtRenderQuiz(); vtRenderSentQuiz();
+    var tl = document.getElementById('vtTabList');
+    if(tl) tl.style.display = (name === 'hp') ? '' : 'none';
+    var tabs4 = document.querySelector('#epanel-vokabeln .vt-tabs'); if(tabs4) tabs4.classList.toggle('vt-tabs-4', name === 'hp');
+    vtShowSection(name === 'hp' ? 'list' : 'cards');
   }
   document.querySelectorAll('[data-vtset]').forEach(function(el){
     el.addEventListener('click', function(){ vtUseSet(el.getAttribute('data-vtset')); });
