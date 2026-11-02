@@ -1307,6 +1307,9 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
 </style>
 <style id="v81-additions-2">
 #site-en .vt-tabs{flex-wrap:wrap}
+#site-en .vt-pick{margin:4px 0 0;color:var(--ink-soft);font-size:.92rem}
+#site-en .vt-notyet{margin:14px 0 0;padding:16px 18px;border:2px dashed var(--line);border-radius:14px;color:var(--ink-soft);background:var(--card)}
+#site-en .vt-notyet b{color:var(--teal-deep)}
 #site-en .vt-list-intro{margin:0 0 12px;color:var(--ink-soft);font-size:.92rem}
 #site-en .vt-list-wrap{overflow-x:auto}
 #site-en .vt-list{width:100%;border-collapse:collapse;font-size:.92rem}
@@ -2809,6 +2812,8 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
       <p class="vt-note">Flashcards for revising, quiz for testing each other – e.g. on the projector, one question at a time.</p>
 
       <div class="vt-lesson-select" id="vtLessonSelect"></div>
+      <p class="vt-pick" id="vtPick" hidden>Choose a lesson to see its words.</p>
+      <div class="vt-notyet" id="vtNotYet" hidden><b>Not yet available.</b> The words for this lesson will appear here after the lesson.</div>
 
       <div class="vt-panel">
         <div class="vt-tabs">
@@ -4495,7 +4500,7 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
   var vtHallPass = [
     {
       id: "hp-1",
-      name: "1st Lesson · Listening",
+      name: "1st Lesson",
       words: [
         { en: "lion", de: "Löwe", ex: "A ... has a big mane and lives in Africa." },
         { en: "position", de: "Stelle, Position", ex: "The newspaper has a ... for a new writer." },
@@ -4513,8 +4518,11 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
         { en: "borrow", de: "(sich) ausleihen", ex: "Can I ... your pen? I will give it back." },
         { en: "be allowed to", de: "dürfen", ex: "Will we ... use tablets next week?" }
       ]
-    }
+    },
+    { id: "hp-2", name: "2nd Lesson", words: [] },
+    { id: "hp-3", name: "3rd Lesson", words: [] }
   ];
+  var vtSetName = 'nyc', vtChosen = false;
   var vtSets = { nyc: vtLessons, hp: vtHallPass };
   var vtTexts = {
     nyc: { title: "Vocabulary Trainer New York City", desc: "The vocabulary from the last guide pages (p. 23–26) – to practise together in class or on your own." },
@@ -4524,18 +4532,40 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
   var vtCurrentId = vtLessons[0].id;
   function vtWords(){ return vtLessons.find(function(l){ return l.id === vtCurrentId; }).words; }
 
+  function vtCurrentLesson(){ return vtLessons.find(function(l){ return l.id === vtCurrentId; }); }
+
+  function vtApplyView(){
+    var panel = document.querySelector('#epanel-vokabeln .vt-panel');
+    var notYet = document.getElementById('vtNotYet');
+    var pick = document.getElementById('vtPick');
+    var cur = vtCurrentLesson();
+    var isHp = vtSetName === 'hp';
+    var hasWords = !!(cur && cur.words.length);
+    if(panel) panel.style.display = (!isHp || (vtChosen && hasWords)) ? '' : 'none';
+    if(notYet) notYet.hidden = !(isHp && vtChosen && !hasWords);
+    if(pick) pick.hidden = !(isHp && !vtChosen);
+  }
+
   function vtRenderLessonSelect(){
     var el = document.getElementById('vtLessonSelect');
     if(!el) return;
     el.innerHTML = vtLessons.map(function(l){
-      return '<div class="vt-lesson-btn' + (l.id === vtCurrentId ? ' active' : '') + '" data-id="' + l.id + '">' +
-        '<span class="name">' + l.name + '</span><span class="count">' + l.words.length + ' Wörter</span></div>';
+      var on = (vtSetName === 'nyc' || vtChosen) && l.id === vtCurrentId;
+      var count = l.words.length ? (l.words.length + ' Wörter') : 'not yet available';
+      return '<div class="vt-lesson-btn' + (on ? ' active' : '') + '" data-id="' + l.id + '">' +
+        '<span class="name">' + l.name + '</span><span class="count">' + count + '</span></div>';
     }).join('');
     el.querySelectorAll('.vt-lesson-btn').forEach(function(btn){
       btn.addEventListener('click', function(){
         vtCurrentId = btn.getAttribute('data-id');
-        vtResetFlash(); vtResetQuiz(); vtResetSentQuiz();
-        vtRenderLessonSelect(); vtRenderList(); vtRenderFlash(); vtRenderQuiz(); vtRenderSentQuiz();
+        vtChosen = true;
+        var cur = vtCurrentLesson();
+        if(cur.words.length){
+          vtResetFlash(); vtResetQuiz(); vtResetSentQuiz();
+          vtRenderList(); vtRenderFlash(); vtRenderQuiz(); vtRenderSentQuiz();
+          if(vtSetName === 'hp') vtShowSection('list');
+        }
+        vtRenderLessonSelect(); vtApplyView();
       });
     });
   }
@@ -4745,8 +4775,9 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
 
   function vtUseSet(name){
     if(!vtSets[name]) name = 'nyc';
+    vtSetName = name; vtChosen = false;
     vtLessons = vtSets[name];
-    vtCurrentId = (name === 'hp') ? vtLessons[vtLessons.length - 1].id : vtLessons[0].id;
+    vtCurrentId = vtLessons.filter(function(l){ return l.words.length; })[0].id;
     var t = document.getElementById('vtTitle'), d = document.getElementById('vtDesc');
     if(t) t.textContent = vtTexts[name].title;
     if(d) d.textContent = vtTexts[name].desc;
@@ -4756,6 +4787,7 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
     if(tl) tl.style.display = (name === 'hp') ? '' : 'none';
     var tabs4 = document.querySelector('#epanel-vokabeln .vt-tabs'); if(tabs4) tabs4.classList.toggle('vt-tabs-4', name === 'hp');
     vtShowSection(name === 'hp' ? 'list' : 'cards');
+    vtApplyView();
   }
   document.querySelectorAll('[data-vtset]').forEach(function(el){
     el.addEventListener('click', function(){ vtUseSet(el.getAttribute('data-vtset')); });
