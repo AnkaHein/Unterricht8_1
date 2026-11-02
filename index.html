@@ -1289,6 +1289,23 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
 #site-en .hp1 .hp-res .big{font-size:2.2rem;font-weight:800;color:var(--teal-deep)}
 #site-en .hp1 .hp-res ul{text-align:left;max-width:360px;margin:12px auto;padding-left:1.2em}
 </style>
+<style id="v81-additions">
+/* Our next dates: plan thumbnail */
+#site-en .nd-plan{margin-top:10px;max-width:260px}
+/* Your current tasks: single button */
+#site-en .task-card-single{align-items:center}
+#site-en .task-link-big{font-size:.95rem;padding:11px 20px}
+#site-en .task-link-big svg{width:15px;height:15px}
+/* Tenses: overview posters */
+#site-en .ov-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px;margin-top:18px}
+#site-en .ov-card{min-width:0}
+#site-en .ov-card .ov-soon{display:none}
+#site-en .ov-card.ov-missing{cursor:default;pointer-events:none;box-shadow:none}
+#site-en .ov-card.ov-missing img{display:none}
+#site-en .ov-card.ov-missing .ov-soon{display:grid;place-items:center;min-height:170px;border:2px dashed var(--line);border-radius:8px;color:var(--ink-soft);font-size:.9rem}
+#site-en .cp-plan-new{max-width:420px;margin:0 auto}
+</style>
+
 
 <header class="top">
   <div class="top-inner">
@@ -2348,7 +2365,7 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
         <h2>Exercises</h2>
         <p>Practise whenever you like.</p>
       </div>
-      <div class="hub-grid"><button class="hub-tile" data-goto="tenses"><span class="hub-ico"><img src="images/tile-tenses.png" alt=""></span><span class="hub-txt"><b>Tenses</b><span>Practise Simple Present, Simple Past, will and would</span></span></button><button class="hub-tile" data-goto="vokabeln"><span class="hub-ico"><img src="images/tile-vokabeln.png" alt=""></span><span class="hub-txt"><b>Vocabulary Trainer New York City</b><span>Flashcards & quiz for the guide vocabulary</span></span></button><button class="hub-tile" data-goto="searchwords"><span class="hub-ico"><img src="images/tile-searchwords.png" alt=""></span><span class="hub-txt"><b>Searching for words</b><span>A dictionary for when you don't know a word</span></span></button><button class="hub-tile" data-goto="escaperooms"><span class="hub-ico"><img src="images/tile-escaperooms.png" alt=""></span><span class="hub-txt"><b>Escape Rooms</b><span>Practise in a game – can you find your way out?</span></span></button></div>
+      <div class="hub-grid"><button class="hub-tile" data-goto="tenses"><span class="hub-ico"><img src="images/tile-tenses.png" alt=""></span><span class="hub-txt"><b>Tenses</b><span>Overview posters and exercises for every tense</span></span></button><button class="hub-tile" data-goto="vokabeln" data-vtset="hp"><span class="hub-ico"><img src="images/tile-vokabeln-hp.png" alt="" onerror="this.onerror=null;this.src='images/tile-vokabeln.png'"></span><span class="hub-txt"><b>Vocabulary Trainer Hall Pass</b><span>New words after every lesson &ndash; flashcards &amp; quiz</span></span></button><button class="hub-tile" data-goto="vokabeln" data-vtset="nyc"><span class="hub-ico"><img src="images/tile-vokabeln.png" alt=""></span><span class="hub-txt"><b>Vocabulary Trainer New York City</b><span>Flashcards & quiz for the guide vocabulary</span></span></button><button class="hub-tile" data-goto="searchwords"><span class="hub-ico"><img src="images/tile-searchwords.png" alt=""></span><span class="hub-txt"><b>Searching for words</b><span>A dictionary for when you don't know a word</span></span></button><button class="hub-tile" data-goto="escaperooms"><span class="hub-ico"><img src="images/tile-escaperooms.png" alt=""></span><span class="hub-txt"><b>Escape Rooms</b><span>Practise in a game – can you find your way out?</span></span></button></div>
     </section>
   </div>
   <div class="panel" id="epanel-nextdates">
@@ -2358,7 +2375,7 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
         <h2>Our next dates</h2>
         <p>The next weeks at a glance.</p>
       </div>
-      <ol class="nd-list"><li class="nd-item"><span class="nd-date">Monday, 26 October 2026</span><b>Pedagogical Day</b><span class="nd-sub">Read “Trapped” and do the exercises</span></li><li class="nd-item"><span class="nd-date">Tuesday, 27 October 2026</span><b>Complex Performance I</b><span class="nd-sub">Find your topic and your group, start working</span></li><li class="nd-item"><span class="nd-date">Monday, 2 November 2026</span><b>Complex Performance II</b><span class="nd-sub">Finish your work</span></li><li class="nd-item"><span class="nd-date">Tuesday, 3 November 2026</span><b>Presentations I</b></li><li class="nd-item"><span class="nd-date">Monday, 9 November 2026</span><b>Presentations II</b></li><li class="nd-item"><span class="nd-date">Tuesday, 10 November 2026</span><b>Next Chapter</b></li></ol>
+      <ol class="nd-list"><li class="nd-item"><span class="nd-date">Tuesday, 3 November 2026</span><b>Get ready</b><span class="nd-sub">Prepare your presentation</span></li><li class="nd-item"><span class="nd-date">Monday, 9 November 2026</span><b>Presentation Plan</b><button class="cp-page nd-plan" type="button" data-lightbox="images/presentation-plan.jpg" data-lightbox-tall><img src="images/presentation-plan.jpg" alt="Presentation Plan, Monday 9 November 2026: 12:55 Topic B A Day in the Life, 13:05 Topic C Two Sides of NYC, 13:15 Topic D NYC Survival Tips, 13:25 Topic E NYC Then and Now, 13:30 Break, 13:40 Topic F If I Were Mayor of NYC, 13:50 Topic H Sports in NYC, 14:00 Topic I Two Cities, One Skyline: Manhattan vs. Brooklyn, 14:05 Feedback and Next Chapter" loading="lazy"><span class="cp-cap">Click to enlarge</span></button></li><li class="nd-item"><span class="nd-date">Tuesday, 10 November 2026</span><b>Next Chapter</b></li></ol>
     </section>
   </div>
   <div class="panel" id="epanel-aufgaben">
@@ -2370,39 +2387,8 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
       </div>
 
       <div class="task-list" id="task-list">
-        <div class="task-card" id="task-card-oct26">
-          <div class="t-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m5 13 4 4L19 7"/></svg>
-          </div>
-          <div class="t-meta">
-            <h3>Your tasks for this day</h3>
-            <ul class="task-checklist">
-              <li>
-                <label><input type="checkbox"><span>Do the exercises for "Trapped"</span></label>
-                <button class="task-link-btn" data-goto="trapped">Trapped
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-                </button>
-              </li>
-            </ul>
-          </div>
-          <span class="task-due">P&auml;dagogischer Tag, 26th October 2026</span>
-        </div>
-        <div class="task-card" id="task-card-oct27">
-          <div class="t-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m5 13 4 4L19 7"/></svg>
-          </div>
-          <div class="t-meta">
-            <h3>Your tasks for this day</h3>
-            <ul class="task-checklist">
-              <li>
-                <label><input type="checkbox"><span>Complex Performance English</span></label>
-                <button class="task-link-btn" data-goto="leistung">Complex Performance
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-                </button>
-              </li>
-            </ul>
-          </div>
-          <span class="task-due">Tuesday, 27th October 2026</span>
+        <div class="task-card task-card-single">
+          <button class="task-link-btn task-link-big" data-goto="leistung">Complex Performance <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </div>
       </div>
     </section>
@@ -2625,8 +2611,8 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
       </div>
 
       <div class="cp-plan-wrap">
-        <button class="cp-page" data-lightbox="images/cp-presentation-plan.jpg" data-lightbox-wide>
-          <img src="images/cp-presentation-plan.jpg" alt="Presentation Plan: Tuesday 3 November and Monday 9 November 2026" loading="lazy">
+        <button class="cp-page cp-plan-new" data-lightbox="images/presentation-plan.jpg" data-lightbox-tall>
+          <img src="images/presentation-plan.jpg" alt="Presentation Plan: Monday 9 November 2026" loading="lazy">
           <span class="cp-cap">Presentation Plan</span>
         </button>
       </div>
@@ -2796,8 +2782,8 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
   <div class="panel" id="epanel-vokabeln">
     <section>
       <div class="section-head">
-        <h2>Vocabulary Trainer New York City</h2>
-        <p>The vocabulary from the last guide pages (p. 23–26) – to practise together in class or on your own.</p>
+        <h2 id="vtTitle">Vocabulary Trainer New York City</h2>
+        <p id="vtDesc">The vocabulary from the last guide pages (p. 23–26) – to practise together in class or on your own.</p>
       </div>
       <p class="vt-note">Flashcards for revising, quiz for testing each other – e.g. on the projector, one question at a time.</p>
 
@@ -2924,13 +2910,58 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
     </section>
   </div>
   <div class="panel" id="epanel-tenses">
-      <section>
-        <div class="section-head">
-          <div class="eyebrow">Grammar Revision</div>
-          <h2>Tenses</h2>
-          <p>Practise Simple Present, Simple Past, the will-future and the would-form – all with the same NYC vocabulary from your tasks and your test. Pick a folder to start.</p>
-        </div>
-
+    <section>
+      <div class="section-head">
+        <div class="eyebrow">Grammar Revision</div>
+        <h2>Tenses</h2>
+        <p>Look at the overview posters or practise a tense &ndash; whenever you like.</p>
+      </div>
+      <div class="hub-grid"><button class="hub-tile" data-goto="tenses-overviews"><span class="hub-ico"><img src="images/tile-tenses-overviews.png" alt="" onerror="this.onerror=null;this.src='images/tile-tenses.png'"></span><span class="hub-txt"><b>Overviews</b><span>One poster for every tense</span></span></button><button class="hub-tile" data-goto="tenses-exercises"><span class="hub-ico"><img src="images/tile-tenses-exercises.png" alt="" onerror="this.onerror=null;this.src='images/tile-tenses.png'"></span><span class="hub-txt"><b>Exercises</b><span>Practise each tense on its own</span></span></button></div>
+    </section>
+  </div>
+  <div class="panel" id="epanel-tenses-overviews">
+    <section>
+      <div class="section-head">
+        <div class="eyebrow">Tenses</div>
+        <h2>Overviews</h2>
+        <p>One poster for every tense. Click a poster to enlarge it.</p>
+      </div>
+      <div class="ov-grid">
+        <button class="cp-page ov-card" type="button" data-lightbox="images/overview-simple-present.jpg">
+          <img src="images/overview-simple-present.jpg" alt="Poster: Simple Present" loading="lazy" onerror="this.closest('.ov-card').classList.add('ov-missing')">
+          <span class="ov-soon">Poster coming soon</span>
+          <span class="cp-cap">Simple Present</span>
+        </button>
+        <button class="cp-page ov-card" type="button" data-lightbox="images/overview-simple-past.jpg">
+          <img src="images/overview-simple-past.jpg" alt="Poster: Simple Past" loading="lazy" onerror="this.closest('.ov-card').classList.add('ov-missing')">
+          <span class="ov-soon">Poster coming soon</span>
+          <span class="cp-cap">Simple Past</span>
+        </button>
+        <button class="cp-page ov-card" type="button" data-lightbox="images/overview-will-future.jpg">
+          <img src="images/overview-will-future.jpg" alt="Poster: will-future" loading="lazy" onerror="this.closest('.ov-card').classList.add('ov-missing')">
+          <span class="ov-soon">Poster coming soon</span>
+          <span class="cp-cap">will-future</span>
+        </button>
+        <button class="cp-page ov-card" type="button" data-lightbox="images/overview-would-form.jpg">
+          <img src="images/overview-would-form.jpg" alt="Poster: would-form" loading="lazy" onerror="this.closest('.ov-card').classList.add('ov-missing')">
+          <span class="ov-soon">Poster coming soon</span>
+          <span class="cp-cap">would-form</span>
+        </button>
+        <button class="cp-page ov-card" type="button" data-lightbox="images/lernplakat-present-perfect-progressive.jpg">
+          <img src="images/lernplakat-present-perfect-progressive.jpg" alt="Poster: Present Perfect Progressive" loading="lazy" onerror="this.closest('.ov-card').classList.add('ov-missing')">
+          <span class="ov-soon">Poster coming soon</span>
+          <span class="cp-cap">Present Perfect Progressive</span>
+        </button>
+      </div>
+    </section>
+  </div>
+  <div class="panel" id="epanel-tenses-exercises">
+    <section>
+      <div class="section-head">
+        <div class="eyebrow">Tenses</div>
+        <h2>Exercises</h2>
+        <p>Practise Simple Present, Simple Past, the will-future and the would-form &ndash; all with the same NYC vocabulary from your tasks and your test. Pick a tense to start.</p>
+      </div>
         <div class="vt-panel" style="margin-bottom:22px;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:space-between;">
           <div style="flex:1 1 260px;">
             <h3 style="font-family:var(--font-body);font-weight:800;margin:0 0 4px;">Strategy: which form goes in the gap?</h3>
@@ -2943,15 +2974,17 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
             <span class="btn-note" id="dl-cond-strategy-note" style="display:block;margin-top:6px;"></span>
           </div>
         </div>
-
-        <div class="vt-lesson-select" id="tenseFolderSelect">
-          <button class="vt-lesson-btn active" data-tense="present" type="button"><span class="name">Exercises Simple Present</span></button>
-          <button class="vt-lesson-btn" data-tense="past" type="button"><span class="name">Exercises Simple Past</span></button>
-          <button class="vt-lesson-btn" data-tense="will" type="button"><span class="name">Exercises will</span></button>
-          <button class="vt-lesson-btn" data-tense="would" type="button"><span class="name">Exercises would</span></button>
+      <div class="hub-grid" style="margin-top:6px"><button class="hub-tile" data-goto="tense-present"><span class="hub-ico"><img src="images/tile-t-present.png" alt="" onerror="this.onerror=null;this.src='images/tile-tenses.png'"></span><span class="hub-txt"><b>Simple Present</b><span>he takes, they take</span></span></button><button class="hub-tile" data-goto="tense-past"><span class="hub-ico"><img src="images/tile-t-past.png" alt="" onerror="this.onerror=null;this.src='images/tile-tenses.png'"></span><span class="hub-txt"><b>Simple Past</b><span>he took, they walked</span></span></button><button class="hub-tile" data-goto="tense-will"><span class="hub-ico"><img src="images/tile-t-will.png" alt="" onerror="this.onerror=null;this.src='images/tile-tenses.png'"></span><span class="hub-txt"><b>will</b><span>If it rains, the game will stop</span></span></button><button class="hub-tile" data-goto="tense-would"><span class="hub-ico"><img src="images/tile-t-would.png" alt="" onerror="this.onerror=null;this.src='images/tile-tenses.png'"></span><span class="hub-txt"><b>would</b><span>If I had the chance, I would climb</span></span></button></div>
+    </section>
+  </div>
+  <div class="panel" id="epanel-tense-present">
+      <section>
+        <div class="section-head">
+          <div class="eyebrow">Tenses &middot; Exercises</div>
+          <h2>Simple Present</h2>
+          <p>Fill in the correct form of the verb, or choose it.</p>
         </div>
 
-        <div class="tense-subpanel active" id="tense-present">
           <div class="rule-box">
             <h4>SIMPLE PRESENT</h4>
             <div class="formula">he / she / it → verb <b>+ -s</b> (or -es / consonant+y→ies)</div>
@@ -2982,9 +3015,16 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
             <div id="presentMCB"></div>
             <div class="gap-score" id="presentMCScoreB"></div>
           </div>
+      </section>
+  </div>
+  <div class="panel" id="epanel-tense-past">
+      <section>
+        <div class="section-head">
+          <div class="eyebrow">Tenses &middot; Exercises</div>
+          <h2>Simple Past</h2>
+          <p>Fill in the correct form of the verb, or choose it.</p>
         </div>
 
-        <div class="tense-subpanel" id="tense-past">
           <div class="rule-box">
             <h4>SIMPLE PAST</h4>
             <div class="formula">Regular verbs → verb <b>+ -ed</b></div>
@@ -3003,9 +3043,16 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
             <div id="pastMC"></div>
             <div class="gap-score" id="pastMCScore"></div>
           </div>
+      </section>
+  </div>
+  <div class="panel" id="epanel-tense-will">
+      <section>
+        <div class="section-head">
+          <div class="eyebrow">Tenses &middot; Exercises</div>
+          <h2>will-future</h2>
+          <p>Real, possible situations: use will + infinitive.</p>
         </div>
 
-        <div class="tense-subpanel" id="tense-will">
           <div class="rule-box">
             <h4>WILL-FUTURE</h4>
             <div class="formula">subject + <b>will</b> + infinitive (base form)</div>
@@ -3024,9 +3071,16 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
             <div id="willMC"></div>
             <div class="gap-score" id="willMCScore"></div>
           </div>
+      </section>
+  </div>
+  <div class="panel" id="epanel-tense-would">
+      <section>
+        <div class="section-head">
+          <div class="eyebrow">Tenses &middot; Exercises</div>
+          <h2>would-form</h2>
+          <p>Unlikely, imaginary situations: use would + infinitive.</p>
         </div>
 
-        <div class="tense-subpanel" id="tense-would">
           <div class="rule-box">
             <h4>WOULD-FORM</h4>
             <div class="formula">subject + <b>would</b> + infinitive (base form)</div>
@@ -3045,8 +3099,6 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
             <div id="wouldMC"></div>
             <div class="gap-score" id="wouldMCScore"></div>
           </div>
-        </div>
-
       </section>
   </div>
   <div class="panel" id="epanel-escaperooms">
@@ -3120,7 +3172,7 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
   </div>
 </main>
 
-<footer class="foot">Klasse 8.1 &middot; Evangelisches Schulzentrum Bad D&uuml;ben &middot; wird laufend erg&auml;nzt<span style="display:block;text-align:right;margin-top:6px;font-size:12px;">Stand: 19.10.2026</span></footer>
+<footer class="foot">Klasse 8.1 &middot; Evangelisches Schulzentrum Bad D&uuml;ben &middot; wird laufend erg&auml;nzt<span style="display:block;text-align:right;margin-top:6px;font-size:12px;">Stand: 02.11.2026</span></footer>
 
 <script>
 (function(){
@@ -3130,8 +3182,9 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
   var EN_PARENT={nextdates:"start",aufgaben:"start",klassenarbeiten:"start",chapters:"start",exercises:"start",
     leistung:"klassenarbeiten",notebook:"klassenarbeiten",termine:"klassenarbeiten",
     guide:"chapters",trapped:"chapters",
-    tenses:"exercises",audios:"exercises",vokabeln:"exercises",searchwords:"exercises",escaperooms:"exercises",escaperoom:"escaperooms"};
-  var EN_NAME={start:"Englisch",klassenarbeiten:"Klassenarbeiten",chapters:"Chapters",exercises:"Exercises",escaperooms:"Escape Rooms"};
+    tenses:"exercises",audios:"exercises",vokabeln:"exercises",searchwords:"exercises",escaperooms:"exercises",escaperoom:"escaperooms",
+    "tenses-overviews":"tenses","tenses-exercises":"tenses","tense-present":"tenses-exercises","tense-past":"tenses-exercises","tense-will":"tenses-exercises","tense-would":"tenses-exercises"};
+  var EN_NAME={start:"Englisch",klassenarbeiten:"Klassenarbeiten",chapters:"Chapters",exercises:"Exercises",escaperooms:"Escape Rooms",tenses:"Tenses","tenses-exercises":"Exercises"};
   var state={site:"home",name:""};
   function scrollTop(){ try{ window.scrollTo({top:0,behavior:"instant"}); }catch(e){} }
   function render(){
@@ -4415,6 +4468,36 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
     }
   ];
 
+  // ---- Hall Pass: new words are added lesson by lesson (newest lesson last) ----
+  var vtHallPass = [
+    {
+      id: "hp-1",
+      name: "1st Lesson · Listening",
+      words: [
+        { en: "lion", de: "Löwe", ex: "A ... has a big mane and lives in Africa." },
+        { en: "position", de: "Stelle, Position", ex: "The newspaper has a ... for a new writer." },
+        { en: "available", de: "verfügbar, frei", ex: "There are two positions ... ." },
+        { en: "photographer", de: "Fotograf/in", ex: "Tyler is the ... of the newspaper. He takes the photos." },
+        { en: "anytime", de: "jederzeit", ex: "You can come ... this week." },
+        { en: "grade", de: "Klassenstufe", ex: "Hannah is in ninth ... ." },
+        { en: "size", de: "Größe", ex: "The ... of the school is crazy: 1,700 students." },
+        { en: "hallway", de: "Flur, Gang", ex: "The ... is long and full of students." },
+        { en: "locker", de: "Spind", ex: "Her ... is on the second floor." },
+        { en: "library", de: "Bücherei, Bibliothek", ex: "She wants to borrow a book from the ... ." },
+        { en: "elevator", de: "Fahrstuhl, Aufzug (BE: lift)", ex: "The ... is only for students who need it." },
+        { en: "get lost", de: "sich verirren", ex: "Take a map, or you will ... in the big school." },
+        { en: "anybody / anyone", de: "(irgend)jemand; verneint: niemand", ex: "She doesn't know ... at school." },
+        { en: "borrow", de: "(sich) ausleihen", ex: "Can I ... your pen? I will give it back." },
+        { en: "be allowed to", de: "dürfen", ex: "Will we ... use tablets next week?" }
+      ]
+    }
+  ];
+  var vtSets = { nyc: vtLessons, hp: vtHallPass };
+  var vtTexts = {
+    nyc: { title: "Vocabulary Trainer New York City", desc: "The vocabulary from the last guide pages (p. 23–26) – to practise together in class or on your own." },
+    hp: { title: "Vocabulary Trainer Hall Pass", desc: "The words of every Hall Pass lesson, sorted by lesson. New words are added after each lesson." }
+  };
+
   var vtCurrentId = vtLessons[0].id;
   function vtWords(){ return vtLessons.find(function(l){ return l.id === vtCurrentId; }).words; }
 
@@ -4621,6 +4704,21 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
     vtTabQuiz.addEventListener('click', function(){ vtShowSection('quiz'); });
     vtTabSent.addEventListener('click', function(){ vtResetSentQuiz(); vtRenderSentQuiz(); vtShowSection('sent'); });
   }
+
+  function vtUseSet(name){
+    if(!vtSets[name]) name = 'nyc';
+    vtLessons = vtSets[name];
+    vtCurrentId = (name === 'hp') ? vtLessons[vtLessons.length - 1].id : vtLessons[0].id;
+    var t = document.getElementById('vtTitle'), d = document.getElementById('vtDesc');
+    if(t) t.textContent = vtTexts[name].title;
+    if(d) d.textContent = vtTexts[name].desc;
+    vtResetFlash(); vtResetQuiz(); vtResetSentQuiz();
+    vtRenderLessonSelect(); vtRenderFlash(); vtRenderQuiz(); vtRenderSentQuiz();
+    vtShowSection('cards');
+  }
+  document.querySelectorAll('[data-vtset]').forEach(function(el){
+    el.addEventListener('click', function(){ vtUseSet(el.getAttribute('data-vtset')); });
+  });
 
   vtResetFlash(); vtResetQuiz(); vtResetSentQuiz();
   vtRenderLessonSelect(); vtRenderFlash(); vtRenderQuiz(); vtRenderSentQuiz();
@@ -5442,3 +5540,4 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
 </script>
 <script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
 </body></html>
+
