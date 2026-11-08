@@ -2297,7 +2297,7 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
       <h3 class="hub-sub">NYC</h3>
       <div class="hub-grid"><button class="hub-tile" data-goto="trapped"><span class="hub-ico"><img src="images/tile-trapped.png" alt=""></span><span class="hub-txt"><b>Trapped</b><span>Ricky & Lance – the story continues</span></span></button></div>
       <h3 class="hub-sub">Hall Pass</h3>
-      <div class="hub-grid"><button class="hub-tile" data-goto="hp1"><span class="hub-ico"><img src="images/tile-hp1.png" alt=""></span><span class="hub-txt"><b>1st Lesson</b><span>Listening: Hannah's first message from Boston</span></span></button><button class="hub-tile" data-goto="hp2"><span class="hub-ico"><img src="images/tile-hp2.png" alt="" onerror="this.onerror=null;this.src='images/tile-hp1.png'"></span><span class="hub-txt"><b>2nd Lesson</b><span>Reading: The Boston West student handbook</span></span></button></div>
+      <div class="hub-grid"><button class="hub-tile" data-goto="hp1"><span class="hub-ico"><img src="images/tile-hp1.png" alt=""></span><span class="hub-txt"><b>1st Lesson</b><span>Listening: Hannah's first message from Boston</span></span></button><button class="hub-tile" data-goto="hp2"><span class="hub-ico"><img src="images/tile-hp2.png" alt="" onerror="this.onerror=null;this.src='images/tile-hp1.png'"></span><span class="hub-txt"><b>2nd Lesson</b><span>Reading: The Boston West student handbook</span></span></button><button class="hub-tile" data-goto="hp3"><span class="hub-ico"><img src="images/tile-hp3.png" alt="" onerror="this.onerror=null;this.src='images/tile-hp1.png'"></span><span class="hub-txt"><b>3rd Lesson</b><span>Reading: A freshman's first week</span></span></button></div>
     </section>
   </div>
   <div class="panel" id="epanel-hp1">
@@ -2432,6 +2432,48 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
       <div class="hp-sec" data-hp-sec="outlook" hidden>
         <div class="hp-imgwrap hp-narrow"><img src="images/hp2-outlook.jpg" alt="A girl in front of a school door with a question mark" onerror="this.onerror=null;this.parentNode.style.display='none'"></div>
         <p class="hp-q">Is the first day at a new school really scary?</p>
+      </div>
+    </section>
+  </div>
+  <div class="panel" id="epanel-hp3">
+    <section class="hp1 hp3">
+      <div class="section-head">
+        <div class="eyebrow">Hall Pass</div>
+        <h2>3rd Lesson · Reading</h2>
+        <p>Hannah writes about her first week at Boston West for the school newspaper The Lion.</p>
+      </div>
+
+      <div class="hp-steps" role="tablist" aria-label="3rd Lesson">
+        <button class="hp-step active" type="button" role="tab" data-hp="intro">Start</button>
+        <button class="hp-step" type="button" role="tab" data-hp="words">Vocabulary</button>
+        <button class="hp-step" type="button" role="tab" data-hp="tips">Reading Tips</button>
+        <button class="hp-step" type="button" role="tab" data-hp="outlook">Outlook</button>
+      </div>
+
+      <div class="hp-sec" data-hp-sec="intro">
+        <div class="hp-imgwrap hp-narrow"><img src="images/hp2-outlook.jpg" alt="A girl in front of a school door with a question mark" onerror="this.onerror=null;this.parentNode.style.display='none'"></div>
+        <p class="hp-q">Is the first day at a new school really scary?</p>
+        <p style="text-align:center"><button class="hp-btn primary" type="button" data-hp3-go="words">Next: The new words &rarr;</button></p>
+      </div>
+
+      <div class="hp-sec" data-hp-sec="words" hidden>
+        <p class="hp-lead">15 new words. Read them here, then practise in the Vocabulary Trainer.</p>
+        <div id="hp3List"></div>
+        <p><button class="hp-btn primary" type="button" data-goto="vokabeln" data-vtset="hp">Open the Vocabulary Trainer &rarr;</button></p>
+      </div>
+
+      <div class="hp-sec" data-hp-sec="tips" hidden>
+        <p class="hp-lead">More tips for reading a text.</p>
+        <ol class="hp-tips">
+          <li>Guess new words from the text.</li>
+          <li>Look for feeling words.</li>
+          <li>Read between the lines.</li>
+        </ol>
+      </div>
+
+      <div class="hp-sec" data-hp-sec="outlook" hidden>
+        <div class="hp-imgwrap hp-narrow"><img src="images/hp3-outlook.jpg" alt="A girl in a school hallway with a happy and a gloomy thought bubble" onerror="this.onerror=null;this.parentNode.style.display='none'"></div>
+        <p class="hp-q">What do you love doing? What do you hate doing?</p>
       </div>
     </section>
   </div>
@@ -3262,7 +3304,7 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
   var home=$("view-home"), de=$("site-de"), en=$("site-en"), back=$("backBtn"), backLabel=$("backLabel");
   var EN_PARENT={nextdates:"start",aufgaben:"start",klassenarbeiten:"start",chapters:"start",exercises:"start",
     leistung:"klassenarbeiten",notebook:"klassenarbeiten",termine:"klassenarbeiten",
-    guide:"chapters",trapped:"chapters",hp1:"chapters",hp2:"chapters",
+    guide:"chapters",trapped:"chapters",hp1:"chapters",hp2:"chapters",hp3:"chapters",
     tenses:"exercises",audios:"exercises",vokabeln:"exercises",searchwords:"exercises",escaperooms:"exercises",escaperoom:"escaperooms",
     "tenses-overviews":"tenses","tenses-exercises":"tenses","tense-present":"tenses-exercises","tense-past":"tenses-exercises","tense-will":"tenses-exercises","tense-would":"tenses-exercises"};
   var EN_NAME={start:"Englisch",klassenarbeiten:"Klassenarbeiten",chapters:"Chapters",exercises:"Exercises",escaperooms:"Escape Rooms",tenses:"Tenses","tenses-exercises":"Exercises"};
@@ -4594,7 +4636,24 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
         { en: "similar", de: "ähnlich (similar to = ähnlich wie)", ex: "Your bag is ... to my bag." }
       ]
     },
-    { id: "hp-3", name: "3rd Lesson", words: [] }
+    { id: "hp-3", name: "3rd Lesson", words: [
+        { en: "intimidating", de: "beängstigend, einschüchternd", ex: "A very big school can look ... to a new student." },
+        { en: "ancient", de: "(ur)alt, antik", ex: "The castle is ... : it is more than 800 years old." },
+        { en: "incredible", de: "unglaublich", ex: "The concert was ... ! I can't believe it." },
+        { en: "change", de: "wechseln", ex: "In the USA students ... rooms after every lesson." },
+        { en: "trust", de: "trauen, vertrauen", ex: "I ... my best friend. I tell her everything." },
+        { en: "debate", de: "debattieren, diskutieren", ex: "In the club students ... about school rules." },
+        { en: "I don't mind", de: "Es macht mir nichts aus … (I don't mind doing sth.)", ex: "... walking to school. It is not a problem for me." },
+        { en: "disability", de: "Behinderung", ex: "A student with a ... can use the elevator." },
+        { en: "Plus", de: "Und außerdem … (Plus, …)", ex: "I like my school. ... the students are friendly." },
+        { en: "bump into", de: "mit jm. zusammenstoßen (bump into sb.)", ex: "Be careful, or you will ... another student in the hallway." },
+        { en: "look forward to", de: "sich darauf freuen, etwas zu tun (look forward to doing sth.)", ex: "I ... writing for the school newspaper." },
+        { en: "get used to", de: "sich an etwas gewöhnen (get used to sth.)", ex: "It takes time to ... a new school." },
+        { en: "cheerleader", de: "Cheerleader", ex: "The ... dance at every football game." },
+        { en: "artistic", de: "künstlerisch", ex: "Tyler is ... : he draws and takes beautiful photos." },
+        { en: "try hard", de: "sich sehr bemühen", ex: "You have to ... if you want to win." }
+      ]
+    }
   ];
   var vtSetName = 'nyc', vtChosen = false;
   var vtSets = { nyc: vtLessons, hp: vtHallPass };
@@ -5702,6 +5761,37 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
     var box = document.getElementById('hp2List');
     var lessons = window.__vtHallPass || [];
     var l = null; for(var i=0;i<lessons.length;i++){ if(lessons[i].id==='hp-2') l = lessons[i]; }
+    if(!l || !box) return;
+    var t = document.createElement('table'); t.className = 'hp-table';
+    t.innerHTML = '<thead><tr><th>English</th><th>Deutsch</th><th class="ex">Example</th></tr></thead>';
+    var tb = document.createElement('tbody');
+    l.words.forEach(function(w){
+      var tr = document.createElement('tr');
+      var a = document.createElement('td'); a.textContent = w.en;
+      var b = document.createElement('td'); b.textContent = w.de;
+      var c = document.createElement('td'); c.className = 'ex'; c.textContent = w.ex.replace('...', '____');
+      tr.appendChild(a); tr.appendChild(b); tr.appendChild(c); tb.appendChild(tr);
+    });
+    t.appendChild(tb); box.innerHTML = ''; box.appendChild(t);
+  }
+})();
+</script>
+<script>
+(function(){
+  var root = document.getElementById('epanel-hp3');
+  if(!root) return;
+  function $$(s){ return Array.prototype.slice.call(root.querySelectorAll(s)); }
+  function showSec(name){
+    $$('.hp-step').forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-hp')===name); });
+    $$('.hp-sec').forEach(function(s){ s.hidden = s.getAttribute('data-hp-sec')!==name; });
+    if(name==='words') renderList();
+  }
+  $$('.hp-step').forEach(function(b){ b.addEventListener('click', function(){ showSec(b.getAttribute('data-hp')); }); });
+  $$('[data-hp3-go]').forEach(function(b){ b.addEventListener('click', function(){ showSec(b.getAttribute('data-hp3-go')); }); });
+  function renderList(){
+    var box = document.getElementById('hp3List');
+    var lessons = window.__vtHallPass || [];
+    var l = null; for(var i=0;i<lessons.length;i++){ if(lessons[i].id==='hp-3') l = lessons[i]; }
     if(!l || !box) return;
     var t = document.createElement('table'); t.className = 'hp-table';
     t.innerHTML = '<thead><tr><th>English</th><th>Deutsch</th><th class="ex">Example</th></tr></thead>';
