@@ -1332,19 +1332,9 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
 
 
 <style id="hp2-additions">
-#site-en .hp2 .ss-block{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:18px;margin:0 0 16px}
-#site-en .hp2 .ss-h{margin:0 0 12px;font-size:1rem;color:var(--teal-deep)}
-#site-en .hp2 .ss-row{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px}
-#site-en .hp2 .ss-box{flex:1 1 120px;min-width:110px;background:var(--teal-soft);border:2px solid var(--line);border-radius:12px;padding:10px 12px;text-align:center;display:flex;flex-direction:column;gap:4px}
-#site-en .hp2 .ss-box b{font-size:1rem;color:var(--teal-deep)}
-#site-en .hp2 .ss-box span{font-size:.85rem;color:var(--ink-soft)}
-#site-en .hp2 .ss-box em{font-style:normal;font-weight:800;font-size:.8rem;color:var(--on-teal);background:var(--teal);border-radius:999px;padding:2px 10px;align-self:center;margin-top:auto}
-#site-en .hp2 .ss-box.you,#site-en .hp2 .ss-box.hs{border-color:var(--teal)}
-#site-en .hp2 .ss-arr{align-self:center;font-weight:800;color:var(--teal)}
-#site-en .hp2 .ss-names{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:.92rem}
-#site-en .hp2 .ss-names b{color:var(--teal-deep)}
-#site-en .hp2 .ss-note{color:var(--ink-soft);font-size:.88rem;margin:0}
-@media (max-width:620px){#site-en .hp2 .ss-row{flex-direction:column}#site-en .hp2 .ss-arr{transform:rotate(90deg);align-self:center}}
+#site-en .hp2 .ss-card{display:block;width:100%;max-width:760px;margin:0 auto 18px;padding:0;border:0;background:#fff;border-radius:16px;box-shadow:var(--shadow);overflow:hidden;cursor:zoom-in}
+#site-en .hp2 .ss-card img{display:block;width:100%;height:auto}
+#site-en .hp2 .ss-note{color:var(--ink-soft);font-size:.88rem;margin:0;text-align:center}
 </style>
 <header class="top">
   <div class="top-inner">
@@ -2417,37 +2407,9 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
 
       <div class="hp-sec" data-hp-sec="system" hidden>
         <p class="hp-lead">How school works in the USA &ndash; and where you are.</p>
-        <div class="ss-block">
-          <h3 class="ss-h">USA</h3>
-          <div class="ss-row">
-            <div class="ss-box"><b>kindergarten</b><span>age 5</span></div>
-            <div class="ss-arr" aria-hidden="true">&rarr;</div>
-            <div class="ss-box"><b>elementary school</b><span>grades 1&ndash;5<br>age 6&ndash;10</span></div>
-            <div class="ss-arr" aria-hidden="true">&rarr;</div>
-            <div class="ss-box you"><b>middle school</b><span>grades 6&ndash;8<br>age 11&ndash;13</span><em>You are here: grade 8</em></div>
-            <div class="ss-arr" aria-hidden="true">&rarr;</div>
-            <div class="ss-box hs"><b>high school</b><span>grades 9&ndash;12<br>age 14&ndash;18</span><em>Boston West</em></div>
-            <div class="ss-arr" aria-hidden="true">&rarr;</div>
-            <div class="ss-box"><b>college / university</b><span>after grade 12</span></div>
-          </div>
-          <div class="ss-names">
-            <span><b>9th grade</b> freshman</span>
-            <span><b>10th grade</b> sophomore</span>
-            <span><b>11th grade</b> junior</span>
-            <span><b>12th grade</b> senior</span>
-          </div>
-        </div>
-        <div class="ss-block">
-          <h3 class="ss-h">Germany (Saxony)</h3>
-          <div class="ss-row">
-            <div class="ss-box"><b>Grundschule</b><span>Klasse 1&ndash;4</span></div>
-            <div class="ss-arr" aria-hidden="true">&rarr;</div>
-            <div class="ss-box you"><b>Oberschule</b><span>Klasse 5&ndash;10</span><em>Our school</em></div>
-            <div class="ss-arr" aria-hidden="true">&rarr;</div>
-            <div class="ss-box"><b>Ausbildung</b><span>or further school</span></div>
-          </div>
-        </div>
-        <p class="ss-note">In most places it is like this. In some towns the grades are grouped a little differently.</p>
+        <button class="ss-card" type="button" data-lightbox="images/hp-schoolsystem-usa.jpg" data-lightbox-wide><img src="images/hp-schoolsystem-usa.jpg" alt="School in the USA: kindergarten, elementary school, middle school, high school (freshman, sophomore, junior, senior), college or university"></button>
+        <button class="ss-card" type="button" data-lightbox="images/hp-schoolsystem-germany.jpg" data-lightbox-wide><img src="images/hp-schoolsystem-germany.jpg" alt="School in Germany (Saxony): Kita, Grundschule, Oberschule or Gymnasium, Ausbildung, Universität or Fachhochschule"></button>
+        <p class="ss-note">Click on a picture to enlarge it.</p>
       </div>
 
       <div class="hp-sec" data-hp-sec="words" hidden>
