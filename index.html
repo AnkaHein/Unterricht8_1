@@ -1331,6 +1331,21 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
 
 
 
+<style id="hp2-additions">
+#site-en .hp2 .ss-block{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:18px;margin:0 0 16px}
+#site-en .hp2 .ss-h{margin:0 0 12px;font-size:1rem;color:var(--teal-deep)}
+#site-en .hp2 .ss-row{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px}
+#site-en .hp2 .ss-box{flex:1 1 120px;min-width:110px;background:var(--teal-soft);border:2px solid var(--line);border-radius:12px;padding:10px 12px;text-align:center;display:flex;flex-direction:column;gap:4px}
+#site-en .hp2 .ss-box b{font-size:1rem;color:var(--teal-deep)}
+#site-en .hp2 .ss-box span{font-size:.85rem;color:var(--ink-soft)}
+#site-en .hp2 .ss-box em{font-style:normal;font-weight:800;font-size:.8rem;color:var(--on-teal);background:var(--teal);border-radius:999px;padding:2px 10px;align-self:center;margin-top:auto}
+#site-en .hp2 .ss-box.you,#site-en .hp2 .ss-box.hs{border-color:var(--teal)}
+#site-en .hp2 .ss-arr{align-self:center;font-weight:800;color:var(--teal)}
+#site-en .hp2 .ss-names{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:.92rem}
+#site-en .hp2 .ss-names b{color:var(--teal-deep)}
+#site-en .hp2 .ss-note{color:var(--ink-soft);font-size:.88rem;margin:0}
+@media (max-width:620px){#site-en .hp2 .ss-row{flex-direction:column}#site-en .hp2 .ss-arr{transform:rotate(90deg);align-self:center}}
+</style>
 <header class="top">
   <div class="top-inner">
     <button class="brand" id="brandHome" type="button" aria-label="Zur Startseite">
@@ -2292,7 +2307,7 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
       <h3 class="hub-sub">NYC</h3>
       <div class="hub-grid"><button class="hub-tile" data-goto="trapped"><span class="hub-ico"><img src="images/tile-trapped.png" alt=""></span><span class="hub-txt"><b>Trapped</b><span>Ricky & Lance – the story continues</span></span></button></div>
       <h3 class="hub-sub">Hall Pass</h3>
-      <div class="hub-grid"><button class="hub-tile" data-goto="hp1"><span class="hub-ico"><img src="images/tile-hp1.png" alt=""></span><span class="hub-txt"><b>1st Lesson</b><span>Listening: Hannah's first message from Boston</span></span></button></div>
+      <div class="hub-grid"><button class="hub-tile" data-goto="hp1"><span class="hub-ico"><img src="images/tile-hp1.png" alt=""></span><span class="hub-txt"><b>1st Lesson</b><span>Listening: Hannah's first message from Boston</span></span></button><button class="hub-tile" data-goto="hp2"><span class="hub-ico"><img src="images/tile-hp2.png" alt="" onerror="this.onerror=null;this.src='images/tile-hp1.png'"></span><span class="hub-txt"><b>2nd Lesson</b><span>Reading: The Boston West student handbook</span></span></button></div>
     </section>
   </div>
   <div class="panel" id="epanel-hp1">
@@ -2375,6 +2390,86 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
       <div class="hp-sec" data-hp-sec="outlook" hidden>
         <div class="hp-imgwrap hp-narrow"><img src="images/hp1-outlook.jpg" alt="A school handbook with a question mark"></div>
         <p class="hp-q">What rules does a school like Boston West need?</p>
+      </div>
+    </section>
+  </div>
+  <div class="panel" id="epanel-hp2">
+    <section class="hp1 hp2">
+      <div class="section-head">
+        <div class="eyebrow">Hall Pass</div>
+        <h2>2nd Lesson · Reading</h2>
+        <p>The student handbook of Boston West High School. What does a student need to know?</p>
+      </div>
+
+      <div class="hp-steps" role="tablist" aria-label="2nd Lesson">
+        <button class="hp-step active" type="button" role="tab" data-hp="intro">Start</button>
+        <button class="hp-step" type="button" role="tab" data-hp="system">School system</button>
+        <button class="hp-step" type="button" role="tab" data-hp="words">Vocabulary</button>
+        <button class="hp-step" type="button" role="tab" data-hp="tips">Reading Tips</button>
+        <button class="hp-step" type="button" role="tab" data-hp="outlook">Outlook</button>
+      </div>
+
+      <div class="hp-sec" data-hp-sec="intro">
+        <div class="hp-imgwrap hp-narrow"><img src="images/hp1-outlook.jpg" alt="A school handbook with a question mark"></div>
+        <p class="hp-q">What rules does a school like Boston West need?</p>
+        <p style="text-align:center"><button class="hp-btn primary" type="button" data-hp2-go="system">Next: The school system &rarr;</button></p>
+      </div>
+
+      <div class="hp-sec" data-hp-sec="system" hidden>
+        <p class="hp-lead">How school works in the USA &ndash; and where you are.</p>
+        <div class="ss-block">
+          <h3 class="ss-h">USA</h3>
+          <div class="ss-row">
+            <div class="ss-box"><b>kindergarten</b><span>age 5</span></div>
+            <div class="ss-arr" aria-hidden="true">&rarr;</div>
+            <div class="ss-box"><b>elementary school</b><span>grades 1&ndash;5<br>age 6&ndash;10</span></div>
+            <div class="ss-arr" aria-hidden="true">&rarr;</div>
+            <div class="ss-box you"><b>middle school</b><span>grades 6&ndash;8<br>age 11&ndash;13</span><em>You are here: grade 8</em></div>
+            <div class="ss-arr" aria-hidden="true">&rarr;</div>
+            <div class="ss-box hs"><b>high school</b><span>grades 9&ndash;12<br>age 14&ndash;18</span><em>Boston West</em></div>
+            <div class="ss-arr" aria-hidden="true">&rarr;</div>
+            <div class="ss-box"><b>college / university</b><span>after grade 12</span></div>
+          </div>
+          <div class="ss-names">
+            <span><b>9th grade</b> freshman</span>
+            <span><b>10th grade</b> sophomore</span>
+            <span><b>11th grade</b> junior</span>
+            <span><b>12th grade</b> senior</span>
+          </div>
+        </div>
+        <div class="ss-block">
+          <h3 class="ss-h">Germany (Saxony)</h3>
+          <div class="ss-row">
+            <div class="ss-box"><b>Grundschule</b><span>Klasse 1&ndash;4</span></div>
+            <div class="ss-arr" aria-hidden="true">&rarr;</div>
+            <div class="ss-box you"><b>Oberschule</b><span>Klasse 5&ndash;10</span><em>Our school</em></div>
+            <div class="ss-arr" aria-hidden="true">&rarr;</div>
+            <div class="ss-box"><b>Ausbildung</b><span>or further school</span></div>
+          </div>
+        </div>
+        <p class="ss-note">In most places it is like this. In some towns the grades are grouped a little differently.</p>
+      </div>
+
+      <div class="hp-sec" data-hp-sec="words" hidden>
+        <p class="hp-lead">15 new words. Read them here, then practise in the Vocabulary Trainer.</p>
+        <div id="hp2List"></div>
+        <p><button class="hp-btn primary" type="button" data-goto="vokabeln" data-vtset="hp">Open the Vocabulary Trainer &rarr;</button></p>
+      </div>
+
+      <div class="hp-sec" data-hp-sec="tips" hidden>
+        <p class="hp-lead">How to read a text well.</p>
+        <ol class="hp-tips">
+          <li>Read the title and look at the layout first.</li>
+          <li>Read the first sentence of each section.</li>
+          <li>Underline key words, numbers and names.</li>
+          <li>Don&rsquo;t stop at every new word.</li>
+          <li>Check true/false answers in the text.</li>
+        </ol>
+      </div>
+
+      <div class="hp-sec" data-hp-sec="outlook" hidden>
+        <div class="hp-imgwrap hp-narrow"><img src="images/hp2-outlook.jpg" alt="A girl in front of a school door with a question mark" onerror="this.onerror=null;this.parentNode.style.display='none'"></div>
+        <p class="hp-q">Is the first day at a new school really scary?</p>
       </div>
     </section>
   </div>
@@ -3205,7 +3300,7 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
   var home=$("view-home"), de=$("site-de"), en=$("site-en"), back=$("backBtn"), backLabel=$("backLabel");
   var EN_PARENT={nextdates:"start",aufgaben:"start",klassenarbeiten:"start",chapters:"start",exercises:"start",
     leistung:"klassenarbeiten",notebook:"klassenarbeiten",termine:"klassenarbeiten",
-    guide:"chapters",trapped:"chapters",
+    guide:"chapters",trapped:"chapters",hp1:"chapters",hp2:"chapters",
     tenses:"exercises",audios:"exercises",vokabeln:"exercises",searchwords:"exercises",escaperooms:"exercises",escaperoom:"escaperooms",
     "tenses-overviews":"tenses","tenses-exercises":"tenses","tense-present":"tenses-exercises","tense-past":"tenses-exercises","tense-will":"tenses-exercises","tense-would":"tenses-exercises"};
   var EN_NAME={start:"Englisch",klassenarbeiten:"Klassenarbeiten",chapters:"Chapters",exercises:"Exercises",escaperooms:"Escape Rooms",tenses:"Tenses","tenses-exercises":"Exercises"};
@@ -4519,11 +4614,29 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
         { en: "be allowed to", de: "dürfen", ex: "Will we ... use tablets next week?" }
       ]
     },
-    { id: "hp-2", name: "2nd Lesson", words: [] },
+    { id: "hp-2", name: "2nd Lesson", words: [
+        { en: "attend", de: "besuchen, teilnehmen an", ex: "Students ... Boston West for four years." },
+        { en: "graduate", de: "den Abschluss machen", ex: "Students ... at the end of 12th grade." },
+        { en: "announcement", de: "Durchsage, Ankündigung", ex: "There is an ... on the loudspeaker every morning." },
+        { en: "visitor pass", de: "Besucherausweis", ex: "Visitors get a ... at the front desk." },
+        { en: "behave", de: "sich verhalten, sich benehmen", ex: "Please ... like a responsible student." },
+        { en: "be banned", de: "verboten sein", ex: "Some people think phones should ... in class." },
+        { en: "appropriate", de: "angemessen, passend", ex: "Wear clothes that are ... for school." },
+        { en: "alcohol", de: "Alkohol", ex: "There is no ... on school grounds." },
+        { en: "drug", de: "Droge", ex: "It is not allowed to bring a ... to school." },
+        { en: "belongings", de: "Sachen, Hab und Gut (Plural)", ex: "Keep your ... in your locker." },
+        { en: "responsible", de: "verantwortungsbewusst, verantwortlich", ex: "You are ... for your own belongings." },
+        { en: "volunteer", de: "ehrenamtlich arbeiten, sich freiwillig engagieren", ex: "Many students ... at an animal shelter." },
+        { en: "tradition", de: "Tradition", ex: "Spirit Week is a ... at Boston West." },
+        { en: "compare", de: "vergleichen", ex: "Please ... your answers with a partner." },
+        { en: "similar", de: "ähnlich (similar to = ähnlich wie)", ex: "Your bag is ... to my bag." }
+      ]
+    },
     { id: "hp-3", name: "3rd Lesson", words: [] }
   ];
   var vtSetName = 'nyc', vtChosen = false;
   var vtSets = { nyc: vtLessons, hp: vtHallPass };
+  window.__vtHallPass = vtHallPass;
   var vtTexts = {
     nyc: { title: "Vocabulary Trainer New York City", desc: "The vocabulary from the last guide pages (p. 23–26) – to practise together in class or on your own." },
     hp: { title: "Vocabulary Trainer Hall Pass", desc: "The words of every Hall Pass lesson, sorted by lesson. New words are added after each lesson." }
@@ -5609,6 +5722,37 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
     if(m==='list') renderList(); else startQuiz(m, HP1);
   }
   $$('.hp-mode').forEach(function(b){ b.addEventListener('click', function(){ renderMode(b.getAttribute('data-mode')); }); });
+})();
+</script>
+<script>
+(function(){
+  var root = document.getElementById('epanel-hp2');
+  if(!root) return;
+  function $$(s){ return Array.prototype.slice.call(root.querySelectorAll(s)); }
+  function showSec(name){
+    $$('.hp-step').forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-hp')===name); });
+    $$('.hp-sec').forEach(function(s){ s.hidden = s.getAttribute('data-hp-sec')!==name; });
+    if(name==='words') renderList();
+  }
+  $$('.hp-step').forEach(function(b){ b.addEventListener('click', function(){ showSec(b.getAttribute('data-hp')); }); });
+  $$('[data-hp2-go]').forEach(function(b){ b.addEventListener('click', function(){ showSec(b.getAttribute('data-hp2-go')); }); });
+  function renderList(){
+    var box = document.getElementById('hp2List');
+    var lessons = window.__vtHallPass || [];
+    var l = null; for(var i=0;i<lessons.length;i++){ if(lessons[i].id==='hp-2') l = lessons[i]; }
+    if(!l || !box) return;
+    var t = document.createElement('table'); t.className = 'hp-table';
+    t.innerHTML = '<thead><tr><th>English</th><th>Deutsch</th><th class="ex">Example</th></tr></thead>';
+    var tb = document.createElement('tbody');
+    l.words.forEach(function(w){
+      var tr = document.createElement('tr');
+      var a = document.createElement('td'); a.textContent = w.en;
+      var b = document.createElement('td'); b.textContent = w.de;
+      var c = document.createElement('td'); c.className = 'ex'; c.textContent = w.ex.replace('...', '____');
+      tr.appendChild(a); tr.appendChild(b); tr.appendChild(c); tb.appendChild(tr);
+    });
+    t.appendChild(tb); box.innerHTML = ''; box.appendChild(t);
+  }
 })();
 </script>
 <script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
