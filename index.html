@@ -1249,6 +1249,19 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
 #site-en .hp1 .hp-step,#site-en .hp1 .hp-mode{font:inherit;font-weight:800;font-size:.9rem;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-radius:999px;padding:8px 16px;cursor:pointer}
 #site-en .hp1 .hp-step.active,#site-en .hp1 .hp-mode.active{background:var(--teal);border-color:var(--teal);color:var(--on-teal)}
 #site-en .hp1 .hp-lead{color:var(--ink-soft);margin:0 0 16px}
+#site-en .hp1 .hp-bigq{font-family:var(--display);font-size:1.7rem;line-height:1.25;font-weight:700;color:var(--teal-deep);margin:10px 0 0}
+#site-en .hp1 .hp-center{text-align:center}
+#site-en .hp1 .hp-h{font-family:var(--display);font-weight:700;font-size:1.9rem;line-height:1.2;color:var(--teal-deep);margin:44px 0 12px}
+#site-en .hp1 .hp-hall{display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start}
+#site-en .hp1 .hp-hall > div:first-child{flex:1 1 320px;min-width:0;max-width:640px}
+#site-en .hp1 .hp-side{flex:1 1 220px;min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px 18px}
+#site-en .hp1 .hp-side p{margin:0 0 12px}
+#site-en .hp1 .hp-who{font-size:1.05rem}
+#site-en .hp1 .hp-guess{font-size:1.15rem;font-weight:800}
+#site-en .hp1 .hp-foot{font-size:.9rem;color:var(--ink-soft);margin:0}
+#site-en .hp1 .hp-outlook-btn{display:block;margin:40px auto 0}
+#site-en .hp1 #hpOutlook{margin-top:18px}
+#site-en .hub-date{display:inline-block;margin-top:6px;font-weight:800;font-size:.85rem;color:var(--teal-deep);background:var(--teal-soft);border-radius:999px;padding:3px 10px;width:fit-content}
 #site-en .hp1 .hp-cap{font-weight:800;font-size:1.1rem;margin:12px 0}
 #site-en .hp1 .hp-imgwrap{position:relative;margin:0 auto;border-radius:18px;overflow:hidden;background:#fff;box-shadow:var(--shadow)}
 #site-en .hp1 .hp-imgwrap img{display:block;width:100%;height:auto}
@@ -2278,7 +2291,7 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
         <div class="eyebrow">English</div>
         <h2>Across the USA</h2>
       </div>
-      <div class="hub-grid"><button class="hub-tile hub-tile-now" data-goto="current"><span class="hub-ico"><img src="images/tile-hp1.png" alt=""></span><span class="hub-txt"><b>Our current chapter: Hall Pass</b><span>Dates, tasks, lessons and the vocabulary trainer &ndash; start here!</span></span></button><button class="hub-tile" data-goto="klassenarbeiten"><span class="hub-ico"><img src="images/tile-klassenarbeiten.png" alt=""></span><span class="hub-txt"><b>Klassenarbeiten</b><span>The dates of your tests</span></span></button><button class="hub-tile" data-goto="chapters"><span class="hub-ico"><img src="images/tile-guide.png" alt=""></span><span class="hub-txt"><b>Earlier chapters</b><span>The story &ldquo;Trapped&rdquo; (New York)</span></span></button><button class="hub-tile" data-goto="exercises"><span class="hub-ico"><img src="images/tile-uebungen.png" alt=""></span><span class="hub-txt"><b>Exercises &ndash; Just for &ldquo;fun&rdquo;</b><span>Tenses, dictionary and escape rooms</span></span></button></div>
+      <div class="hub-grid"><button class="hub-tile hub-tile-now" data-goto="current"><span class="hub-ico"><img src="images/tile-hp1.png" alt=""></span><span class="hub-txt"><b>Our current chapter: Hall Pass</b><span>Dates, tasks, lessons and the vocabulary trainer &ndash; start here!</span></span></button><button class="hub-tile" data-goto="klassenarbeiten"><span class="hub-ico"><img src="images/tile-klassenarbeiten.png" alt=""></span><span class="hub-txt"><b>Klassenarbeiten</b><span>The dates of your tests</span></span></button><button class="hub-tile" data-goto="exercises"><span class="hub-ico"><img src="images/tile-uebungen.png" alt=""></span><span class="hub-txt"><b>Exercises &ndash; Just for &ldquo;fun&rdquo;</b><span>Tenses, dictionary and escape rooms</span></span></button></div>
     </section>
   </div>
   <div class="panel" id="epanel-current">
@@ -2288,17 +2301,8 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
         <h2>Our current chapter: Hall Pass</h2>
         <p>Surviving Boston West High School &ndash; everything you need right now.</p>
       </div>
-      <h3 class="hub-sub">Our next dates</h3>
-      <ol class="nd-list"><li class="nd-item"><span class="nd-date">Monday, 9 November 2026</span><b>Presentation Plan</b><button class="cp-page nd-plan" type="button" data-lightbox="images/presentation-plan.jpg" data-lightbox-tall><img src="images/presentation-plan.jpg" alt="Presentation Plan, Monday 9 November 2026: 12:55 Topic B A Day in the Life, 13:05 Topic C Two Sides of NYC, 13:15 Topic D NYC Survival Tips, 13:25 Topic E NYC Then and Now, 13:30 Break, 13:40 Topic F If I Were Mayor of NYC, 13:50 Topic H Sports in NYC, 14:00 Topic I Two Cities, One Skyline: Manhattan vs. Brooklyn, 14:05 Feedback and Next Chapter" loading="lazy"><span class="cp-cap">Click to enlarge</span></button></li><li class="nd-item"><span class="nd-date">Tuesday, 10 November 2026</span><b>Next Chapter</b></li></ol>
-      <h3 class="hub-sub">Your current tasks</h3>
-      <div class="task-list" id="task-list">
-        <div class="task-card task-card-single">
-          <button class="task-link-btn task-link-big" data-goto="leistung">Complex Performance <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-        </div>
-      </div>
-
       <h3 class="hub-sub">Our lessons</h3>
-      <div class="hub-grid"><button class="hub-tile" data-goto="hp1"><span class="hub-ico"><img src="images/tile-hp1.png" alt=""></span><span class="hub-txt"><b>1st Lesson</b><span>Listening: Hannah's first message from Boston</span></span></button><button class="hub-tile" data-goto="hp2"><span class="hub-ico"><img src="images/tile-hp2.png" alt="" onerror="this.onerror=null;this.src='images/tile-hp1.png'"></span><span class="hub-txt"><b>2nd Lesson</b><span>Reading: The Boston West student handbook</span></span></button><button class="hub-tile" data-goto="hp3"><span class="hub-ico"><img src="images/tile-hp3.png" alt="" onerror="this.onerror=null;this.src='images/tile-hp1.png'"></span><span class="hub-txt"><b>3rd Lesson</b><span>Reading: A freshman's first week</span></span></button></div>
+      <div class="hub-grid"><button class="hub-tile" data-goto="hp1"><span class="hub-ico"><img src="images/tile-hp1.png" alt=""></span><span class="hub-txt"><b>1st Lesson</b><span>Listening: Hannah's first message from Boston</span><span class="hub-date">November 10th, 2026</span></span></button><button class="hub-tile" data-goto="hp2"><span class="hub-ico"><img src="images/tile-hp2.png" alt="" onerror="this.onerror=null;this.src='images/tile-hp1.png'"></span><span class="hub-txt"><b>2nd Lesson</b><span>Reading: The Boston West student handbook</span></span></button><button class="hub-tile" data-goto="hp3"><span class="hub-ico"><img src="images/tile-hp3.png" alt="" onerror="this.onerror=null;this.src='images/tile-hp1.png'"></span><span class="hub-txt"><b>3rd Lesson</b><span>Reading: A freshman's first week</span></span></button></div>
       <h3 class="hub-sub">Practise the words</h3>
       <div class="hub-grid"><button class="hub-tile" data-goto="vokabeln" data-vtset="hp"><span class="hub-ico"><img src="images/tile-vokabeln-hp.png" alt="" onerror="this.onerror=null;this.src='images/tile-vokabeln.png'"></span><span class="hub-txt"><b>Vocabulary Trainer Hall Pass</b><span>New words after every lesson &ndash; flashcards &amp; quiz</span></span></button></div>
     </section>
@@ -2368,27 +2372,17 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
   <div class="panel" id="epanel-hp1">
     <section class="hp1">
       <div class="section-head">
-        <div class="eyebrow">Hall Pass</div>
-        <h2>1st Lesson · Listening</h2>
-        <p>Hannah is writing from Boston. Can you understand her?</p>
+        <div class="eyebrow">Hall Pass &middot; November 10th, 2026</div>
+        <h2>1st Lesson &middot; Listening</h2>
+        <p class="hp-bigq">&ldquo;Hannah is sending a message from Boston. Can you understand her?&rdquo;</p>
       </div>
 
-      <div class="hp-steps" role="tablist" aria-label="1st Lesson">
-        <button class="hp-step active" type="button" role="tab" data-hp="intro">Start</button>
-        <button class="hp-step" type="button" role="tab" data-hp="listen">Listening</button>
-        <button class="hp-step" type="button" role="tab" data-hp="words">Vocabulary</button>
-        <button class="hp-step" type="button" role="tab" data-hp="tips">Listening Tips</button>
-        <button class="hp-step" type="button" role="tab" data-hp="outlook">Outlook</button>
-      </div>
+      <div class="hp-imgwrap hp-narrow"><img src="images/hp1-hallpass.jpg" alt="A hall pass on a clipboard"></div>
+      <p class="hp-cap hp-center">This is a picture of a hall pass. Hannah will tell you when you need it.</p>
 
-      <div class="hp-sec" data-hp-sec="intro">
-        <div class="hp-stage" id="hpStageA">
-          <div class="hp-imgwrap hp-narrow"><img src="images/hp1-hallpass.jpg" alt="A hall pass on a clipboard"></div>
-          <p class="hp-cap">What do you see?</p>
-          <button class="hp-btn primary" type="button" id="hpToHall">Next: In the hallway &rarr;</button>
-        </div>
-        <div class="hp-stage" id="hpStageB" hidden>
-          <p class="hp-cap">Click the things in the picture to learn the words.</p>
+      <h3 class="hp-h">In the hallway</h3>
+      <div class="hp-hall">
+        <div>
           <div class="hp-imgwrap hp-scene" id="hpScene">
             <img src="images/hp1-hallway.jpg" alt="Hannah and Tyler in a school hallway">
             <button class="hp-spot" type="button" data-w="lion" style="left:81%;top:5%;width:13%;height:23%" aria-label="lion"><i></i></button>
@@ -2399,14 +2393,38 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
             <button class="hp-spot" type="button" data-w="photographer" style="left:63%;top:42%;width:15%;height:14%" aria-label="photographer"><i></i></button>
             <button class="hp-spot" type="button" data-w="get lost" style="left:20%;top:50%;width:27%;height:15%" aria-label="get lost"><i></i></button>
           </div>
-          <div class="hp-pop" id="hpPop" aria-live="polite"><span class="hp-pop-hint">Tap a dot.</span></div>
-          <button class="hp-btn" type="button" id="hpToPass">&larr; Back to the hall pass</button>
+          <div class="hp-pop" id="hpPop" aria-live="polite"><span class="hp-pop-hint">Tap a dot to learn the word.</span></div>
+        </div>
+        <div class="hp-side">
+          <p class="hp-who"><b>In the picture:</b> Hannah (on the left) and Tyler (on the right).</p>
+          <p class="hp-guess">Can you guess why Hannah is looking so <em>desperate</em><sup>1</sup>?</p>
+          <p class="hp-foot"><sup>1</sup> desperate = verzweifelt</p>
         </div>
       </div>
 
-      <div class="hp-sec" data-hp-sec="listen" hidden>
-        <p class="hp-lead">Listen and do the tasks on your worksheet. You will hear Hannah&rsquo;s message twice.</p>
-        <div class="audio-list">
+      <h2 class="hp-h">Vocabulary</h2>
+      <p class="hp-lead">15 new words. Learn them in the list, then test yourself.</p>
+      <div class="hp-modes" id="hpModes">
+        <button class="hp-mode active" type="button" data-mode="list">Word list</button>
+        <button class="hp-mode" type="button" data-mode="de2en">German &rarr; English</button>
+        <button class="hp-mode" type="button" data-mode="spell">Spelling</button>
+        <button class="hp-mode" type="button" data-mode="expl">Explanations</button>
+      </div>
+      <div id="hpTrainer"></div>
+
+      <h2 class="hp-h">Listening tips</h2>
+      <p class="hp-lead">How to understand a listening text.</p>
+      <ol class="hp-tips">
+          <li>Read the task first.</li>
+          <li>Listen for numbers, names and places.</li>
+          <li>You don&rsquo;t need every word.</li>
+          <li>Take notes with key words, not full sentences.</li>
+          <li>Listen twice: first the big picture, then the details.</li>
+        </ol>
+
+      <h2 class="hp-h">Listening</h2>
+      <p class="hp-lead">Listen and do the tasks on your worksheet. You will hear Hannah&rsquo;s message twice.</p>
+      <div class="audio-list">
           <div class="audio-card">
             <div class="a-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 14v-2a9 9 0 0 1 18 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg></div>
             <div class="a-meta"><div class="a-page">Task A &amp; B</div><h3>Hannah&rsquo;s voice message</h3></div>
@@ -2418,31 +2436,9 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
             <audio controls preload="none" src="files/hp-1-tyler.mp3"></audio>
           </div>
         </div>
-      </div>
 
-      <div class="hp-sec" data-hp-sec="words" hidden>
-        <p class="hp-lead">15 new words. Learn them in the list, then test yourself.</p>
-        <div class="hp-modes" id="hpModes">
-          <button class="hp-mode active" type="button" data-mode="list">Word list</button>
-          <button class="hp-mode" type="button" data-mode="de2en">German &rarr; English</button>
-          <button class="hp-mode" type="button" data-mode="spell">Spelling</button>
-          <button class="hp-mode" type="button" data-mode="expl">Explanations</button>
-        </div>
-        <div id="hpTrainer"></div>
-      </div>
-
-      <div class="hp-sec" data-hp-sec="tips" hidden>
-        <p class="hp-lead">How to understand a listening text.</p>
-        <ol class="hp-tips">
-          <li>Read the task first.</li>
-          <li>Listen for numbers, names and places.</li>
-          <li>You don&rsquo;t need every word.</li>
-          <li>Take notes with key words, not full sentences.</li>
-          <li>Listen twice: first the big picture, then the details.</li>
-        </ol>
-      </div>
-
-      <div class="hp-sec" data-hp-sec="outlook" hidden>
+      <button class="hp-btn primary hp-outlook-btn" type="button" id="hpOutlookBtn" aria-expanded="false" aria-controls="hpOutlook">Outlook <span id="hpOutlookChev">&#9662;</span></button>
+      <div id="hpOutlook" hidden>
         <div class="hp-imgwrap hp-narrow"><img src="images/hp1-outlook.jpg" alt="A school handbook with a question mark"></div>
         <p class="hp-q">What rules does a school like Boston West need?</p>
       </div>
@@ -5614,17 +5610,15 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
   function say(t){ try{ if(!window.speechSynthesis) return; var u=new SpeechSynthesisUtterance(t); u.lang='en-US'; u.rate=.9; window.speechSynthesis.cancel(); window.speechSynthesis.speak(u);}catch(e){} }
   function byEn(w){ for(var i=0;i<HP1.length;i++){ if(HP1[i].en===w) return HP1[i]; } return null; }
 
-  /* ---- section tabs ---- */
-  function showSec(name){
-    $$('.hp-step').forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-hp')===name); });
-    $$('.hp-sec').forEach(function(s){ s.hidden = s.getAttribute('data-hp-sec')!==name; });
-    if(name==='words') renderMode(curMode);
-  }
-  $$('.hp-step').forEach(function(b){ b.addEventListener('click', function(){ showSec(b.getAttribute('data-hp')); }); });
+  /* ---- outlook: open / close ---- */
+  $('#hpOutlookBtn').addEventListener('click', function(){
+    var o = $('#hpOutlook'), open = o.hidden;
+    o.hidden = !open;
+    this.setAttribute('aria-expanded', String(open));
+    $('#hpOutlookChev').innerHTML = open ? '&#9652;' : '&#9662;';
+  });
 
-  /* ---- intro: hall pass -> hallway hotspots ---- */
-  $('#hpToHall').addEventListener('click', function(){ $('#hpStageA').hidden = true; $('#hpStageB').hidden = false; });
-  $('#hpToPass').addEventListener('click', function(){ $('#hpStageB').hidden = true; $('#hpStageA').hidden = false; });
+  /* ---- hallway hotspots ---- */
   $$('.hp-spot').forEach(function(sp){
     sp.addEventListener('click', function(){
       var w = byEn(sp.getAttribute('data-w')); if(!w) return;
@@ -5732,6 +5726,7 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
     if(m==='list') renderList(); else startQuiz(m, HP1);
   }
   $$('.hp-mode').forEach(function(b){ b.addEventListener('click', function(){ renderMode(b.getAttribute('data-mode')); }); });
+  renderMode('list');
 })();
 </script>
 <script>
