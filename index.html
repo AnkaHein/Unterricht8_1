@@ -1390,8 +1390,7 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
   <div id="site-de" hidden>
     <div class="wrap">
   <section class="panel" id="dpanel-start" role="tabpanel">
-    <div class="hub-grid"><!-- KOFFER-KACHEL: gesperrt. Zum Freischalten die ganze folgende div-Zeile durch <a class="hub-tile" id="koffer-kachel" href="koffer/" style="text-decoration:none;color:inherit"> ersetzen und hinten </div> zu </a> --><div class="hub-tile" id="koffer-kachel" aria-disabled="true" style="opacity:.6;cursor:default;filter:grayscale(.35)"><span class="hub-ico"><img src="images/tile-de-koffer_1.png" alt="" onerror="this.onerror=null;this.src='koffer/images/koffer-zu.png'"></span><span class="hub-txt"><b>Der Koffer von 1914</b><span>Escape Room &ndash; noch geschlossen. Bald geht es los!</span></span></div><button class="hub-tile" data-goto="printmedien"><span class="hub-ico"><img src="images/tile-de-printmedien_1.png" alt="" onerror="this.onerror=null;this.parentNode.innerHTML=this.dataset.fb" data-fb='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h13a2 2 0 0 1 2 2v12H6a2 2 0 0 1-2-2V5Z"/><path d="M19 9h2v8a2 2 0 0 1-2 2M7 9h8M7 12h8M7 15h5"/></svg>'></span><span class="hub-txt"><b>Printmedien</b><span>Textsorten, Textsorten-Check, Beispiele und Übungen zum Test.</span></span></button></div>
-    <div class="hub-grid"><button class="hub-tile" data-goto="aufgaben"><span class="hub-ico"><img src="images/tile-de-aufgaben_1.png" alt="" onerror="this.onerror=null;this.src='assets/b22f8b6625.jpg'"></span><span class="hub-txt"><b>Aktuelle Aufgaben</b><span>Was gerade dran ist – auf einen Blick.</span></span></button><button class="hub-tile" data-goto="klassenarbeiten"><span class="hub-ico"><img src="assets/b05a8353ef.jpg" alt=""></span><span class="hub-txt"><b>Klassenarbeiten</b><span>Termine, Themen und alles zur komplexen Leistung.</span></span></button></div>
+    <div class="hub-grid"><button class="hub-tile" data-goto="aufgaben"><span class="hub-ico"><img src="images/tile-de-aufgaben_1.png" alt="" onerror="this.onerror=null;this.src='assets/b22f8b6625.jpg'"></span><span class="hub-txt"><b>Aktuelle Aufgaben</b><span>Was gerade dran ist – auf einen Blick.</span></span></button><div class="hub-tile" id="koffer-kachel" aria-disabled="true" style="opacity:.6;cursor:default;filter:grayscale(.35)"><span class="hub-ico"><img src="images/tile-de-koffer_1.png" alt="" onerror="this.onerror=null;this.src='koffer/images/koffer-zu.png'"></span><span class="hub-txt"><b>Der Koffer von 1914</b><span>Escape Room &ndash; noch geschlossen. Bald geht es los!</span></span></div><button class="hub-tile" data-goto="klassenarbeiten"><span class="hub-ico"><img src="assets/b05a8353ef.jpg" alt=""></span><span class="hub-txt"><b>Klassenarbeiten</b><span>Termine und Themen deiner Klassenarbeiten.</span></span></button><button class="hub-tile" data-goto="printmedien"><span class="hub-ico"><img src="images/tile-de-printmedien_1.png" alt="" onerror="this.onerror=null;this.parentNode.innerHTML=this.dataset.fb" data-fb='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h13a2 2 0 0 1 2 2v12H6a2 2 0 0 1-2-2V5Z"/><path d="M19 9h2v8a2 2 0 0 1-2 2M7 9h8M7 12h8M7 15h5"/></svg>'></span><span class="hub-txt"><b>Printmedien</b><span>Textsorten, Textsorten-Check, Beispiele und Übungen zum Test.</span></span></button></div>
   </section>
   <section class="panel" id="dpanel-printmedien" role="tabpanel" hidden>
     <span class="eyebrow">Deutsch</span>
@@ -2171,71 +2170,6 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
     </div>
 
     <div class="card" style="margin-top:20px;">
-      <h3 style="font-size:1.1rem;">Informationen zur komplexen Leistung</h3>
-      <p style="margin:8px 0 0; font-size:.94rem;">Was musst du dafür tun?</p>
-      <div style="display:grid; gap:10px; margin-top:10px;">
-        <div class="item" style="background:var(--surface-alt); border:1px solid var(--border); border-radius:12px; padding:12px 14px;">
-          <strong>1. Test</strong>
-          <ul style="margin:8px 0 0; padding-left:20px; font-size:.92rem; display:grid; gap:4px;">
-            <li>Textsorten erkennen + Begründung</li>
-            <li>Merkmale der Textsorten</li>
-            <li>Die Redaktion</li>
-          </ul>
-        </div>
-        <div class="item" style="background:var(--surface-alt); border:1px solid var(--border); border-radius:12px; padding:12px 14px;">
-          <strong>2. Ich erstelle mein Medienprodukt</strong>
-          <p class="muted" style="margin:6px 0 0; font-size:.9rem;">Du hast drei Möglichkeiten – wähle die, die am besten zu dir passt. Klick auf ein Dokument, um es anzuzeigen.</p>
-          <div style="display:grid; gap:8px; margin-top:10px;">
-            <div>
-              <button class="reveal-btn" id="km-uebersicht-toggle">Übersicht: Wähle dein Medienprodukt! anzeigen</button>
-              <div id="km-uebersicht-img" hidden style="margin-top:10px;">
-                <img class="worksheet-img" src="assets/83bf4ccf21.jpg" alt="Wähle dein Medienprodukt! Drei Möglichkeiten im Vergleich: Meine eigene Zeitungsseite, Mein Medien-Dossier, Mein Wandzeitungsbeitrag mit QR-Code, mit Erklärung des Ampelsystems zur Quellenarbeit">
-              </div>
-            </div>
-            <div>
-              <button class="reveal-btn" id="km-zeitungsseite-toggle">Meine eigene Zeitungsseite anzeigen</button>
-              <div id="km-zeitungsseite-img" hidden style="margin-top:10px;">
-                <img class="worksheet-img" src="assets/efad70c230.jpg" alt="Meine eigene Zeitungsseite: für dich, wenn du gerne gestaltest und Layout machst – mit Erklärung des Infokastens">
-              </div>
-              <button class="reveal-btn" id="km-zeitungsseite-bewertung-toggle" style="margin-top:8px;">Bewertungsbogen (Teil A) anzeigen</button>
-              <div id="km-zeitungsseite-bewertung-img" hidden style="margin-top:10px;">
-                <img class="worksheet-img" src="assets/20ee1f148e.jpg" alt="Bewertungsbogen Meine eigene Zeitungsseite, Teil A: Layout und Gestaltung, Bild/Bildunterschrift/Infokasten, Sprache und Quellenarbeit mit Punktstufen, 10 von 20 Punkten">
-              </div>
-            </div>
-            <div>
-              <button class="reveal-btn" id="km-dossier-toggle">Mein Medien-Dossier anzeigen</button>
-              <div id="km-dossier-img" hidden style="margin-top:10px;">
-                <img class="worksheet-img" src="assets/41a04bcbbe.jpg" alt="Mein Medien-Dossier: für dich, wenn du gerne und viel schreibst – mit Erklärung von Vorwort und Faktencheck-Vermerk">
-              </div>
-              <button class="reveal-btn" id="km-dossier-bewertung-toggle" style="margin-top:8px;">Bewertungsbogen (Teil A) anzeigen</button>
-              <div id="km-dossier-bewertung-img" hidden style="margin-top:10px;">
-                <img class="worksheet-img" src="assets/0ed87c64a8.jpg" alt="Bewertungsbogen Mein Medien-Dossier, Teil A: Vorwort, Faktencheck-Vermerke, Deckblatt/Sprache/Quellenarbeit mit Punktstufen, 10 von 20 Punkten">
-              </div>
-            </div>
-            <div>
-              <button class="reveal-btn" id="km-wandzeitung-toggle">Mein Wandzeitungsbeitrag mit QR-Code anzeigen</button>
-              <div id="km-wandzeitung-img" hidden style="margin-top:10px;">
-                <img class="worksheet-img" src="assets/bfaa546aca.jpg" alt="Mein Wandzeitungsbeitrag mit QR-Code: für dich, wenn du kreativ bist und gerne mit Technik/Audio arbeitest – mit Erklärung von Interview, begründeten Interviewfragen und QR-Code">
-              </div>
-              <button class="reveal-btn" id="km-wandzeitung-bewertung-toggle" style="margin-top:8px;">Bewertungsbogen (Teil A) anzeigen</button>
-              <div id="km-wandzeitung-bewertung-img" hidden style="margin-top:10px;">
-                <img class="worksheet-img" src="assets/bd58f47df3.jpg" alt="Bewertungsbogen Mein Wandzeitungsbeitrag mit QR-Code, Teil A: Interviewfragen begründet, Interview und Aufnahme, Zusammenfassung mit Einordnung, Sprache und Quellenarbeit mit Punktstufen, 15 von 20 Punkten">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="item" style="background:var(--surface-alt); border:1px solid var(--border); border-radius:12px; padding:12px 14px;">
-          <strong>3. Präsentation meines Medienprodukts</strong>
-          <p class="muted" style="margin:6px 0 0; font-size:.9rem;">So wird deine Präsentation bewertet:</p>
-          <button class="reveal-btn" id="km-praesentation-toggle" style="margin-top:10px;">Bewertungsbogen anzeigen</button>
-          <div id="km-praesentation-img" hidden style="margin-top:10px;">
-            <img class="worksheet-img" src="assets/c4ef231b3a.jpg" alt="Bewertungsbogen Präsentation: Name, Datum, Medienprodukt sowie sieben Bewertungskriterien mit Punkten – Ablauf der Präsentation (6 Teilschritte), Freies Sprechen, Verständliche Sprache, Blickkontakt, Lautstärke und Sprechtempo, Einhaltung der Zeitvorgabe (5 Minuten), Umgang mit Rückfragen, insgesamt 20 Punkte.">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" style="margin-top:20px;">
       <h3 style="font-size:1.1rem;">Übungen für die zweite und dritte Klassenarbeit</h3>
       <button class="reveal-btn" id="klassenarbeiten-toggle" style="margin-top:8px;">Übungen für die zweite und dritte Klassenarbeit</button>
       <p class="muted" id="klassenarbeiten-note" hidden style="margin-top:10px; font-size:.9rem;">Die Übungen werden hier bald eingestellt.</p>
@@ -2267,6 +2201,23 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
   <section class="panel" id="dpanel-aufgaben" role="tabpanel" hidden>
     <span class="eyebrow">Wochenplan</span>
     <h2>Aktuelle Aufgaben</h2>
+
+    <div class="card" style="margin-bottom:20px;">
+      <h3 style="font-size:1.1rem;">12.11.2026</h3>
+      <div style="display:grid; gap:12px; margin-top:12px;">
+        <div class="item" style="background:var(--surface-alt); border:1px solid var(--border); border-radius:12px; padding:12px 14px;">
+          <span style="font-size:1.05rem;"><strong>Präsentationen</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:20px;">
+      <h3 style="font-size:1.1rem;">16.11.2026</h3>
+      <div style="display:grid; gap:12px; margin-top:12px;">
+        <div class="item" style="background:var(--surface-alt); border:1px solid var(--border); border-radius:12px; padding:12px 14px;">
+          <span style="font-size:1.05rem;"><strong>Der Koffer von 1914</strong></span>
+        </div>
+      </div>
+    </div>
 
     <div class="card">
       <h3 style="font-size:1.1rem;">Pädagogischer Tag, 26.10.2026</h3>
