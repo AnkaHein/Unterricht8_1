@@ -2482,49 +2482,36 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
     <section class="hp1 hp2">
       <div class="section-head">
         <div class="eyebrow">Hall Pass</div>
-        <h2>2nd Lesson · Reading</h2>
-        <p>The student handbook of Boston West High School. What does a student need to know?</p>
+        <h2>2nd Lesson &middot; Reading</h2>
+        <p class="hp-bigq">The student handbook of Boston West High School. What does a student need to know?</p>
       </div>
 
-      <div class="hp-steps" role="tablist" aria-label="2nd Lesson">
-        <button class="hp-step active" type="button" role="tab" data-hp="intro">Start</button>
-        <button class="hp-step" type="button" role="tab" data-hp="system">School system</button>
-        <button class="hp-step" type="button" role="tab" data-hp="words">Vocabulary</button>
-        <button class="hp-step" type="button" role="tab" data-hp="tips">Reading Tips</button>
-        <button class="hp-step" type="button" role="tab" data-hp="outlook">Outlook</button>
-      </div>
+      <div class="hp-imgwrap hp-narrow"><img src="images/hp1-outlook.jpg" alt="A school handbook with a question mark"></div>
+      <p class="hp-q">What rules does a school like Boston West need?</p>
 
-      <div class="hp-sec" data-hp-sec="intro">
-        <div class="hp-imgwrap hp-narrow"><img src="images/hp1-outlook.jpg" alt="A school handbook with a question mark"></div>
-        <p class="hp-q">What rules does a school like Boston West need?</p>
-        <p style="text-align:center"><button class="hp-btn primary" type="button" data-hp2-go="system">Next: The school system &rarr;</button></p>
-      </div>
-
-      <div class="hp-sec" data-hp-sec="system" hidden>
-        <p class="hp-lead">How school works in the USA &ndash; and where you are.</p>
+      <h2 class="hp-h">School system</h2>
+      <p class="hp-lead">How school works in the USA &ndash; and where you are.</p>
         <button class="ss-card" type="button" data-lightbox="images/hp-schoolsystem-usa.jpg" data-lightbox-wide><img src="images/hp-schoolsystem-usa.jpg" alt="School in the USA: kindergarten, elementary school, middle school, high school (freshman, sophomore, junior, senior), college or university"></button>
         <button class="ss-card" type="button" data-lightbox="images/hp-schoolsystem-germany.jpg" data-lightbox-wide><img src="images/hp-schoolsystem-germany.jpg" alt="School in Germany (Saxony): Kita, Grundschule, Oberschule or Gymnasium, Ausbildung, Universität or Fachhochschule"></button>
         <p class="ss-note">Click on a picture to enlarge it.</p>
-      </div>
 
-      <div class="hp-sec" data-hp-sec="words" hidden>
-        <p class="hp-lead">15 new words. Read them here, then practise in the Vocabulary Trainer.</p>
-        <div id="hp2List"></div>
-        <p><button class="hp-btn primary" type="button" data-goto="vokabeln" data-vtset="hp">Open the Vocabulary Trainer &rarr;</button></p>
-      </div>
+      <h2 class="hp-h">Vocabulary</h2>
+      <p class="hp-lead">15 new words. Read them here, then practise in the Vocabulary Trainer.</p>
+      <div id="hp2List"></div>
+      <p><button class="hp-btn primary" type="button" data-goto="vokabeln" data-vtset="hp">Open the Vocabulary Trainer &rarr;</button></p>
 
-      <div class="hp-sec" data-hp-sec="tips" hidden>
-        <p class="hp-lead">How to read a text well.</p>
-        <ol class="hp-tips">
+      <h2 class="hp-h">Reading tips</h2>
+      <p class="hp-lead">How to read a text well.</p>
+      <ol class="hp-tips">
           <li>Read the title and look at the layout first.</li>
           <li>Read the first sentence of each section.</li>
           <li>Underline key words, numbers and names.</li>
           <li>Don&rsquo;t stop at every new word.</li>
           <li>Check true/false answers in the text.</li>
         </ol>
-      </div>
 
-      <div class="hp-sec" data-hp-sec="outlook" hidden>
+      <button class="hp-btn primary hp-outlook-btn" type="button" id="hp2OutlookBtn" aria-expanded="false" aria-controls="hp2Outlook">Outlook <span id="hp2OutlookChev">&#9662;</span></button>
+      <div id="hp2Outlook" hidden>
         <div class="hp-imgwrap hp-narrow"><img src="images/hp2-outlook.jpg" alt="A girl in front of a school door with a question mark" onerror="this.onerror=null;this.parentNode.style.display='none'"></div>
         <p class="hp-q">Is the first day at a new school really scary?</p>
       </div>
@@ -2534,39 +2521,28 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
     <section class="hp1 hp3">
       <div class="section-head">
         <div class="eyebrow">Hall Pass</div>
-        <h2>3rd Lesson · Reading</h2>
-        <p>Hannah writes about her first week at Boston West for the school newspaper The Lion.</p>
+        <h2>3rd Lesson &middot; Reading</h2>
+        <p class="hp-bigq">Hannah writes about her first week at Boston West for the school newspaper The Lion.</p>
       </div>
 
-      <div class="hp-steps" role="tablist" aria-label="3rd Lesson">
-        <button class="hp-step active" type="button" role="tab" data-hp="intro">Start</button>
-        <button class="hp-step" type="button" role="tab" data-hp="words">Vocabulary</button>
-        <button class="hp-step" type="button" role="tab" data-hp="tips">Reading Tips</button>
-        <button class="hp-step" type="button" role="tab" data-hp="outlook">Outlook</button>
-      </div>
+      <div class="hp-imgwrap hp-narrow"><img src="images/hp2-outlook.jpg" alt="A girl in front of a school door with a question mark" onerror="this.onerror=null;this.parentNode.style.display='none'"></div>
+      <p class="hp-q">Is the first day at a new school really scary?</p>
 
-      <div class="hp-sec" data-hp-sec="intro">
-        <div class="hp-imgwrap hp-narrow"><img src="images/hp2-outlook.jpg" alt="A girl in front of a school door with a question mark" onerror="this.onerror=null;this.parentNode.style.display='none'"></div>
-        <p class="hp-q">Is the first day at a new school really scary?</p>
-        <p style="text-align:center"><button class="hp-btn primary" type="button" data-hp3-go="words">Next: The new words &rarr;</button></p>
-      </div>
+      <h2 class="hp-h">Vocabulary</h2>
+      <p class="hp-lead">15 new words. Read them here, then practise in the Vocabulary Trainer.</p>
+      <div id="hp3List"></div>
+      <p><button class="hp-btn primary" type="button" data-goto="vokabeln" data-vtset="hp">Open the Vocabulary Trainer &rarr;</button></p>
 
-      <div class="hp-sec" data-hp-sec="words" hidden>
-        <p class="hp-lead">15 new words. Read them here, then practise in the Vocabulary Trainer.</p>
-        <div id="hp3List"></div>
-        <p><button class="hp-btn primary" type="button" data-goto="vokabeln" data-vtset="hp">Open the Vocabulary Trainer &rarr;</button></p>
-      </div>
-
-      <div class="hp-sec" data-hp-sec="tips" hidden>
-        <p class="hp-lead">More tips for reading a text.</p>
-        <ol class="hp-tips">
+      <h2 class="hp-h">Reading tips</h2>
+      <p class="hp-lead">More tips for reading a text.</p>
+      <ol class="hp-tips">
           <li>Guess new words from the text.</li>
           <li>Look for feeling words.</li>
           <li>Read between the lines.</li>
         </ol>
-      </div>
 
-      <div class="hp-sec" data-hp-sec="outlook" hidden>
+      <button class="hp-btn primary hp-outlook-btn" type="button" id="hp3OutlookBtn" aria-expanded="false" aria-controls="hp3Outlook">Outlook <span id="hp3OutlookChev">&#9662;</span></button>
+      <div id="hp3Outlook" hidden>
         <div class="hp-imgwrap hp-narrow"><img src="images/hp3-outlook.jpg" alt="A girl in a school hallway with a happy and a gloomy thought bubble" onerror="this.onerror=null;this.parentNode.style.display='none'"></div>
         <p class="hp-q">What do you love doing? What do you hate doing?</p>
       </div>
@@ -5768,13 +5744,12 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
   var root = document.getElementById('epanel-hp2');
   if(!root) return;
   function $$(s){ return Array.prototype.slice.call(root.querySelectorAll(s)); }
-  function showSec(name){
-    $$('.hp-step').forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-hp')===name); });
-    $$('.hp-sec').forEach(function(s){ s.hidden = s.getAttribute('data-hp-sec')!==name; });
-    if(name==='words') renderList();
-  }
-  $$('.hp-step').forEach(function(b){ b.addEventListener('click', function(){ showSec(b.getAttribute('data-hp')); }); });
-  $$('[data-hp2-go]').forEach(function(b){ b.addEventListener('click', function(){ showSec(b.getAttribute('data-hp2-go')); }); });
+  var ob = document.getElementById('hp2OutlookBtn');
+  if(ob) ob.addEventListener('click', function(){
+    var o = document.getElementById('hp2Outlook'), open = o.hidden;
+    o.hidden = !open; ob.setAttribute('aria-expanded', String(open));
+    document.getElementById('hp2OutlookChev').innerHTML = open ? '&#9652;' : '&#9662;';
+  });
   function renderList(){
     var box = document.getElementById('hp2List');
     var lessons = window.__vtHallPass || [];
@@ -5792,6 +5767,7 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
     });
     t.appendChild(tb); box.innerHTML = ''; box.appendChild(t);
   }
+  renderList();
 })();
 </script>
 <script>
@@ -5799,13 +5775,12 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
   var root = document.getElementById('epanel-hp3');
   if(!root) return;
   function $$(s){ return Array.prototype.slice.call(root.querySelectorAll(s)); }
-  function showSec(name){
-    $$('.hp-step').forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-hp')===name); });
-    $$('.hp-sec').forEach(function(s){ s.hidden = s.getAttribute('data-hp-sec')!==name; });
-    if(name==='words') renderList();
-  }
-  $$('.hp-step').forEach(function(b){ b.addEventListener('click', function(){ showSec(b.getAttribute('data-hp')); }); });
-  $$('[data-hp3-go]').forEach(function(b){ b.addEventListener('click', function(){ showSec(b.getAttribute('data-hp3-go')); }); });
+  var ob = document.getElementById('hp3OutlookBtn');
+  if(ob) ob.addEventListener('click', function(){
+    var o = document.getElementById('hp3Outlook'), open = o.hidden;
+    o.hidden = !open; ob.setAttribute('aria-expanded', String(open));
+    document.getElementById('hp3OutlookChev').innerHTML = open ? '&#9652;' : '&#9662;';
+  });
   function renderList(){
     var box = document.getElementById('hp3List');
     var lessons = window.__vtHallPass || [];
@@ -5823,6 +5798,7 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
     });
     t.appendChild(tb); box.innerHTML = ''; box.appendChild(t);
   }
+  renderList();
 })();
 </script>
 <script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
