@@ -1259,6 +1259,14 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
 #site-en .hp1 .hp-who{font-size:1.05rem}
 #site-en .hp1 .hp-guess{font-size:1.15rem;font-weight:800}
 #site-en .hp1 .hp-foot{font-size:.9rem;color:var(--ink-soft);margin:0}
+#site-en .hp1 .hp-notes{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
+@media (max-width:620px){#site-en .hp1 .hp-notes{grid-template-columns:1fr}}
+#site-en .hp1 .hp-note{position:relative;min-width:0;aspect-ratio:800/847;background:url(images/hp1-note.png) center/100% 100% no-repeat;filter:drop-shadow(0 6px 10px rgba(0,80,70,.18));transform:rotate(-1deg)}
+#site-en .hp1 .hp-note:nth-child(2){transform:rotate(1deg)}
+#site-en .hp1 .hp-note-in{padding:16% 11% 12% 11%}
+#site-en .hp1 .hp-note-tag{font-weight:800;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-deep);margin-bottom:8px}
+#site-en .hp1 .hp-note-q{font-weight:800;font-size:1.1rem;line-height:1.35;margin:0 0 10px;color:var(--ink)}
+#site-en .hp1 .hp-note ul{margin:0;padding-left:1.2em;display:grid;gap:6px;font-size:1.02rem}
 #site-en .hp1 .hp-outlook-btn{display:block;margin:40px auto 0}
 #site-en .hp1 #hpOutlook{margin-top:18px}
 #site-en .hub-date{display:inline-block;margin-top:6px;font-weight:800;font-size:.85rem;color:var(--teal-deep);background:var(--teal-soft);border-radius:999px;padding:3px 10px;width:fit-content}
@@ -2436,6 +2444,32 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
             <audio controls preload="none" src="files/hp-1-tyler.mp3"></audio>
           </div>
         </div>
+
+      <h2 class="hp-h">Think about &hellip;</h2>
+      <div class="hp-notes">
+        <div class="hp-note">
+          <div class="hp-note-in">
+            <div class="hp-note-tag">Task 1</div>
+            <p class="hp-note-q">Hannah is new at Boston West High School. Imagine her first day. Make notes (key words).</p>
+            <ul>
+              <li>What could be new for her?</li>
+              <li>What can be difficult or scary?</li>
+              <li>What could help her? Can you give her a few tips?</li>
+            </ul>
+          </div>
+        </div>
+        <div class="hp-note">
+          <div class="hp-note-in">
+            <div class="hp-note-tag">Task 2</div>
+            <p class="hp-note-q">What do you already know about schools in the USA? Think of films, series, YouTube or friends. Make notes in 3 columns.</p>
+            <ul>
+              <li>What I know</li>
+              <li>What I think is different from our school</li>
+              <li>What I want to find out</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
       <button class="hp-btn primary hp-outlook-btn" type="button" id="hpOutlookBtn" aria-expanded="false" aria-controls="hpOutlook">Outlook <span id="hpOutlookChev">&#9662;</span></button>
       <div id="hpOutlook" hidden>
