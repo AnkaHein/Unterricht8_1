@@ -1231,6 +1231,10 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
 .hub-sub{font-family:var(--display);font-weight:700;font-size:26px;line-height:1.2;color:var(--teal-deep);margin:30px 0 0}
 #site-en h3.hub-sub{font-family:var(--display);font-weight:700;font-size:26px;line-height:1.2;color:var(--teal-deep);margin:30px 0 0}
 .hub-sub + .hub-grid{margin-top:12px}
+.hub-tile-now{border-color:var(--teal);border-width:2px}
+#site-en .postit-done{opacity:.55;filter:grayscale(.4);cursor:default}
+#site-en .nd-list{margin-top:12px}
+#site-en .task-list{margin-top:12px}
 .hub-soon{color:var(--muted);font-size:15px;margin:8px 0 0}
 .hub-tile{display:flex;gap:16px;align-items:center;text-align:left;background:radial-gradient(circle at 96% 50%,var(--blush),transparent 38%),linear-gradient(180deg,var(--card-a),var(--card-b));border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:16px 18px;cursor:pointer;transition:transform .15s,border-color .15s;min-width:0;width:100%}
 .hub-tile:hover{transform:translateY(-2px);border-color:var(--teal)}
@@ -2274,7 +2278,29 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
         <div class="eyebrow">English</div>
         <h2>Across the USA</h2>
       </div>
-      <div class="hub-grid"><button class="hub-tile" data-goto="nextdates"><span class="hub-ico"><img src="images/tile-nextdates.png" alt=""></span><span class="hub-txt"><b>Our next dates</b><span>The next weeks at a glance</span></span></button><button class="hub-tile" data-goto="aufgaben"><span class="hub-ico"><img src="images/tile-aufgaben.png" alt=""></span><span class="hub-txt"><b>Your current tasks</b><span>What's currently due</span></span></button><button class="hub-tile" data-goto="klassenarbeiten"><span class="hub-ico"><img src="images/tile-klassenarbeiten.png" alt=""></span><span class="hub-txt"><b>Klassenarbeiten</b><span>Complex Performance and the dates of your tests</span></span></button><button class="hub-tile" data-goto="chapters"><span class="hub-ico"><img src="images/tile-guide.png" alt=""></span><span class="hub-txt"><b>Chapters</b><span>The story “Trapped”</span></span></button><button class="hub-tile" data-goto="exercises"><span class="hub-ico"><img src="images/tile-uebungen.png" alt=""></span><span class="hub-txt"><b>Exercises</b><span>Tenses, vocabulary trainer, dictionary and the escape room</span></span></button></div>
+      <div class="hub-grid"><button class="hub-tile hub-tile-now" data-goto="current"><span class="hub-ico"><img src="images/tile-hp1.png" alt=""></span><span class="hub-txt"><b>Our current chapter: Hall Pass</b><span>Dates, tasks, lessons and the vocabulary trainer &ndash; start here!</span></span></button><button class="hub-tile" data-goto="klassenarbeiten"><span class="hub-ico"><img src="images/tile-klassenarbeiten.png" alt=""></span><span class="hub-txt"><b>Klassenarbeiten</b><span>The dates of your tests</span></span></button><button class="hub-tile" data-goto="chapters"><span class="hub-ico"><img src="images/tile-guide.png" alt=""></span><span class="hub-txt"><b>Earlier chapters</b><span>The story &ldquo;Trapped&rdquo; (New York)</span></span></button><button class="hub-tile" data-goto="exercises"><span class="hub-ico"><img src="images/tile-uebungen.png" alt=""></span><span class="hub-txt"><b>Exercises &ndash; Just for &ldquo;fun&rdquo;</b><span>Tenses, dictionary and escape rooms</span></span></button></div>
+    </section>
+  </div>
+  <div class="panel" id="epanel-current">
+    <section>
+      <div class="section-head">
+        <div class="eyebrow">Hall Pass</div>
+        <h2>Our current chapter: Hall Pass</h2>
+        <p>Surviving Boston West High School &ndash; everything you need right now.</p>
+      </div>
+      <h3 class="hub-sub">Our next dates</h3>
+      <ol class="nd-list"><li class="nd-item"><span class="nd-date">Monday, 9 November 2026</span><b>Presentation Plan</b><button class="cp-page nd-plan" type="button" data-lightbox="images/presentation-plan.jpg" data-lightbox-tall><img src="images/presentation-plan.jpg" alt="Presentation Plan, Monday 9 November 2026: 12:55 Topic B A Day in the Life, 13:05 Topic C Two Sides of NYC, 13:15 Topic D NYC Survival Tips, 13:25 Topic E NYC Then and Now, 13:30 Break, 13:40 Topic F If I Were Mayor of NYC, 13:50 Topic H Sports in NYC, 14:00 Topic I Two Cities, One Skyline: Manhattan vs. Brooklyn, 14:05 Feedback and Next Chapter" loading="lazy"><span class="cp-cap">Click to enlarge</span></button></li><li class="nd-item"><span class="nd-date">Tuesday, 10 November 2026</span><b>Next Chapter</b></li></ol>
+      <h3 class="hub-sub">Your current tasks</h3>
+      <div class="task-list" id="task-list">
+        <div class="task-card task-card-single">
+          <button class="task-link-btn task-link-big" data-goto="leistung">Complex Performance <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+
+      <h3 class="hub-sub">Our lessons</h3>
+      <div class="hub-grid"><button class="hub-tile" data-goto="hp1"><span class="hub-ico"><img src="images/tile-hp1.png" alt=""></span><span class="hub-txt"><b>1st Lesson</b><span>Listening: Hannah's first message from Boston</span></span></button><button class="hub-tile" data-goto="hp2"><span class="hub-ico"><img src="images/tile-hp2.png" alt="" onerror="this.onerror=null;this.src='images/tile-hp1.png'"></span><span class="hub-txt"><b>2nd Lesson</b><span>Reading: The Boston West student handbook</span></span></button><button class="hub-tile" data-goto="hp3"><span class="hub-ico"><img src="images/tile-hp3.png" alt="" onerror="this.onerror=null;this.src='images/tile-hp1.png'"></span><span class="hub-txt"><b>3rd Lesson</b><span>Reading: A freshman's first week</span></span></button></div>
+      <h3 class="hub-sub">Practise the words</h3>
+      <div class="hub-grid"><button class="hub-tile" data-goto="vokabeln" data-vtset="hp"><span class="hub-ico"><img src="images/tile-vokabeln-hp.png" alt="" onerror="this.onerror=null;this.src='images/tile-vokabeln.png'"></span><span class="hub-txt"><b>Vocabulary Trainer Hall Pass</b><span>New words after every lesson &ndash; flashcards &amp; quiz</span></span></button></div>
     </section>
   </div>
   <div class="panel" id="epanel-klassenarbeiten">
@@ -2282,22 +2308,61 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
       <div class="section-head">
         <div class="eyebrow">English</div>
         <h2>Klassenarbeiten</h2>
-        <p>Everything about your tests and the complex performance.</p>
+        <p>Here are the dates of your three written tests (Klassenarbeiten) this school year.</p>
       </div>
-      <div class="hub-grid"><button class="hub-tile" data-goto="leistung"><span class="hub-ico"><img src="images/tile-leistung.png" alt=""></span><span class="hub-txt"><b>Complex Performance</b><span>What, when & how it's graded</span></span></button><button class="hub-tile" data-goto="termine"><span class="hub-ico"><img src="images/tile-klassenarbeiten.png" alt=""></span><span class="hub-txt"><b>Dates for Klassenarbeiten</b><span>All the dates of your written tests</span></span></button></div>
+
+      <div class="postit-grid">
+        <div class="postit-card postit-done">
+          <img src="images/postit-note.png" alt="Post-it: 1st Klassenarbeit – Complex Performance, done">
+          <div class="postit-text">
+            <div class="postit-label">1st Klassenarbeit</div>
+            <div class="postit-content">Done &#10003;</div>
+            <div class="postit-topic">Complex Performance</div>
+          </div>
+        </div>
+        <div class="postit-card">
+          <img src="images/postit-note.png" alt="Post-it: 2nd Klassenarbeit – Monday, 18 January 2027, American High School">
+          <div class="postit-text">
+            <div class="postit-label">2nd Klassenarbeit</div>
+            <div class="postit-content">Mon, 18 Jan 2027</div>
+            <div class="postit-topic">American High School</div>
+          </div>
+        </div>
+        <div class="postit-card">
+          <img src="images/postit-note.png" alt="Post-it: 3rd Klassenarbeit – Monday, 19 April 2027, California Dreams">
+          <div class="postit-text">
+            <div class="postit-label">3rd Klassenarbeit</div>
+            <div class="postit-content">Mon, 19 Apr 2027</div>
+            <div class="postit-topic">California Dreams</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="help-list" style="margin-top:24px;">
+        <div class="help-item" id="help-ka-practice">
+          <button class="help-page-btn">
+            <span class="hp-badge">Practice</span>
+            <span class="hp-title">Practice for the 2nd and 3rd Klassenarbeit</span>
+            <svg class="hp-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="help-detail">
+            <p style="color:var(--ink-soft);font-size:.92rem;margin:0;">The practice exercises will be added here soon – check back soon!</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="sub-note" style="margin-top:18px;">The Klassenarbeiten are always based on the aspects we cover in class.</p>
     </section>
   </div>
   <div class="panel" id="epanel-chapters">
     <section>
       <div class="section-head">
         <div class="eyebrow">English</div>
-        <h2>Chapters</h2>
-        <p>Content of our English lessons</p>
+        <h2>Earlier chapters</h2>
+        <p>Stories and lessons from earlier chapters</p>
       </div>
-      <h3 class="hub-sub">NYC</h3>
+      <h3 class="hub-sub">New York City</h3>
       <div class="hub-grid"><button class="hub-tile" data-goto="trapped"><span class="hub-ico"><img src="images/tile-trapped.png" alt=""></span><span class="hub-txt"><b>Trapped</b><span>Ricky & Lance – the story continues</span></span></button></div>
-      <h3 class="hub-sub">Hall Pass</h3>
-      <div class="hub-grid"><button class="hub-tile" data-goto="hp1"><span class="hub-ico"><img src="images/tile-hp1.png" alt=""></span><span class="hub-txt"><b>1st Lesson</b><span>Listening: Hannah's first message from Boston</span></span></button><button class="hub-tile" data-goto="hp2"><span class="hub-ico"><img src="images/tile-hp2.png" alt="" onerror="this.onerror=null;this.src='images/tile-hp1.png'"></span><span class="hub-txt"><b>2nd Lesson</b><span>Reading: The Boston West student handbook</span></span></button><button class="hub-tile" data-goto="hp3"><span class="hub-ico"><img src="images/tile-hp3.png" alt="" onerror="this.onerror=null;this.src='images/tile-hp1.png'"></span><span class="hub-txt"><b>3rd Lesson</b><span>Reading: A freshman's first week</span></span></button></div>
     </section>
   </div>
   <div class="panel" id="epanel-hp1">
@@ -2481,35 +2546,10 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
     <section>
       <div class="section-head">
         <div class="eyebrow">English</div>
-        <h2>Exercises</h2>
+        <h2>Exercises &ndash; Just for &ldquo;fun&rdquo;</h2>
         <p>Practise whenever you like.</p>
       </div>
-      <div class="hub-grid"><button class="hub-tile" data-goto="tenses"><span class="hub-ico"><img src="images/tile-tenses.png" alt=""></span><span class="hub-txt"><b>Tenses</b><span>Overview posters and exercises for every tense</span></span></button><button class="hub-tile" data-goto="vokabeln" data-vtset="hp"><span class="hub-ico"><img src="images/tile-vokabeln-hp.png" alt="" onerror="this.onerror=null;this.src='images/tile-vokabeln.png'"></span><span class="hub-txt"><b>Vocabulary Trainer Hall Pass</b><span>New words after every lesson &ndash; flashcards &amp; quiz</span></span></button><button class="hub-tile" data-goto="vokabeln" data-vtset="nyc"><span class="hub-ico"><img src="images/tile-vokabeln.png" alt=""></span><span class="hub-txt"><b>Vocabulary Trainer New York City</b><span>Flashcards & quiz for the guide vocabulary</span></span></button><button class="hub-tile" data-goto="searchwords"><span class="hub-ico"><img src="images/tile-searchwords.png" alt=""></span><span class="hub-txt"><b>Searching for words</b><span>A dictionary for when you don't know a word</span></span></button><button class="hub-tile" data-goto="escaperooms"><span class="hub-ico"><img src="images/tile-escaperooms.png" alt=""></span><span class="hub-txt"><b>Escape Rooms</b><span>Practise in a game – can you find your way out?</span></span></button></div>
-    </section>
-  </div>
-  <div class="panel" id="epanel-nextdates">
-    <section>
-      <div class="section-head">
-        <div class="eyebrow">Overview</div>
-        <h2>Our next dates</h2>
-        <p>The next weeks at a glance.</p>
-      </div>
-      <ol class="nd-list"><li class="nd-item"><span class="nd-date">Tuesday, 3 November 2026</span><b>Get ready</b><span class="nd-sub">Prepare your presentation</span></li><li class="nd-item"><span class="nd-date">Monday, 9 November 2026</span><b>Presentation Plan</b><button class="cp-page nd-plan" type="button" data-lightbox="images/presentation-plan.jpg" data-lightbox-tall><img src="images/presentation-plan.jpg" alt="Presentation Plan, Monday 9 November 2026: 12:55 Topic B A Day in the Life, 13:05 Topic C Two Sides of NYC, 13:15 Topic D NYC Survival Tips, 13:25 Topic E NYC Then and Now, 13:30 Break, 13:40 Topic F If I Were Mayor of NYC, 13:50 Topic H Sports in NYC, 14:00 Topic I Two Cities, One Skyline: Manhattan vs. Brooklyn, 14:05 Feedback and Next Chapter" loading="lazy"><span class="cp-cap">Click to enlarge</span></button></li><li class="nd-item"><span class="nd-date">Tuesday, 10 November 2026</span><b>Next Chapter</b></li></ol>
-    </section>
-  </div>
-  <div class="panel" id="epanel-aufgaben">
-    <section>
-      <div class="section-head">
-        <div class="eyebrow">This week</div>
-        <h2>Your current tasks</h2>
-        <p>Here are your current tasks &ndash; they will change every week.</p>
-      </div>
-
-      <div class="task-list" id="task-list">
-        <div class="task-card task-card-single">
-          <button class="task-link-btn task-link-big" data-goto="leistung">Complex Performance <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-        </div>
-      </div>
+      <div class="hub-grid"><button class="hub-tile" data-goto="tenses"><span class="hub-ico"><img src="images/tile-tenses.png" alt=""></span><span class="hub-txt"><b>Tenses</b><span>Overview posters and exercises for every tense</span></span></button><button class="hub-tile" data-goto="vokabeln" data-vtset="nyc"><span class="hub-ico"><img src="images/tile-vokabeln.png" alt=""></span><span class="hub-txt"><b>Vocabulary Trainer New York City</b><span>Flashcards & quiz for the guide vocabulary</span></span></button><button class="hub-tile" data-goto="searchwords"><span class="hub-ico"><img src="images/tile-searchwords.png" alt=""></span><span class="hub-txt"><b>Searching for words</b><span>A dictionary for when you don't know a word</span></span></button><button class="hub-tile" data-goto="escaperooms"><span class="hub-ico"><img src="images/tile-escaperooms.png" alt=""></span><span class="hub-txt"><b>Escape Rooms</b><span>Practise in a game – can you find your way out?</span></span></button></div>
     </section>
   </div>
   <div class="panel" id="epanel-notebook">
@@ -2735,58 +2775,6 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
           <span class="cp-cap">Presentation Plan</span>
         </button>
       </div>
-    </section>
-  </div>
-  <div class="panel" id="epanel-termine">
-    <section>
-      <div class="section-head">
-        <div class="eyebrow">Dates</div>
-        <h2>Dates for Klassenarbeiten</h2>
-        <p>Here are the dates of your three written tests (Klassenarbeiten) this school year.</p>
-      </div>
-
-      <div class="postit-grid">
-        <button class="postit-card" data-goto="leistung">
-          <img src="images/postit-note.png" alt="Post-it: 1st Klassenarbeit – ca. November, Complex Performance">
-          <div class="postit-text">
-            <div class="postit-label">1st Klassenarbeit</div>
-            <div class="postit-content">ca. November</div>
-            <div class="postit-topic">Complex Performance</div>
-          </div>
-        </button>
-        <div class="postit-card">
-          <img src="images/postit-note.png" alt="Post-it: 2nd Klassenarbeit – Monday, 18 January 2027, American High School">
-          <div class="postit-text">
-            <div class="postit-label">2nd Klassenarbeit</div>
-            <div class="postit-content">Mon, 18 Jan 2027</div>
-            <div class="postit-topic">American High School</div>
-          </div>
-        </div>
-        <div class="postit-card">
-          <img src="images/postit-note.png" alt="Post-it: 3rd Klassenarbeit – Monday, 19 April 2027, California Dreams">
-          <div class="postit-text">
-            <div class="postit-label">3rd Klassenarbeit</div>
-            <div class="postit-content">Mon, 19 Apr 2027</div>
-            <div class="postit-topic">California Dreams</div>
-          </div>
-        </div>
-      </div>
-      <p class="sub-note" style="margin-top:14px;">Click on the first post-it to jump to the Complex Performance tab.</p>
-
-      <div class="help-list" style="margin-top:24px;">
-        <div class="help-item" id="help-ka-practice">
-          <button class="help-page-btn">
-            <span class="hp-badge">Practice</span>
-            <span class="hp-title">Practice for the 2nd and 3rd Klassenarbeit</span>
-            <svg class="hp-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-          </button>
-          <div class="help-detail">
-            <p style="color:var(--ink-soft);font-size:.92rem;margin:0;">The practice exercises will be added here soon – check back soon!</p>
-          </div>
-        </div>
-      </div>
-
-      <p class="sub-note" style="margin-top:18px;">The Klassenarbeiten are always based on the aspects we cover in class.</p>
     </section>
   </div>
   <div class="panel" id="epanel-guide">
@@ -3295,19 +3283,20 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
   </div>
 </main>
 
-<footer class="foot">Klasse 8.1 &middot; Evangelisches Schulzentrum Bad D&uuml;ben &middot; wird laufend erg&auml;nzt<span style="display:block;text-align:right;margin-top:6px;font-size:12px;">Stand: 08.11.2026</span></footer>
+<footer class="foot">Klasse 8.1 &middot; Evangelisches Schulzentrum Bad D&uuml;ben &middot; wird laufend erg&auml;nzt<span style="display:block;text-align:right;margin-top:6px;font-size:12px;">Stand: 09.11.2026</span></footer>
 
 <script>
 (function(){
   "use strict";
   var $=function(id){return document.getElementById(id);};
   var home=$("view-home"), de=$("site-de"), en=$("site-en"), back=$("backBtn"), backLabel=$("backLabel");
-  var EN_PARENT={nextdates:"start",aufgaben:"start",klassenarbeiten:"start",chapters:"start",exercises:"start",
-    leistung:"klassenarbeiten",notebook:"klassenarbeiten",termine:"klassenarbeiten",
-    guide:"chapters",trapped:"chapters",hp1:"chapters",hp2:"chapters",hp3:"chapters",
+  var EN_PARENT={current:"start",klassenarbeiten:"start",chapters:"start",exercises:"start",
+    leistung:"current",notebook:"current",
+    guide:"chapters",trapped:"chapters",hp1:"current",hp2:"current",hp3:"current",
     tenses:"exercises",audios:"exercises",vokabeln:"exercises",searchwords:"exercises",escaperooms:"exercises",escaperoom:"escaperooms",
     "tenses-overviews":"tenses","tenses-exercises":"tenses","tense-present":"tenses-exercises","tense-past":"tenses-exercises","tense-will":"tenses-exercises","tense-would":"tenses-exercises"};
-  var EN_NAME={start:"Englisch",klassenarbeiten:"Klassenarbeiten",chapters:"Chapters",exercises:"Exercises",escaperooms:"Escape Rooms",tenses:"Tenses","tenses-exercises":"Exercises"};
+  window.__EN_PARENT=EN_PARENT;
+  var EN_NAME={start:"Englisch",current:"Hall Pass",klassenarbeiten:"Klassenarbeiten",chapters:"Earlier chapters",exercises:"Exercises",escaperooms:"Escape Rooms",tenses:"Tenses","tenses-exercises":"Exercises"};
   var DE_PARENT={textsorten:"printmedien",textsortencheck:"printmedien",beispiele:"printmedien",testuebung:"printmedien",unterrichtsstunden:"printmedien",checkliste:"printmedien",
     zeitformen:"unterrichtsstunden",bindewoerter:"unterrichtsstunden",komma:"unterrichtsstunden",reportage:"unterrichtsstunden",interview:"unterrichtsstunden",faktmeinung:"unterrichtsstunden",kommentar:"unterrichtsstunden"};
   var DE_NAME={printmedien:"Printmedien",unterrichtsstunden:"Unterrichtsstunden"};
@@ -4924,7 +4913,7 @@ main.shell{max-width:1000px;margin:0 auto;padding:6px 16px 56px;position:relativ
     vtApplyView();
   }
   document.querySelectorAll('[data-vtset]').forEach(function(el){
-    el.addEventListener('click', function(){ vtUseSet(el.getAttribute('data-vtset')); });
+    el.addEventListener('click', function(){ var vs=el.getAttribute('data-vtset'); vtUseSet(vs); if(window.__EN_PARENT){ window.__EN_PARENT.vokabeln = (vs==='hp') ? 'current' : 'exercises'; if(window.__NS) window.__NS.shown('en','vokabeln'); } });
   });
 
   vtResetFlash(); vtResetQuiz(); vtResetSentQuiz();
